@@ -1,0 +1,22 @@
+// Documentation at https://www.sublimetext.com/docs/themes.html
+{
+    "variables":
+    {
+    },
+    "rules":
+    [
+        {
+            "class": "sidebar_container",
+            "layer0.tint": "#111111",
+            "layer0.opacity": 1.0
+        },
+        {
+            "class": "sidebar_tree",
+            //"row_padding": [8, 3],
+          //  "indent": 12,
+            "layer0.tint": "#111111",
+            "layer0.opacity": 1.0
+        }
+ 
+    ]
+}
