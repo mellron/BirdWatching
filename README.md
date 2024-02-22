@@ -1,28 +1,21 @@
-using Newtonsoft.Json.Linq;
+using System.Data;
+using Newtonsoft.Json;
 
-public class JsonFixer
+public class DataSetConverter
 {
-    public static void FixJsonFileEncoding(string inputFilePath, string outputFilePath)
+    public static string ConvertFirstTableToJson(DataSet oDS)
     {
-        try
+        if (oDS != null && oDS.Tables.Count > 0)
         {
-            // Read the original JSON content from the file
-            string originalJson = File.ReadAllText(inputFilePath);
+            // Convert the first DataTable to JSON
+            string json = JsonConvert.SerializeObject(oDS.Tables[0], Formatting.Indented, new JsonSerializerSettings {
+                // Settings if needed, for example, to handle loop references or to include type names
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            });
 
-            // Parse the JSON content to a JObject
-            var parsedJson = JObject.Parse(originalJson);
-
-            // Convert the JObject back to a string, which automatically handles encoding issues
-            string fixedJson = JsonConvert.SerializeObject(parsedJson, Formatting.Indented);
-
-            // Save the fixed JSON to a new file
-            File.WriteAllText(outputFilePath, fixedJson);
-
-            Console.WriteLine("JSON file has been fixed and saved.");
+            return json;
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-        }
+
+        return null; // or "{}" if you prefer to return an empty JSON object when the dataset is null or empty
     }
 }
