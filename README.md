@@ -1,29 +1,28 @@
-using System;
-using System.Text.Json;
+using Newtonsoft.Json.Linq;
 
-public class JsonHelper
+public class JsonFixer
 {
-    public static string StringToJson(string key, string value)
+    public static void FixJsonFileEncoding(string inputFilePath, string outputFilePath)
     {
-        // Creating an anonymous object with the provided key and value
-        var obj = new { Key = key, Value = value };
+        try
+        {
+            // Read the original JSON content from the file
+            string originalJson = File.ReadAllText(inputFilePath);
 
-        // Serializing the object to a JSON string
-        string jsonString = JsonSerializer.Serialize(obj);
+            // Parse the JSON content to a JObject
+            var parsedJson = JObject.Parse(originalJson);
 
-        return jsonString;
-    }
-}
+            // Convert the JObject back to a string, which automatically handles encoding issues
+            string fixedJson = JsonConvert.SerializeObject(parsedJson, Formatting.Indented);
 
-class Program
-{
-    static void Main(string[] args)
-    {
-        // Example usage
-        string key = "name";
-        string value = "Jane \"Doe\"";
-        string json = JsonHelper.StringToJson(key, value);
-        
-        Console.WriteLine(json);
+            // Save the fixed JSON to a new file
+            File.WriteAllText(outputFilePath, fixedJson);
+
+            Console.WriteLine("JSON file has been fixed and saved.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
     }
 }
