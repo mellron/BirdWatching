@@ -1,52 +1,29 @@
-RowNumber,int
-EmployeeID,int
-FirstNM,varchar(50)
-LastNM,varchar(50)
-MiddleNM,varchar(30)
-EmployeeName,varchar(130)
-NameSuffix,varchar(30)
-WorkPhoneNumber,varchar(50)
-PhoneExt,varchar(3)
-MailLocationCD,varchar(10)
-LocationName,varchar(250)
-WorkEmailADDR,varchar(70)
-JobFamilyDESC,varchar(50)
-CompanyNBR,varchar(4)
-CostCenterNBR,varchar(11)
-CostCenterNM,varchar(50)
-ManagerName,varchar(250)
-MGRPersonID,int
-BranchNBR,varchar(10)
-LongDESC,varchar(50)
-AddressLine1,varchar(500)
-AddressLine2,varchar(500)
-City,varchar(30)
-StateNM,varchar(250)
-ZipCD,varchar(13)
-County,varchar(30)
-Language,varchar(500)
-Level3BankCostCenterDESC,varchar(50)
-Level4BankCostCenterDESC,varchar(50)
-CountryNM,varchar(250)
-FunctionalJobTitle,varchar(500)
-PreferredID,varchar(7)
-TypeCD,varchar(2)
-AltPhoneInternational,varchar(250)
-FaxInternational,varchar(250)
-TimeZone,varchar(50)
-Pronunciation,varchar(50)
-InternationalFlag,char(1)
-OfficerTitle,varchar(255)
-HasDirects,char(1)
-PrimarySAP,varchar(250)
-EmployeeURL,varchar(400)
-EmpMgrURL,varchar(400)
-EmployeePhotoURL,varchar(400)
-EmpMgrPhotoURL,varchar(400)
-MGRPrefID,varchar(7)
-PronounID,int
-PronounDescription,varchar(250)
-Standard_Hours,int
-PayGroupCD,varchar(10)
-PayGroupDESC,varchar(250)
-TotalNumberOfRecords,int
+using System;
+using System.Text.Json;
+
+public class JsonHelper
+{
+    public static string StringToJson(string key, string value)
+    {
+        // Creating an anonymous object with the provided key and value
+        var obj = new { Key = key, Value = value };
+
+        // Serializing the object to a JSON string
+        string jsonString = JsonSerializer.Serialize(obj);
+
+        return jsonString;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Example usage
+        string key = "name";
+        string value = "Jane \"Doe\"";
+        string json = JsonHelper.StringToJson(key, value);
+        
+        Console.WriteLine(json);
+    }
+}
