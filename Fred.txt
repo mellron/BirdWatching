@@ -1,0 +1,65 @@
+using System;
+using System.Data;
+
+public class URLModifier
+{
+    public static void ModifyOutputURLs(DataSet dataSet)
+    {
+        // Check if the DataSet contains at least one table
+        if (dataSet.Tables.Count > 0)
+        {
+            // Assuming there's only one table, as mentioned
+            DataTable table = dataSet.Tables[0];
+
+            // Check if the table contains the "OutputURL" column
+            if (table.Columns.Contains("OutputURL"))
+            {
+                // Iterate through each row in the table
+                foreach (DataRow row in table.Rows)
+                {
+                    // Check if the "OutputURL" value is not DBNull
+                    if (row["OutputURL"] != DBNull.Value)
+                    {
+                        // Convert the "OutputURL" column value using ConvertToBrowseReady
+                        string originalURL = row["OutputURL"].ToString();
+                        string modifiedURL = URLConverter.ConvertToBrowseReady(originalURL);
+
+                        // Update the row's "OutputURL" column with the modified URL
+                        row["OutputURL"] = modifiedURL;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("The table does not contain an 'OutputURL' column.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("The DataSet does not contain any tables.");
+        }
+    }
+}
+
+// Example usage
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Example DataSet creation and usage
+        DataSet dataSet = new DataSet();
+        DataTable table = new DataTable();
+        table.Columns.Add("OutputURL", typeof(string));
+        table.Rows.Add("https://google&#39;sitbaby.com");
+        dataSet.Tables.Add(table);
+
+        // Modify the "OutputURL" column in the DataSet
+        URLModifier.ModifyOutputURLs(dataSet);
+
+        // Example to verify the modification
+        foreach (DataRow row in dataSet.Tables[0].Rows)
+        {
+            Console.WriteLine(row["OutputURL"]);
+        }
+    }
+}
