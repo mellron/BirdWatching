@@ -1,21 +1,8 @@
-using System.Data;
-using Newtonsoft.Json;
+string originalUrl = "https://google'sitbaby.com";
+string encodedUrl = Uri.EscapeDataString(originalUrl);
+// encodedUrl will be "https%3A%2F%2Fgoogle'sitbaby.com"
+// Note: In this specific case, the apostrophe is not encoded as it's considered a safe character in this context
 
-public class DataSetConverter
-{
-    public static string ConvertFirstTableToJson(DataSet oDS)
-    {
-        if (oDS != null && oDS.Tables.Count > 0)
-        {
-            // Convert the first DataTable to JSON
-            string json = JsonConvert.SerializeObject(oDS.Tables[0], Formatting.Indented, new JsonSerializerSettings {
-                // Settings if needed, for example, to handle loop references or to include type names
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            });
 
-            return json;
-        }
-
-        return null; // or "{}" if you prefer to return an empty JSON object when the dataset is null or empty
-    }
-}
+string decodedUrl = Uri.UnescapeDataString(encodedUrl);
+// This will return the original URL: "https://google'sitbaby.com"
