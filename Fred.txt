@@ -1,65 +1,48 @@
-using System;
-using System.Data;
-
-public class URLModifier
-{
-    public static void ModifyOutputURLs(DataSet dataSet)
-    {
-        // Check if the DataSet contains at least one table
-        if (dataSet.Tables.Count > 0)
-        {
-            // Assuming there's only one table, as mentioned
-            DataTable table = dataSet.Tables[0];
-
-            // Check if the table contains the "OutputURL" column
-            if (table.Columns.Contains("OutputURL"))
-            {
-                // Iterate through each row in the table
-                foreach (DataRow row in table.Rows)
-                {
-                    // Check if the "OutputURL" value is not DBNull
-                    if (row["OutputURL"] != DBNull.Value)
-                    {
-                        // Convert the "OutputURL" column value using ConvertToBrowseReady
-                        string originalURL = row["OutputURL"].ToString();
-                        string modifiedURL = URLConverter.ConvertToBrowseReady(originalURL);
-
-                        // Update the row's "OutputURL" column with the modified URL
-                        row["OutputURL"] = modifiedURL;
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine("The table does not contain an 'OutputURL' column.");
-            }
-        }
-        else
-        {
-            Console.WriteLine("The DataSet does not contain any tables.");
-        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Link Example</title>
+<style>
+    .input-wrapper {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
     }
-}
 
-// Example usage
-class Program
-{
-    static void Main(string[] args)
-    {
-        // Example DataSet creation and usage
-        DataSet dataSet = new DataSet();
-        DataTable table = new DataTable();
-        table.Columns.Add("OutputURL", typeof(string));
-        table.Rows.Add("https://google&#39;sitbaby.com");
-        dataSet.Tables.Add(table);
-
-        // Modify the "OutputURL" column in the DataSet
-        URLModifier.ModifyOutputURLs(dataSet);
-
-        // Example to verify the modification
-        foreach (DataRow row in dataSet.Tables[0].Rows)
-        {
-            Console.WriteLine(row["OutputURL"]);
-        }
+    .input-wrapper input {
+        border: none;
+        padding: 10px;
+        flex-grow: 1;
     }
-}
+
+    .input-wrapper input:focus {
+        outline: none;
+    }
+
+    .input-wrapper button {
+        border: none;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        cursor: pointer;
+    }
+
+    .input-wrapper button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<label for="inMyLink">Add a Link:</label>
+<div class="input-wrapper">
+    <input type="text" id="inMyLink" name="inMyLink" placeholder="Enter your link here">
+    <button type="button">Add</button>
+</div>
+
+</body>
+</html>
