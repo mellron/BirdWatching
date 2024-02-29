@@ -1,0 +1,10 @@
+1.  Install ESlint for project
+    a.  npm install eslint --save-dev
+    a.  npx eslint --init
+2.  Install prettierd
+    a. npm install -g @fsouza/prettierd
+3.  ESlint react
+    a. npm install eslint-plugin-react --save-dev
+
+
+
