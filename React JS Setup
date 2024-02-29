@@ -1,10 +1,21 @@
 1.  Install ESlint for project
     a.  npm install eslint --save-dev
+    b.  npm install eslint-plugin-react --save-dev
     a.  npx eslint --init
-2.  Install prettierd
-    a. npm install -g @fsouza/prettierd
-3.  ESlint react
-    a. npm install eslint-plugin-react --save-dev
+2.  Install config prettier
+    a .npm install --save-dev eslint-config-prettier   
+ 
+
+
+// addons 
+
+https://packagecontrol.io/packages/JsPrettier
+
+// configure to format on save
+// Settings in here override those in "/JsPrettier/JsPrettier.sublime-settings",
+{
+    "auto_format_on_save": true    
+}
 
 
 
