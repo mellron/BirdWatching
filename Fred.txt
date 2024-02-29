@@ -1,18 +1,27 @@
-https://packagecontrol.io/packages/Terminus
+// Documentation at https://www.sublimetext.com/docs/themes.html
+{
+    "variables":
+    {
+    },
+    "rules":
+    [
+        {
+            "class": "sidebar_container",
+            "layer0.tint": "#111111",
+            "layer0.opacity": 1.0
+        },
+        {
+            "class": "sidebar_tree",
+            "row_padding": [9, 5],
+            "indent": 11,
+            "layer0.tint": "#111111",
+            "layer0.opacity": 1.0
+        },
+        {
+             "class": "sidebar_label",
+             "font.size": 13
+        }
+ 
+    ]
+}
 
-
-[
-   {
-       "keys": ["alt+1"],
-       "command": "terminus_open",
-       "args" : {
-           "cmd": "bash",
-           "cwd": "${file_path:${folder}}",
-           "panel_name": "Terminus"
-       }
-   },
-   {
-       "keys": ["alt+2"],
-       "command": "auto_complete"      
-   }
-] 
