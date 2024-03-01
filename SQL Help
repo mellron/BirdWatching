@@ -1,0 +1,7 @@
+SELECT
+    CASE 
+        WHEN PATINDEX('%[^0-9]%', RIGHT(CRD, 1)) > 0 THEN SUBSTRING(CRD, 1, LEN(CRD) - 1)
+        ELSE CRD
+    END AS CleanedCRD
+FROM
+    bobtbl;
