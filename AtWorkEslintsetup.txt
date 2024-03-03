@@ -1,0 +1,32 @@
+REM do this to install all packages in an existing project .
+npm install
+
+REM Install eslint
+npm install eslint --save-dev
+
+REM npm i babel-eslint - has been replaced with @babel/eslint-parser
+REM note remove all ref to babel-eslint and replace with @babel/eslint-parser
+
+npm install npm i @babel/eslint-parser --save-dev
+
+npm install eslint-plugin-babel --save-dev
+
+npm install eslint-plugin-compat --save-dev
+
+npm install eslint-plugin-react --save-dev
+
+npm install eslint-plugin-react-hooks --save-dev
+
+npm install eslint-plugin-jsx-a11y --save-dev
+
+REM Initialize eslint on new project
+REM call npx eslint --init
+
+REM Install eslint-config-prettier
+npm install --save-dev eslint-config-prettier
+
+REM Install prettier with exact version
+npm install --save-dev --save-exact prettier
+
+REM Create .prettierrc file with empty JSON object
+echo {} > .prettierrc
