@@ -30,3 +30,7 @@ npm install --save-dev --save-exact prettier
 
 REM Create .prettierrc file with empty JSON object
 echo {} > .prettierrc
+
+REM if you want SCSS 
+npm install sass --save-dev
+
