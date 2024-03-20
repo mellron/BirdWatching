@@ -1,27 +1,16 @@
-// Documentation at https://www.sublimetext.com/docs/themes.html
+using System;
+using System.Web;
+
+public static class NavigationUtility
 {
-    "variables":
+    public static bool DidUserUseDefault()
     {
-    },
-    "rules":
-    [
+        // Check if the session variable is set
+        if (HttpContext.Current.Session["MenuClicked"] != null && (bool)HttpContext.Current.Session["MenuClicked"])
         {
-            "class": "sidebar_container",
-            "layer0.tint": "#111111",
-            "layer0.opacity": 1.0
-        },
-        {
-            "class": "sidebar_tree",
-            "row_padding": [9, 5],
-            "indent": 11,
-            "layer0.tint": "#111111",
-            "layer0.opacity": 1.0
-        },
-        {
-             "class": "sidebar_label",
-             "font.size": 13
+            return true;
         }
- 
-    ]
+        return false;
+    }
 }
 
