@@ -1,0 +1,9 @@
+https://chat.openai.com/share/5b74a174-fe4d-4eeb-987c-2b7d00058e8c
+
+
+dotnet add package BuildBundlerMinifier
+
+-- do this if you want to manually bundle otherwise it works with your build.
+dotnet bundle
+
+
