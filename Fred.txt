@@ -1,16 +1,57 @@
-using System;
-using System.Web;
-
-public static class NavigationUtility
-{
-    public static bool DidUserUseDefault()
-    {
-        // Check if the session variable is set
-        if (HttpContext.Current.Session["MenuClicked"] != null && (bool)HttpContext.Current.Session["MenuClicked"])
-        {
-            return true;
-        }
-        return false;
-    }
-}
-
+[
+  {
+    "outputFileName": "wwwroot/js/bundle.min.js",
+    "inputFiles": [
+      "DirectorySearch_SimpleGrid.js",
+      "DisplayRecords.js",
+      "EditProfilePage.js",
+      "EmployeeDetailDisplay.js",
+      "EmployeeUpdateProfile.js",
+      "JQueryHashChange.js",
+      "LinkNotFound.js",
+      "TinyLinksTest.js",
+      "TopNav.js",
+      "USBDirectory.js",
+      "USBDirectoryFAQ.js",
+      "jquery.timer.js",
+      "utility.js",
+      "classes/DBAccess.js",
+      "classes/DBSearch.js",
+      "classes/DecisionDialog.js",
+      "classes/EmployeeDetailPopluate.js",
+      "classes/EmployeeDetailTabs.js",
+      "classes/EmployeeEditPopluate.js",
+      "classes/ErrorDialog.js",
+      "classes/FunctionArray.js",
+      "classes/HashEvents.js",
+      "classes/InheritanceMngr.js",
+      "classes/Instant.js",
+      "classes/LinksPage.js",
+      "classes/LoginDialogForm.js",
+      "classes/MicrosoftTeams.js",
+      "classes/PersonContactSearch.js",
+      "classes/PersonEditable.js",
+      "classes/PersonSearch.js",
+      "classes/SearchHistory.js",
+      "classes/SearchInputPage.js",
+      "classes/SearchResultsSametimeQuery.js",
+      "classes/SkypeAwareness.js",
+      "classes/USBookQuery.js",
+      "classes/USDirectoryDisplayContactsGrid.js",
+      "classes/USDirectoryDisplayGrid.js",
+      "classes/WaitDialog.js",
+      "classes/boxdisplaygrid.js",
+      "classes/displaygrid.js",
+      "classes/displaygrid_backup.js",
+      "classes/displaygridpiclist.js",
+      "classes/orgchart.js",
+      "classes/orgchartmini.js",
+      "classes/msgraph/graph-js-sdk.js",
+      "classes/msgraph/teamsstatus.js"
+    ],
+    "minify": {
+      "enabled": true
+    },
+    "sourceMap": false
+  }
+]
