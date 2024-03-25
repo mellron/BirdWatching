@@ -1,22 +1,19 @@
-// Documentation at https://www.sublimetext.com/docs/themes.html
-{
-    "variables":
-    {
-    },
-    "rules":
-    [
-        {
-            "class": "sidebar_container",
-            "layer0.tint": "#111111",
-            "layer0.opacity": 1.0
-        },
-        {
-            "class": "sidebar_tree",
-            //"row_padding": [8, 3],
-          //  "indent": 12,
-            "layer0.tint": "#111111",
-            "layer0.opacity": 1.0
-        }
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Link to Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Contacts page retirement</h4>
+        <p>We would like to inform you that our <strong>"Contacts"</strong> page will be retiring on <strong>April 12th</strong>. After this date, you will no longer have access to your contacts information due to the decommissioning of the Stride application, which currently provides the contact information for this service.</p>
+        <p>We apologize for any inconvenience this may cause and advise you to download or make a note of any important contact information before the aforementioned date.</p>
+        <p>Thank you for your understanding.</p>
+    </div>
+</div>
  
-    ]
-}
+</body>
+</html>
