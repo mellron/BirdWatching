@@ -1,19 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- Link to Bootstrap 3 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-
-<div class="container">
-    <div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">Contacts page retirement</h4>
-        <p>We would like to inform you that our <strong>"Contacts"</strong> page will be retiring on <strong>April 12th</strong>. After this date, you will no longer have access to your contacts information due to the decommissioning of the Stride application, which currently provides the contact information for this service.</p>
-        <p>We apologize for any inconvenience this may cause and advise you to download or make a note of any important contact information before the aforementioned date.</p>
-        <p>Thank you for your understanding.</p>
-    </div>
-</div>
- 
-</body>
-</html>
+[
+  {
+    "outputFileName": "wwwroot/js/site-bundle.js",
+    "inputFiles": [
+      "wwwroot/js/Tooltip.js",
+      "wwwroot/scripts/jquery.timer.js",
+      "wwwroot/scripts/utility.js",
+      "wwwroot/scripts/classes/DBAccess.js",
+      "wwwroot/scripts/classes/DBSearch.js",
+      "wwwroot/scripts/classes/msgraph/teamsstatus.js",
+      "wwwroot/scripts/classes/MicrosoftTeams.js",
+      "wwwroot/scripts/classes/SkypeAwareness.js",
+      "wwwroot/scripts/classes/USBookQuery.js",
+      "wwwroot/scripts/classes/WaitDialog.js",
+      "wwwroot/scripts/classes/ErrorDialog.js",
+      "wwwroot/scripts/classes/DecisionDialog.js",
+      "wwwroot/scripts/classes/LoginDialogForm.js",
+      "wwwroot/scripts/DirectorySearch_SimpleGrid.js",
+      "wwwroot/scripts/classes/displaygrid.js",
+      "wwwroot/scripts/classes/InheritanceMngr.js",
+      "wwwroot/scripts/classes/boxdisplaygrid.js",
+      "wwwroot/scripts/classes/displaygridpiclist.js",
+      "wwwroot/scripts/classes/USDirectoryDisplayGrid.js",
+      "wwwroot/scripts/classes/USDirectoryDisplayContactsGrid.js",
+      "wwwroot/scripts/classes/SearchHistory.js",
+      "wwwroot/scripts/classes/orgchartmini.js",
+      "wwwroot/scripts/classes/LinksPage.js",
+      "wwwroot/scripts/classes/SearchInputPage.js",
+      "wwwroot/scripts/classes/EmployeeDetailPopluate.js",
+      "wwwroot/scripts/classes/EmployeeDetailTabs.js",
+      "wwwroot/scripts/EmployeeDetailDisplay.js",
+      "wwwroot/scripts/classes/orgchart.js",
+      "wwwroot/scripts/classes/PersonContactSearch.js",
+      "wwwroot/scripts/classes/PersonSearch.js",
+      "wwwroot/scripts/DisplayRecords.js",
+      "wwwroot/scripts/TopNav.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true,
+      "preserveImportantComments": true
+    }
+  }
+]
