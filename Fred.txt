@@ -1,89 +1,35 @@
-[
-  {
-    "outputFileName": "wwwroot/js/main-bundle.min.js",
-    "inputFiles": [
-      "wwwroot/scripts/jquery.timer.js",
-      "wwwroot/scripts/utility.js",
-      "wwwroot/scripts/Tooltip.js",
-      "wwwroot/scripts/DirectorySearch_SimpleGrid.js",
-      "wwwroot/scripts/DisplayRecords.js",
-      "wwwroot/scripts/EditProfilePage.js",
-      "wwwroot/scripts/EmployeeDetailDisplay.js",
-      "wwwroot/scripts/TopNav.js",
-      "wwwroot/scripts/USBDirectory.js",
-      "wwwroot/scripts/USBDirectoryFAQ.js",
-      "wwwroot/scripts/classes/DBAccess.js",
-      "wwwroot/scripts/classes/DBSearch.js",
-      "wwwroot/scripts/classes/DecisionDialog.js",
-      "wwwroot/scripts/classes/EmployeeDetailPopluate.js",
-      "wwwroot/scripts/classes/EmployeeDetailTabs.js",
-      "wwwroot/scripts/classes/EmployeeEditPopluate.js",
-      "wwwroot/scripts/classes/ErrorDialog.js",
-      "wwwroot/scripts/classes/FunctionArray.js",
-      "wwwroot/scripts/classes/HashEvents.js",
-      "wwwroot/scripts/classes/InheritanceMngr.js",
-      "wwwroot/scripts/classes/Instant.js",
-      "wwwroot/scripts/classes/LinksPage.js",
-      "wwwroot/scripts/classes/LoginDialogForm.js",
-      "wwwroot/scripts/classes/MicrosoftTeams.js",
-      "wwwroot/scripts/classes/PersonContactSearch.js",
-      "wwwroot/scripts/classes/PersonSearch.js",
-      "wwwroot/scripts/classes/SearchHistory.js",
-      "wwwroot/scripts/classes/SearchInputPage.js",
-      "wwwroot/scripts/classes/SearchResultsSametimeQuery.js",
-      "wwwroot/scripts/classes/SkypeAwareness.js",
-      "wwwroot/scripts/classes/USBookQuery.js",
-      "wwwroot/scripts/classes/USDirectoryDisplayContactsGrid.js",
-      "wwwroot/scripts/classes/USDirectoryDisplayGrid.js",
-      "wwwroot/scripts/classes/WaitDialog.js",
-      "wwwroot/scripts/classes/boxdisplaygrid.js",
-      "wwwroot/scripts/classes/displaygrid.js",
-      "wwwroot/scripts/classes/displaygrid_backup.js",
-      "wwwroot/scripts/classes/displaygridpiclist.js",
-      "wwwroot/scripts/classes/orgchart.js",
-      "wwwroot/scripts/classes/orgchartmini.js",
-      "wwwroot/scripts/classes/msgraph/graph-js-sdk.js",
-      "wwwroot/scripts/classes/msgraph/teamsstatus.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "uglifyOptions": {
-        "mangle": true,
-        "compress": {
-          "sequences": true,
-          "dead_code": true,
-          "conditionals": true,
-          "booleans": true,
-          "unused": true,
-          "if_return": true,
-          "join_vars": true,
-          "drop_console": true
-        },
-        "output": {
-          "comments": "some"
-        }
-    },
-    "sourceMap": false
-  },
-  {
-    "outputFileName": "wwwroot/css/site-bundle.min.css",
-    "inputFiles": [
-      "wwwroot/css/main.css",
-      "wwwroot/css/index.css",
-      "wwwroot/css/Dialogs.css",
-      "wwwroot/css/tooltip.css",
-      "wwwroot/css/OrgChart.css",
-      "wwwroot/css/OrgChartPage.css",
-      "wwwroot/css/Search.css",
-      "wwwroot/css/EmployeeDetail.css",
-      "wwwroot/css/DisplayRecords.css",
-      "wwwroot/css/DisplaySearchSimpleSearchGrid.css",
-      "wwwroot/css/PictureGrid.css",
-      "wwwroot/css/links.css"
-    ],
-    "minify": {
-      "enabled": true
-    },
-    "sourceMap": false
-  }
-]
+public class Link
+{
+    public string Title { get; set; }
+    public string Link { get; set; }
+    public string Target { get; set; }
+}
+
+public class SocialMedia
+{
+    public string ImagePath { get; set; }
+    public string Link { get; set; }
+    public string Target { get; set; }
+}
+
+public class FooterData
+{
+    public List<Link> Links { get; set; }
+    public List<SocialMedia> SocialMedia { get; set; }
+    public string DisclosureText { get; set; }
+    public string DisclosureWithBorder { get; set; }
+}
+
+using Newtonsoft.Json;
+using System.IO;
+
+public class Program
+{
+    public static void Main()
+    {
+        string json = File.ReadAllText("path_to_your_json_file.json");
+        FooterData footerData = JsonConvert.DeserializeObject<FooterData>(json);
+
+        // Now you can use footerData object in your application
+    }
+}
