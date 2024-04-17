@@ -1,44 +1,38 @@
-[
-  {
-    "outputFileName": "wwwroot/js/site-bundle.js",
-    "inputFiles": [
-      "wwwroot/js/Tooltip.js",
-      "wwwroot/scripts/jquery.timer.js",
-      "wwwroot/scripts/utility.js",
-      "wwwroot/scripts/classes/DBAccess.js",
-      "wwwroot/scripts/classes/DBSearch.js",
-      "wwwroot/scripts/classes/msgraph/teamsstatus.js",
-      "wwwroot/scripts/classes/MicrosoftTeams.js",
-      "wwwroot/scripts/classes/SkypeAwareness.js",
-      "wwwroot/scripts/classes/USBookQuery.js",
-      "wwwroot/scripts/classes/WaitDialog.js",
-      "wwwroot/scripts/classes/ErrorDialog.js",
-      "wwwroot/scripts/classes/DecisionDialog.js",
-      "wwwroot/scripts/classes/LoginDialogForm.js",
-      "wwwroot/scripts/DirectorySearch_SimpleGrid.js",
-      "wwwroot/scripts/classes/displaygrid.js",
-      "wwwroot/scripts/classes/InheritanceMngr.js",
-      "wwwroot/scripts/classes/boxdisplaygrid.js",
-      "wwwroot/scripts/classes/displaygridpiclist.js",
-      "wwwroot/scripts/classes/USDirectoryDisplayGrid.js",
-      "wwwroot/scripts/classes/USDirectoryDisplayContactsGrid.js",
-      "wwwroot/scripts/classes/SearchHistory.js",
-      "wwwroot/scripts/classes/orgchartmini.js",
-      "wwwroot/scripts/classes/LinksPage.js",
-      "wwwroot/scripts/classes/SearchInputPage.js",
-      "wwwroot/scripts/classes/EmployeeDetailPopluate.js",
-      "wwwroot/scripts/classes/EmployeeDetailTabs.js",
-      "wwwroot/scripts/EmployeeDetailDisplay.js",
-      "wwwroot/scripts/classes/orgchart.js",
-      "wwwroot/scripts/classes/PersonContactSearch.js",
-      "wwwroot/scripts/classes/PersonSearch.js",
-      "wwwroot/scripts/DisplayRecords.js",
-      "wwwroot/scripts/TopNav.js"
-    ],
-    "minify": {
-      "enabled": true,
-      "renameLocals": true,
-      "preserveImportantComments": true
+using System.Text;
+
+public class KeyManager
+{
+    // Method to validate if the key is 256 bits long
+    public static bool IsKey256Bits(string key)
+    {
+        byte[] keyBytes = Encoding.ASCII.GetBytes(key);
+        return keyBytes.Length == 32;  // 32 bytes = 256 bits
     }
-  }
-]
+
+    // Method to extend the key to 256 bits by appending zeros
+    public static string ExtendKeyTo256Bits(string key)
+    {
+        // Check if the current key is already 256 bits
+        if (IsKey256Bits(key))
+        {
+            return key;  // Return as is if already 256 bits
+        }
+
+        // Calculate how many zeros to add
+        int zerosToAdd = 32 - Encoding.ASCII.GetBytes(key).Length;
+
+        // Extend the key by appending zeros
+        return key + new string('0', zerosToAdd);
+    }
+}
+
+// Usage
+string originalKey = "your_key_here";
+bool isKeyValid = KeyManager.IsKey256Bits(originalKey);
+Console.WriteLine("Is the original key 256 bits? " + isKeyValid);
+
+if (!isKeyValid)
+{
+    string extendedKey = KeyManager.ExtendKeyTo256Bits(originalKey);
+    Console.WriteLine("Extended Key: " + extendedKey);
+}
