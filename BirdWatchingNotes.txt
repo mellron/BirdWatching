@@ -1,38 +1,14 @@
-using System.Text;
+# Import the WebAdministration module to interact with IIS
+Import-Module WebAdministration
 
-public class KeyManager
-{
-    // Method to validate if the key is 256 bits long
-    public static bool IsKey256Bits(string key)
-    {
-        byte[] keyBytes = Encoding.ASCII.GetBytes(key);
-        return keyBytes.Length == 32;  // 32 bytes = 256 bits
-    }
+# Define the application pool name
+$poolName = "Employee Directory"
 
-    // Method to extend the key to 256 bits by appending zeros
-    public static string ExtendKeyTo256Bits(string key)
-    {
-        // Check if the current key is already 256 bits
-        if (IsKey256Bits(key))
-        {
-            return key;  // Return as is if already 256 bits
-        }
-
-        // Calculate how many zeros to add
-        int zerosToAdd = 32 - Encoding.ASCII.GetBytes(key).Length;
-
-        // Extend the key by appending zeros
-        return key + new string('0', zerosToAdd);
-    }
-}
-
-// Usage
-string originalKey = "your_key_here";
-bool isKeyValid = KeyManager.IsKey256Bits(originalKey);
-Console.WriteLine("Is the original key 256 bits? " + isKeyValid);
-
-if (!isKeyValid)
-{
-    string extendedKey = KeyManager.ExtendKeyTo256Bits(originalKey);
-    Console.WriteLine("Extended Key: " + extendedKey);
+# Retrieve and format the SID for the application pool
+$poolSid = (Get-ItemProperty "IIS:\AppPools\$poolName").processModel.identityType
+if ($poolSid -eq "ApplicationPoolIdentity") {
+    $poolSid = [System.Security.Principal.SecurityIdentifier]::new("S-1-5-82-" + [System.Security.Cryptography.HashAlgorithm]::Create("SHA1").ComputeHash([System.Text.Encoding]::Unicode.GetBytes($poolName)).Take(5).ForEach({$_.ToString("x2")}) -join "")
+    Write-Output "Application Pool SID: $poolSid"
+} else {
+    Write-Output "Application Pool uses a custom identity: $poolSid"
 }
