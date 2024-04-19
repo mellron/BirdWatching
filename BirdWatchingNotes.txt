@@ -1,14 +1,14 @@
-# Import the WebAdministration module to interact with IIS
-Import-Module WebAdministration
+$source = ".NET Runtime"
+$logName = "Application"  # This is typically where such logs are written, but you can specify another if necessary
 
-# Define the application pool name
-$poolName = "Employee Directory"
-
-# Retrieve and format the SID for the application pool
-$poolSid = (Get-ItemProperty "IIS:\AppPools\$poolName").processModel.identityType
-if ($poolSid -eq "ApplicationPoolIdentity") {
-    $poolSid = [System.Security.Principal.SecurityIdentifier]::new("S-1-5-82-" + [System.Security.Cryptography.HashAlgorithm]::Create("SHA1").ComputeHash([System.Text.Encoding]::Unicode.GetBytes($poolName)).Take(5).ForEach({$_.ToString("x2")}) -join "")
-    Write-Output "Application Pool SID: $poolSid"
+# Check if the source is registered
+if (![System.Diagnostics.EventLog]::SourceExists($source)) {
+    # Register the source with the Application log
+    [System.Diagnostics.EventLog]::CreateEventSource($source, $logName)
+    Write-Host "Source $source registered under $logName log."
 } else {
-    Write-Output "Application Pool uses a custom identity: $poolSid"
+    Write-Host "Source $source already exists."
+    # To see which log it's currently registered to:
+    $currentLog = [System.Diagnostics.EventLog]::LogNameFromSourceName($source, $machineName)
+    Write-Host "Current log: $currentLog"
 }
