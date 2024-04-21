@@ -1,14 +1,12 @@
-$source = ".NET Runtime"
-$logName = "Application"  # This is typically where such logs are written, but you can specify another if necessary
+# Replace 'domain\username' with the actual user's domain and username
+$user = New-Object System.Security.Principal.NTAccount("domain\username")
+$sid = $user.Translate([System.Security.Principal.SecurityIdentifier])
+$sidValue = $sid.Value
 
-# Check if the source is registered
-if (![System.Diagnostics.EventLog]::SourceExists($source)) {
-    # Register the source with the Application log
-    [System.Diagnostics.EventLog]::CreateEventSource($source, $logName)
-    Write-Host "Source $source registered under $logName log."
-} else {
-    Write-Host "Source $source already exists."
-    # To see which log it's currently registered to:
-    $currentLog = [System.Diagnostics.EventLog]::LogNameFromSourceName($source, $machineName)
-    Write-Host "Current log: $currentLog"
-}
+$eventLogName = "Application"  # Adjust based on the actual log used by ".NET Runtime"
+
+# Modify permissions
+$sd = (wevtutil gl $eventLogName).securityDescriptor
+$sd = $sd.Replace(")</sd>", "(A;;0x3;;;AU)(A;;0x3;;;IU)(A;;0x3;;;SU)(A;;0x3;;;$sidValue))</sd>")
+
+wevtutil sl $eventLogName /sd:"$sd"
