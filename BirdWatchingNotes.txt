@@ -1,12 +1,62 @@
-# Replace 'domain\username' with the actual user's domain and username
-$user = New-Object System.Security.Principal.NTAccount("domain\username")
-$sid = $user.Translate([System.Security.Principal.SecurityIdentifier])
-$sidValue = $sid.Value
 
-$eventLogName = "Application"  # Adjust based on the actual log used by ".NET Runtime"
+.NET Application Deployment Test Case Document
 
-# Modify permissions
-$sd = (wevtutil gl $eventLogName).securityDescriptor
-$sd = $sd.Replace(")</sd>", "(A;;0x3;;;AU)(A;;0x3;;;IU)(A;;0x3;;;SU)(A;;0x3;;;$sidValue))</sd>")
+Introduction
+- Purpose of the document
+- Scope of testing
+- Overview of the application
 
-wevtutil sl $eventLogName /sd:"$sd"
+Pre-Deployment Checklist
+- Verify the environment readiness (Production/Test)
+- Backup existing deployment
+- Confirm deployment schedule
+
+Deployment Process
+- Step-by-step deployment instructions
+- Verify deployment completion
+
+Post-Deployment Testing
+1. Application Launch
+   - Check if the application starts without errors.
+   - Verify that all services are running.
+
+2. Functionality Testing
+   - Login and authentication
+   - User permissions and roles
+   - Create, read, update, and delete operations (CRUD)
+   - Data input and output accuracy
+   - Session management
+
+3. Interface Testing
+   - Check application layout on different devices
+   - Verify links and buttons functionality
+   - Accessibility features
+
+4. Performance Testing
+   - Load times and responsiveness
+   - Stress testing under high loads
+   - Data processing efficiency
+
+5. Security Testing
+   - Validation of input fields
+   - Check for security patches
+   - HTTPS and secure connections
+   - Error handling and logging
+
+6. Integration Testing
+   - Interaction with other systems
+   - Data exchange and synchronization accuracy
+
+7. Database Testing
+   - Data integrity and loss checks
+   - Backup restoration
+
+Issue Reporting
+- How to report issues found during testing
+- Severity classification of issues
+
+Conclusion
+- Final acceptance and sign-off process
+
+Revision History
+- Document versioning and history
