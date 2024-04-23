@@ -1,62 +1,74 @@
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
-.NET Application Deployment Test Case Document
+public class JsonConverter
+{
+    public static string ConvertSourceToDestination(string sourceJson)
+    {
+        // Parse the source JSON into a JObject
+        var source = JObject.Parse(sourceJson);
 
-Introduction
-- Purpose of the document
-- Scope of testing
-- Overview of the application
+        // Create the destination JSON object
+        JObject destination = new JObject();
+        JArray links = new JArray();
+        JArray socialMedia = new JArray();
+        JArray disclosures = new JArray();
 
-Pre-Deployment Checklist
-- Verify the environment readiness (Production/Test)
-- Backup existing deployment
-- Confirm deployment schedule
+        // Map links
+        foreach (var item in source["links"])
+        {
+            var id = item["title"].ToString() == "Home" ? 1 :
+                     item["title"].ToString() == "Workforce demographics" ? 2 :
+                     item["title"].ToString() == "Accessibility" ? 3 :
+                     item["title"].ToString() == "Terms of Use" ? 4 :
+                     item["title"].ToString() == "U.S. Bank Company blog" ? 5 :
+                     item["title"].ToString() == "Privacy" ? 6 : 0;
 
-Deployment Process
-- Step-by-step deployment instructions
-- Verify deployment completion
+            var link = new JObject
+            {
+                ["id"] = id,
+                ["title"] = item["title"],
+                ["link"] = item["link"],
+                ["target"] = item["target"]
+            };
+            links.Add(link);
+        }
 
-Post-Deployment Testing
-1. Application Launch
-   - Check if the application starts without errors.
-   - Verify that all services are running.
+        // Map social media links
+        int socialId = 1;
+        foreach (var item in source["socialMedia"])
+        {
+            var socialLink = new JObject
+            {
+                ["id"] = socialId++,
+                ["imagePath"] = item["imagePath"],
+                ["link"] = item["link"],
+                ["target"] = item["target"]
+            };
+            socialMedia.Add(socialLink);
+        }
 
-2. Functionality Testing
-   - Login and authentication
-   - User permissions and roles
-   - Create, read, update, and delete operations (CRUD)
-   - Data input and output accuracy
-   - Session management
+        // Map disclosures
+        var disclosure1 = new JObject
+        {
+            ["id"] = 1,
+            ["text"] = source["disclosureText"]
+        };
+        var disclosure2 = new JObject
+        {
+            ["id"] = 2,
+            ["text"] = source["disclosureWithBorder"].ToString().Replace("<br/><br/>", "\n")
+        };
+        disclosures.Add(disclosure1);
+        disclosures.Add(disclosure2);
 
-3. Interface Testing
-   - Check application layout on different devices
-   - Verify links and buttons functionality
-   - Accessibility features
+        // Build the final JSON structure
+        destination["links"] = links;
+        destination["socialMedia"] = socialMedia;
+        destination["disclosureText"] = disclosures;
 
-4. Performance Testing
-   - Load times and responsiveness
-   - Stress testing under high loads
-   - Data processing efficiency
-
-5. Security Testing
-   - Validation of input fields
-   - Check for security patches
-   - HTTPS and secure connections
-   - Error handling and logging
-
-6. Integration Testing
-   - Interaction with other systems
-   - Data exchange and synchronization accuracy
-
-7. Database Testing
-   - Data integrity and loss checks
-   - Backup restoration
-
-Issue Reporting
-- How to report issues found during testing
-- Severity classification of issues
-
-Conclusion
-- Final acceptance and sign-off process
-
-Revision History
-- Document versioning and history
+        // Convert JObject back to string
+        return destination.ToString(Formatting.Indented);
+    }
+}
