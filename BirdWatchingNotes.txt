@@ -1,74 +1,75 @@
-using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+import React, { useState } from 'react';
 
-public class JsonConverter
-{
-    public static string ConvertSourceToDestination(string sourceJson)
-    {
-        // Parse the source JSON into a JObject
-        var source = JObject.Parse(sourceJson);
+function App() {
+  const [token, setToken] = useState('');
+  const [footerData, setFooterData] = useState({});
+  const [error, setError] = useState('');
 
-        // Create the destination JSON object
-        JObject destination = new JObject();
-        JArray links = new JArray();
-        JArray socialMedia = new JArray();
-        JArray disclosures = new JArray();
+  const fetchToken = async () => {
+    const url = 'https://localhost:8080/generatetoken';
+    const credentials = {
+      username: 'HROPAPI_USER',
+      password: '25455235345254/245/24523453245====z333'
+    };
 
-        // Map links
-        foreach (var item in source["links"])
-        {
-            var id = item["title"].ToString() == "Home" ? 1 :
-                     item["title"].ToString() == "Workforce demographics" ? 2 :
-                     item["title"].ToString() == "Accessibility" ? 3 :
-                     item["title"].ToString() == "Terms of Use" ? 4 :
-                     item["title"].ToString() == "U.S. Bank Company blog" ? 5 :
-                     item["title"].ToString() == "Privacy" ? 6 : 0;
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials)
+      });
 
-            var link = new JObject
-            {
-                ["id"] = id,
-                ["title"] = item["title"],
-                ["link"] = item["link"],
-                ["target"] = item["target"]
-            };
-            links.Add(link);
-        }
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-        // Map social media links
-        int socialId = 1;
-        foreach (var item in source["socialMedia"])
-        {
-            var socialLink = new JObject
-            {
-                ["id"] = socialId++,
-                ["imagePath"] = item["imagePath"],
-                ["link"] = item["link"],
-                ["target"] = item["target"]
-            };
-            socialMedia.Add(socialLink);
-        }
-
-        // Map disclosures
-        var disclosure1 = new JObject
-        {
-            ["id"] = 1,
-            ["text"] = source["disclosureText"]
-        };
-        var disclosure2 = new JObject
-        {
-            ["id"] = 2,
-            ["text"] = source["disclosureWithBorder"].ToString().Replace("<br/><br/>", "\n")
-        };
-        disclosures.Add(disclosure1);
-        disclosures.Add(disclosure2);
-
-        // Build the final JSON structure
-        destination["links"] = links;
-        destination["socialMedia"] = socialMedia;
-        destination["disclosureText"] = disclosures;
-
-        // Convert JObject back to string
-        return destination.ToString(Formatting.Indented);
+      const data = await response.json();
+      setToken(data.token);
+    } catch (error) {
+      console.error('Error fetching token:', error);
     }
+  };
+
+  const fetchFooterData = async () => {
+    const url = 'https://api.example.com/AEMFooter'; // Change to your actual API URL
+
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) { // Unauthorized, possibly due to expired token
+          setError('Token expired. Please reauthenticate.');
+          return;
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setFooterData(data);
+      setError('');
+    } catch (error) {
+      console.error('Error fetching footer data:', error);
+      setError(error.message);
+    }
+  };
+
+  return (
+    <div>
+      <h1>JWT Authentication Example</h1>
+      <button onClick={fetchToken}>Get Token</button>
+      <button onClick={fetchFooterData} disabled={!token}>Get Footer Data</button>
+      {error && <p>Error: {error}</p>}
+      <p>Token: {token}</p>
+      <p>Footer Data: {JSON.stringify(footerData, null, 2)}</p>
+    </div>
+  );
 }
+
+export default App;
