@@ -1,75 +1,21 @@
-import React, { useState } from 'react';
+using Microsoft.Extensions.DependencyInjection;
 
-function App() {
-  const [token, setToken] = useState('');
-  const [footerData, setFooterData] = useState({});
-  const [error, setError] = useState('');
+public static class CorsPolicySetup
+{
+    public static IServiceCollection AddCustomCorsPolicies(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowSpecificOrigin", policy =>
+            {
+                policy.WithOrigins("http://example.com", "https://anotherdomain.com")
+                      .AllowAnyHeader()
+                      .AllowAnyMethod();
+            });
 
-  const fetchToken = async () => {
-    const url = 'https://localhost:8080/generatetoken';
-    const credentials = {
-      username: 'HROPAPI_USER',
-      password: '25455235345254/245/24523453245====z333'
-    };
+            // Add more policies here if needed
+        });
 
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials)
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      setToken(data.token);
-    } catch (error) {
-      console.error('Error fetching token:', error);
+        return services;
     }
-  };
-
-  const fetchFooterData = async () => {
-    const url = 'https://api.example.com/AEMFooter'; // Change to your actual API URL
-
-    try {
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-
-      if (!response.ok) {
-        if (response.status === 401) { // Unauthorized, possibly due to expired token
-          setError('Token expired. Please reauthenticate.');
-          return;
-        }
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      setFooterData(data);
-      setError('');
-    } catch (error) {
-      console.error('Error fetching footer data:', error);
-      setError(error.message);
-    }
-  };
-
-  return (
-    <div>
-      <h1>JWT Authentication Example</h1>
-      <button onClick={fetchToken}>Get Token</button>
-      <button onClick={fetchFooterData} disabled={!token}>Get Footer Data</button>
-      {error && <p>Error: {error}</p>}
-      <p>Token: {token}</p>
-      <p>Footer Data: {JSON.stringify(footerData, null, 2)}</p>
-    </div>
-  );
 }
-
-export default App;
