@@ -17,25 +17,26 @@ public class Program
             return "{}"; // Return empty JSON object if parsing fails
         }
 
-        JArray disclosuresArray = new JArray();
+        // Extract disclosureText and disclosureWithBorder if they exist in the input JSON
+        string disclosureText1 = (string)jsonObj["disclosureText1"] ?? "Default text for disclosure 1";
+        string disclosureText2 = (string)jsonObj["disclosureText2"] ?? "Default text for disclosure 2";
+        string additionalDisclosure = "Not a Deposit &#8226; Not FDIC Insured &#8226; May Lose Value &#8226; Not Bank Guaranteed &#8226; Not Insured by any Federal Government Agency";
 
-        // Safely retrieve properties to avoid exceptions
-        string disclosureText = (string)jsonObj["disclosureText"] ?? "default";
-        string disclosureWithBorder = (string)jsonObj["disclosureWithBorder"] ?? "default";
+        JArray disclosuresArray = new JArray
+        {
+            new JObject { ["text"] = disclosureText1, ["id"] = 1 },
+            new JObject { ["text"] = disclosureText2, ["id"] = 2 },
+            new JObject { ["text"] = additionalDisclosure, ["id"] = 3 }
+        };
 
-        disclosuresArray.Add(disclosureText);
-        disclosuresArray.Add(disclosureWithBorder);
-        disclosuresArray.Add("Not a Deposit &#8226; Not FDIC Insured &#8226; May Lose Value &#8226; Not Bank Guaranteed &#8226; Not Insured by any Federal Government Agency");
-
-        // Replace old disclosure fields with the new combined array
-        jsonObj["disclosures"] = disclosuresArray;
+        jsonObj["disclosureText"] = disclosuresArray;
 
         return jsonObj.ToString();
     }
 
     public static void Main()
     {
-        string jsonInput = "{\"disclosureText\":\"Some text.\", \"disclosureWithBorder\":\"More text.\"}";
+        string jsonInput = "{\"disclosureText1\":\"U.S. Bank is an equal opportunity employer committed to creating a diverse workforce. We consider all qualified applicants without regard to race, religion, color, sex, national origin, age, sexual orientation, gender identity, disability or veteran status, among other factors.\", \"disclosureText2\":\"Another example disclosure text.\"}";
         string transformedJson = TransformJSON(jsonInput);
         Console.WriteLine(transformedJson);
     }
