@@ -1,21 +1,42 @@
-using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Linq;
+using System;
 
-public static class CorsPolicySetup
+public class Program
 {
-    public static IServiceCollection AddCustomCorsPolicies(this IServiceCollection services)
+    private static string TransformJSON(string json)
     {
-        services.AddCors(options =>
+        if (string.IsNullOrEmpty(json)) return "{}";
+
+        JObject jsonObj;
+        try
         {
-            options.AddPolicy("AllowSpecificOrigin", policy =>
-            {
-                policy.WithOrigins("http://example.com", "https://anotherdomain.com")
-                      .AllowAnyHeader()
-                      .AllowAnyMethod();
-            });
+            jsonObj = JObject.Parse(json);
+        }
+        catch (JsonException)
+        {
+            return "{}"; // Return empty JSON object if parsing fails
+        }
 
-            // Add more policies here if needed
-        });
+        JArray disclosuresArray = new JArray();
 
-        return services;
+        // Safely retrieve properties to avoid exceptions
+        string disclosureText = (string)jsonObj["disclosureText"] ?? "default";
+        string disclosureWithBorder = (string)jsonObj["disclosureWithBorder"] ?? "default";
+
+        disclosuresArray.Add(disclosureText);
+        disclosuresArray.Add(disclosureWithBorder);
+        disclosuresArray.Add("Not a Deposit &#8226; Not FDIC Insured &#8226; May Lose Value &#8226; Not Bank Guaranteed &#8226; Not Insured by any Federal Government Agency");
+
+        // Replace old disclosure fields with the new combined array
+        jsonObj["disclosures"] = disclosuresArray;
+
+        return jsonObj.ToString();
+    }
+
+    public static void Main()
+    {
+        string jsonInput = "{\"disclosureText\":\"Some text.\", \"disclosureWithBorder\":\"More text.\"}";
+        string transformedJson = TransformJSON(jsonInput);
+        Console.WriteLine(transformedJson);
     }
 }
