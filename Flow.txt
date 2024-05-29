@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="GenerateJWT">
+  <Description/>
+  <FaultRules/>
+  <PreFlow name="PreFlow">
+    <Request/>
+    <Response/>
+  </PreFlow>
+  <PostFlow name="PostFlow">
+    <Request/>
+    <Response/>
+  </PostFlow>
+  <Flows>
+    <Flow name="GenerateJWTFlow">
+      <Condition>(proxy.pathsuffix MatchesPath "/generate-jwt")</Condition>
+      <Request>
+        <Step>
+          <Name>GenerateJWT</Name>
+        </Step>
+      </Request>
+      <Response>
+        <Step>
+          <Name>ReturnJWT</Name>
+        </Step>
+      </Response>
+    </Flow>
+  </Flows>
+  <HTTPProxyConnection>
+    <BasePath>/jwt-generation</BasePath>
+    <Properties/>
+    <VirtualHost>default</VirtualHost>
+  </HTTPProxyConnection>
+  <RouteRule name="default">
+    <TargetEndpoint>default</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>
