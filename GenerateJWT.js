@@ -58,6 +58,14 @@ if (!userId || !tokenId) {
   throw new Error('Missing required fields: userId and tokenId');
 }
 
+// Example input validation (e.g., alphanumeric, specific length)
+var userIdPattern = /^[a-zA-Z0-9]{6,20}$/;
+var tokenIdPattern = /^[a-zA-Z0-9]{6,20}$/;
+
+if (!userIdPattern.test(userId) || !tokenIdPattern.test(tokenId)) {
+  throw new Error('Invalid input: userId and tokenId must be alphanumeric and 6-20 characters long');
+}
+
 // Create the JWT payload
 var payload = {
   userId: userId,
