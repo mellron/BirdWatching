@@ -1,7 +1,10 @@
 // Base64 URL encoding function
 function base64url(source) {
-  // Encode in classical base64
-  var encodedSource = CryptoJS.enc.Base64.stringify(source);
+  // Parse the source as UTF-8
+  var utf8Source = CryptoJS.enc.Utf8.parse(source);
+
+  // Encode the source to Base64
+  var encodedSource = CryptoJS.enc.Base64.stringify(utf8Source);
 
   // Remove padding equal characters
   encodedSource = encodedSource.replace(/=+$/, '');
@@ -20,18 +23,19 @@ function generateJWT(payload, secret) {
     "typ": "JWT"
   };
 
-  var stringifiedHeader = CryptoJS.enc.Utf8.parse(JSON.stringify(header));
-  var encodedHeader = base64url(stringifiedHeader);
+  // Convert header to Base64URL
+  var encodedHeader = base64url(JSON.stringify(header));
 
-  var stringifiedData = CryptoJS.enc.Utf8.parse(JSON.stringify(payload));
-  var encodedData = base64url(stringifiedData);
+  // Convert payload to Base64URL
+  var encodedPayload = base64url(JSON.stringify(payload));
 
-  var token = encodedHeader + "." + encodedData;
+  var token = encodedHeader + "." + encodedPayload;
 
+  // Sign the token
   var signature = CryptoJS.HmacSHA256(token, secret);
-  signature = base64url(signature);
+  var encodedSignature = base64url(signature.toString(CryptoJS.enc.Base64));
 
-  var signedToken = token + "." + signature;
+  var signedToken = token + "." + encodedSignature;
   return signedToken;
 }
 
