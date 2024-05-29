@@ -1,7 +1,7 @@
-// JWT generation function
+// Base64 URL encoding function
 function base64url(source) {
   // Encode in classical base64
-  encodedSource = CryptoJS.enc.Base64.stringify(source);
+  var encodedSource = CryptoJS.enc.Base64.stringify(source);
 
   // Remove padding equal characters
   encodedSource = encodedSource.replace(/=+$/, '');
@@ -13,6 +13,7 @@ function base64url(source) {
   return encodedSource;
 }
 
+// JWT generation function
 function generateJWT(payload, secret) {
   var header = {
     "alg": "HS256",
@@ -55,14 +56,6 @@ var tokenId = requestBodyJson.tokenId;
 // Validate inputs
 if (!userId || !tokenId) {
   throw new Error('Missing required fields: userId and tokenId');
-}
-
-// Example input validation (e.g., alphanumeric, specific length)
-var userIdPattern = /^[a-zA-Z0-9]{6,20}$/;
-var tokenIdPattern = /^[a-zA-Z0-9]{6,20}$/;
-
-if (!userIdPattern.test(userId) || !tokenIdPattern.test(tokenId)) {
-  throw new Error('Invalid input: userId and tokenId must be alphanumeric and 6-20 characters long');
 }
 
 // Create the JWT payload
