@@ -1,0 +1,13 @@
+<ExtractVariables name="ExtractVariables-RequestBody">
+    <Source>request</Source>
+    <JSONPayload>
+        <Variable name="userid" type="string">
+            <JSONPath>$.userid</JSONPath>
+        </Variable>
+        <Variable name="tokenid" type="string">
+            <JSONPath>$.tokenid</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <VariablePrefix>request</VariablePrefix>
+</ExtractVariables>
