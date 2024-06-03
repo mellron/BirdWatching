@@ -1,0 +1,5 @@
+<OAuthV2 name="OAuthV2-VerifyAccessToken">
+    <Operation>VerifyAccessToken</Operation>
+    <AccessTokenPrefix>Bearer </AccessTokenPrefix>
+    <GenerateResponse enabled="true"/>
+</OAuthV2>
