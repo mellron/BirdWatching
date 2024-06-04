@@ -2,8 +2,8 @@
 
 {
   "OAuth2": {
-    "Authority": "https://your-apigee-instance", // this would be the root of the api
-    "Audience": "your-api-audience",
+    "Authority": "https://your-apigee-instance", // this would be the root of the apigee proxy .
+    "Audience": "your-api-audience", // So this is the url behind apigee such as dev-employeedirectory/myapicall
     "TokenEndpoint": "https://your-apigee-instance/your-api/oauth2/token" // basclly where you create the token .
   }
 }
