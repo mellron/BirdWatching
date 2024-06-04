@@ -1,3 +1,33 @@
+/*
+
+{
+  "OAuth2": {
+    "Authority": "https://your-apigee-instance", // this would be the root of the api
+    "Audience": "your-api-audience",
+    "TokenEndpoint": "https://your-apigee-instance/your-api/oauth2/token" // basclly where you create the token .
+  }
+}
+
+you can included aud
+
+<OAuthV2 name="GenerateAccessToken">
+    <Operation>GenerateAccessToken</Operation>
+    <ExpiresIn>3600</ExpiresIn>
+    <SupportedGrantTypes>
+        <GrantType>client_credentials</GrantType>
+    </SupportedGrantTypes>
+    <Tokens>
+        <AccessToken/>
+    </Tokens>
+    <Attributes>
+        <Attribute>
+            <Name>aud</Name>
+            <Value>https://api.example.com</Value>
+        </Attribute>
+    </Attributes>
+</OAuthV2>
+
+*/
 public static class OAuth2AuthenticationHelper
 {
     public static void AddOAuth2Authentication(this IServiceCollection services, IConfiguration configuration)
