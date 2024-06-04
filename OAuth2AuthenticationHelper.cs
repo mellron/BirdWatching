@@ -1,23 +1,19 @@
 public static class OAuth2AuthenticationHelper
 {
-    public static void AddOAuth2Authentication(this IServiceCollection services)
+    public static void AddOAuth2Authentication(this IServiceCollection services, IConfiguration configuration)
     {
         try
         {
-            string authority = Environment.GetEnvironmentVariable("OAUTH2_AUTHORITY") 
+            string authority = configuration["OAuth2:Authority"] 
                 ?? throw new InvalidOperationException("OAuth2 Authority is not configured properly.");
-            string clientId = Environment.GetEnvironmentVariable("OAUTH2_CLIENT_ID") 
-                ?? throw new InvalidOperationException("OAuth2 Client ID is not configured properly.");
-            string clientSecret = Environment.GetEnvironmentVariable("OAUTH2_CLIENT_SECRET") 
-                ?? throw new InvalidOperationException("OAuth2 Client Secret is not configured properly.");
-            string scope = Environment.GetEnvironmentVariable("OAUTH2_SCOPE") 
-                ?? throw new InvalidOperationException("OAuth2 Scope is not configured properly.");
+            string audience = configuration["OAuth2:Audience"] 
+                ?? throw new InvalidOperationException("OAuth2 Audience is not configured properly.");
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
                     options.Authority = authority;
-                    options.Audience = clientId;
+                    options.Audience = audience;
                     options.RequireHttpsMetadata = true;
 
                     options.TokenValidationParameters = new TokenValidationParameters
