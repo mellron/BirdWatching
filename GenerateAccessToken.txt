@@ -1,24 +1,19 @@
-<OAuthV2 name="GenerateAccessToken">
-    <Operation>GenerateAccessToken</Operation>
-    <ExpiresIn>3600</ExpiresIn>
-    <SupportedGrantTypes>
-        <GrantType>client_credentials</GrantType>
-    </SupportedGrantTypes>
-    <GenerateResponse enabled="true"/>
-    <Tokens>
-        <AccessToken>
-            <Type>JWT</Type>
-            <Algorithm>RS256</Algorithm>
-            <Key>
-                <Name>private-key</Name>
-                <Value ref="private.key"/>
-            </Key>
-        </AccessToken>
-    </Tokens>
-    <Attributes>
-        <Attribute>
-            <Name>aud</Name>
-            <Value>https://dev.employeedirectory.us.bank-dns.com</Value>
-        </Attribute>
-    </Attributes>
+<OAuthV2 name="generate-policy">
+  <Operation>GenerateJWTAccessToken</Operation>
+  <SupportedGrantTypes>
+    <GrantType>client_credentials</GrantType>
+  </SupportedGrantTypes>
+  <GenerateResponse enabled="true"/>
+  <Algorithm>HS512</Algorithm>
+  <SecretKey>
+    <Value>your-hard-coded-secret-key</Value>
+  </SecretKey>
+  <ExpiresIn>3600000</ExpiresIn>
 </OAuthV2>
+
+
+curl -X POST "https://your-apigee-endpoint/oauth/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=client_credentials" \
+  -d "client_id=your-client-id" \
+  -d "client_secret=your-client-secret"
