@@ -1,0 +1,22 @@
+<OAuthV2 name="GenerateJWTAccessToken">
+    <Operation>GenerateJWTAccessToken</Operation>
+    <GenerateResponse enabled="true"/>
+    <Algorithm>HS256</Algorithm> <!-- Change to HS256 -->
+    <SecretKey>
+      <Value ref="private.mysecretkey"/> <!-- Reference to your secret key -->
+    </SecretKey>
+    <ExpiresIn>3600</ExpiresIn> <!-- Token expiry time in seconds -->
+    <Audience>https://api.yourdomain.com</Audience> <!-- Audience for the JWT token -->
+    <Subject>developer@example.com</Subject> <!-- Subject for the JWT token -->
+    <Issuer>https://auth.yourdomain.com</Issuer> <!-- Issuer of the JWT token -->
+    <GrantType>client_credentials</GrantType>
+    <ClientId ref="request.formparam.client_id"/>
+    <ClientSecret ref="request.formparam.client_secret"/>
+</OAuthV2>
+
+curl -X POST https://your-apigee-endpoint/oauth/token \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "client_id=your_client_id" \
+     -d "client_secret=your_client_secret" \
+     -d "grant_type=client_credentials"
+
