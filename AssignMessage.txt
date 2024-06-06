@@ -1,0 +1,12 @@
+<AssignMessage name="SetPrivateKey">
+    <Set>
+        <Headers/>
+        <QueryParams/>
+        <FormParams/>
+        <Payload/>
+        <Variables>
+            <Variable name="private.key">YourSecretKeyHere</Variable>
+        </Variables>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>
