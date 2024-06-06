@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Set your variables
+APIGEE_ORG="your-apigee-org"
+APIGEE_ENV="your-apigee-env"
+KVM_NAME="JWTSecrets"
+SECRET_KEY_NAME="mysecretkey"
+SECRET_KEY_VALUE="your-secret-key"
+APIGEE_USERNAME="your-username"
+APIGEE_PASSWORD="your-password"
+APIGEE_MGMT_API="https://api.enterprise.apigee.com/v1"
+
+# Create the KVM
+curl -u "$APIGEE_USERNAME:$APIGEE_PASSWORD" -X POST "$APIGEE_MGMT_API/organizations/$APIGEE_ORG/environments/$APIGEE_ENV/keyvaluemaps" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "name": "'$KVM_NAME'"
+         }'
+
+# Add an entry to the KVM
+curl -u "$APIGEE_USERNAME:$APIGEE_PASSWORD" -X POST "$APIGEE_MGMT_API/organizations/$APIGEE_ORG/environments/$APIGEE_ENV/keyvaluemaps/$KVM_NAME/entries" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "name": "'$SECRET_KEY_NAME'",
+           "value": "'$SECRET_KEY_VALUE'"
+         }'
