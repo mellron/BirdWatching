@@ -1,0 +1,8 @@
+<AssignMessage name="Assign-JWT-To-Header">
+    <Set>
+        <Headers>
+            <Header name="Authorization">Bearer {jwt_token}</Header>
+        </Headers>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>
