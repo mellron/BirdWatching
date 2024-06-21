@@ -1,50 +1,11 @@
-<AssignMessage async="false" continueOnError="false" enabled="true" name="add-cors">
-    <DisplayName>Add CORS</DisplayName>
-    <FaultRules/>
-    <Properties/>
-    <Add>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="RemoveCORSHeaders">
+    <DisplayName>Remove CORS Headers</DisplayName>
+    <Remove>
         <Headers>
-            <Header name="Access-Control-Allow-Origin">*</Header>
-            <Header name="Access-Control-Allow-Headers">origin, x-requested-with, accept, Content-Type, authorization</Header>
-            <Header name="Access-Control-Max-Age">3628800</Header>
-            <Header name="Access-Control-Allow-Methods">GET, PUT, POST, DELETE, OPTIONS</Header>
+            <Header name="Access-Control-Allow-Origin"/>
+            <Header name="Access-Control-Allow-Methods"/>
+            <Header name="Access-Control-Allow-Headers"/>
+            <Header name="Access-Control-Max-Age"/>
         </Headers>
-    </Add>
-    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-    <AssignTo createNew="false" transport="http" type="response"/>
-</AssignMessage>
-
-
-<Flow name="OPTIONS">
-    <Description>Handle CORS Preflight Requests</Description>
-    <Condition>(request.verb == "OPTIONS")</Condition>
-    <Request>
-        <Step>
-            <Name>add-cors</Name>
-        </Step>
-        <Step>
-            <Name>OptionsResponse</Name>
-        </Step>
-    </Request>
-    <Response/>
-</Flow>
-
-<AssignMessage async="false" continueOnError="false" enabled="true" name="OptionsResponse">
-    <AssignTo createNew="false" transport="http" type="response"/>
-    <Add>
-        <Headers>
-            <Header name="Access-Control-Allow-Origin">*</Header>
-            <Header name="Access-Control-Allow-Headers">origin, x-requested-with, accept, Content-Type, authorization</Header>
-            <Header name="Access-Control-Allow-Methods">GET, PUT, POST, DELETE, OPTIONS</Header>
-        </Headers>
-    </Add>
-    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-    <AssignVariable>
-        <Name>message.status.code</Name>
-        <Value>204</Value>
-    </AssignVariable>
-    <AssignVariable>
-        <Name>message.reason.phrase</Name>
-        <Value>No Content</Value>
-    </AssignVariable>
+    </Remove>
 </AssignMessage>
