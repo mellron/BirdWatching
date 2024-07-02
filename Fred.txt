@@ -1,14 +1,11 @@
-SELECT 
-    TRIM(
-        CONCAT(
-            COALESCE(NULLIF(preferred_firstname, ''), firstname), ' ',
-            CASE 
-                WHEN COALESCE(NULLIF(preferred_middlename, ''), middlename) IS NOT NULL AND COALESCE(NULLIF(preferred_middlename, ''), middlename) != '' 
-                THEN CONCAT(COALESCE(NULLIF(preferred_middlename, ''), middlename), ' ') 
-                ELSE '' 
-            END,
-            COALESCE(NULLIF(preferred_lastname, ''), lastname)
-        )
-    ) AS full_name
-FROM 
-    persons;
+CONCAT(
+    COALESCE(NULLIF(Person.Preferred_FirstNM, ''), Person.FirstNM), ' ',
+    CASE
+        WHEN COALESCE(NULLIF(Person.Preferred_FirstNM, ''), Person.FirstNM) != COALESCE(NULLIF(Person.Preferred_MiddleNM, ''), Person.MiddleNM)
+             AND COALESCE(NULLIF(Person.Preferred_MiddleNM, ''), Person.MiddleNM) IS NOT NULL
+             AND COALESCE(NULLIF(Person.Preferred_MiddleNM, ''), Person.MiddleNM) != ''
+        THEN CONCAT(COALESCE(NULLIF(Person.Preferred_MiddleNM, ''), Person.MiddleNM), ' ')
+        ELSE ''
+    END,
+    COALESCE(NULLIF(Person.Preferred_LastNM, ''), Person.LastNM)
+) AS Name
