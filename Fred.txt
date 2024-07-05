@@ -1,3 +1,133 @@
+public class Person
+{
+    public int PersonID { get; set; }
+    public string PreferredID { get; set; }
+    public string FirstNM { get; set; }
+    public string LastNM { get; set; }
+    public string JobTitle { get; set; }
+    public List<Person> Peers { get; set; } = new List<Person>();
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using Newtonsoft.Json;
+
+class Program
+{
+    static void Main()
+    {
+        string connectionString = "your_connection_string_here"; // Update with your connection string
+        string preferredID = "your_preferred_id_here"; // Update with the preferred ID you want to query
+
+        // Execute the stored procedure and get the data
+        DataTable dataTable = GetDataFromStoredProcedure(connectionString);
+
+        // Build the structure
+        var result = BuildStructure(dataTable, preferredID);
+
+        // Serialize to JSON
+        string jsonResult = JsonConvert.SerializeObject(result, Formatting.Indented);
+        Console.WriteLine(jsonResult);
+    }
+
+    static DataTable GetDataFromStoredProcedure(string connectionString)
+    {
+        DataTable dataTable = new DataTable();
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            using (SqlCommand command = new SqlCommand("SEL_OrgChart", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataTable);
+            }
+        }
+
+        return dataTable;
+    }
+
+    static List<object> BuildStructure(DataTable dataTable, string preferredID)
+    {
+        Dictionary<string, Person> personDict = new Dictionary<string, Person>();
+        Person selectedPerson = null;
+        string directMgrPreferredID = null;
+
+        // Step 1: Create Person objects and store them in the dictionary
+        foreach (DataRow row in dataTable.Rows)
+        {
+            string queryID = row["QueryID"].ToString();
+            if (queryID == "OrgChart_Reports_Contractor")
+                continue;
+
+            string id = row["PreferredID"].ToString();
+
+            if (!personDict.ContainsKey(id))
+            {
+                personDict[id] = new Person
+                {
+                    PersonID = Convert.ToInt32(row["PersonID"]),
+                    EmployeeName = row["EmployeeName"].ToString(),
+                    PreferredID = id,
+                    FirstNM = row["FirstNM"].ToString(),
+                    LastNM = row["LastNM"].ToString(),
+                    JobTitle = row["JobTitle"].ToString()
+                };
+            }
+
+            if (id == preferredID)
+            {
+                selectedPerson = personDict[id];
+                directMgrPreferredID = row["EmployeeMgrPreferredID"].ToString();
+            }
+        }
+
+        List<object> result = new List<object>();
+
+        // Step 2: Add the top-level manager (Andy Cecere) and all OrgChart_Managers
+        foreach (DataRow row in dataTable.Rows)
+        {
+            string queryID = row["QueryID"].ToString();
+            if (queryID == "OrgChart_Managers")
+            {
+                result.Add(new
+                {
+                    EmployeeName = row["EmployeeName"].ToString(),
+                    PreferredID = row["PreferredID"].ToString(),
+                    JobTitle = row["JobTitle"].ToString()
+                });
+            }
+        }
+
+        // Step 3: Add the selected person and their peers to the result
+        if (selectedPerson != null)
+        {
+            // Add peers (OrgChart_Peers)
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (row["QueryID"].ToString() == "OrgChart_Peers" && row["EmployeeMgrPreferredID"].ToString() == directMgrPreferredID)
+                {
+                    string peerID = row["PreferredID"].ToString();
+                    if (peerID != preferredID && personDict.ContainsKey(peerID))
+                    {
+                        Person peer = personDict[peerID];
+                        selectedPerson.Peers.Add(peer);
+                    }
+                }
+            }
+
+            result.Add(selectedPerson);
+        }
+
+        return result;
+    }
+}
+
+
 [
   {
     "EmployeeName": "Andy Cecere",
@@ -25,18 +155,27 @@
     "JobTitle": "Software Engineering Manager"
   },
   {
+    "PersonID": 185834,
+    "PreferredID": "JWALLE1",
+    "FirstNM": "James",
+    "LastNM": "Allen",
+    "JobTitle": "Software Engineering Manager",
     "Peers": [
       {
-        "EmployeeName": "Angie Milbrandt",
+        "PersonID": 4193,
         "PreferredID": "AMMILBR",
+        "FirstNM": "Angie",
+        "LastNM": "Milbrandt",
         "JobTitle": "Software Engineering Manager"
       },
       {
-        "EmployeeName": "Shawn Weiler",
+        "PersonID": 62660,
         "PreferredID": "SXWEILE",
+        "FirstNM": "Shawn",
+        "LastNM": "Weiler",
         "JobTitle": "Software Engineer"
       }
-      // ... more peers
     ]
   }
 ]
+
