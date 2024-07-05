@@ -1,11 +1,103 @@
-CONCAT(
-    COALESCE(NULLIF(Person.Preferred_FirstNM, ''), Person.FirstNM), ' ',
-    CASE
-        WHEN COALESCE(NULLIF(Person.Preferred_FirstNM, ''), Person.FirstNM) != COALESCE(NULLIF(Person.Preferred_MiddleNM, ''), Person.MiddleNM)
-             AND COALESCE(NULLIF(Person.Preferred_MiddleNM, ''), Person.MiddleNM) IS NOT NULL
-             AND COALESCE(NULLIF(Person.Preferred_MiddleNM, ''), Person.MiddleNM) != ''
-        THEN CONCAT(COALESCE(NULLIF(Person.Preferred_MiddleNM, ''), Person.MiddleNM), ' ')
-        ELSE ''
-    END,
-    COALESCE(NULLIF(Person.Preferred_LastNM, ''), Person.LastNM)
-) AS Name
+public class Person
+{
+    public int PersonID { get; set; }
+    public string PreferredID { get; set; }
+    public string FirstNM { get; set; }
+    public string LastNM { get; set; }
+    public List<Person> DirectReports { get; set; } = new List<Person>();
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using Newtonsoft.Json;
+
+class Program
+{
+    static void Main()
+    {
+        string connectionString = "your_connection_string_here"; // Update with your connection string
+        string preferredID = "your_preferred_id_here"; // Update with the preferred ID you want to query
+
+        Person hierarchy = GetPersonHierarchyAndPeers(connectionString, preferredID);
+        string jsonResult = JsonConvert.SerializeObject(hierarchy, Formatting.Indented);
+        Console.WriteLine(jsonResult);
+    }
+
+    static Person GetPersonHierarchyAndPeers(string connectionString, string preferredID)
+    {
+        Dictionary<int, Person> peopleDict = new Dictionary<int, Person>();
+        Person selectedPerson = null;
+        int? directMgrPersonID = null;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            using (SqlCommand command = new SqlCommand("SEL_ManagerHierarchyAndPeers", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(new SqlParameter("@PreferredID", SqlDbType.VarChar, 7) { Value = preferredID });
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Person person = new Person
+                        {
+                            PersonID = reader.GetInt32(reader.GetOrdinal("PersonID")),
+                            PreferredID = reader.GetString(reader.GetOrdinal("PreferredID")),
+                            FirstNM = reader.GetString(reader.GetOrdinal("FirstNM")),
+                            LastNM = reader.GetString(reader.GetOrdinal("LastNM"))
+                        };
+
+                        if (!peopleDict.ContainsKey(person.PersonID))
+                        {
+                            peopleDict[person.PersonID] = person;
+                        }
+
+                        if (reader.GetString(reader.GetOrdinal("PreferredID")) == preferredID)
+                        {
+                            selectedPerson = person;
+                            directMgrPersonID = reader.IsDBNull(reader.GetOrdinal("DirectMgrPersonID")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("DirectMgrPersonID"));
+                        }
+                    }
+                }
+            }
+        }
+
+        if (selectedPerson != null && directMgrPersonID.HasValue)
+        {
+            // Find the manager
+            Person manager = null;
+            if (peopleDict.ContainsKey(directMgrPersonID.Value))
+            {
+                manager = peopleDict[directMgrPersonID.Value];
+            }
+
+            if (manager != null)
+            {
+                // Add the selected person and all their peers as direct reports to the manager
+                foreach (var person in peopleDict.Values)
+                {
+                    if (person.DirectReports.Contains(selectedPerson) || person.PersonID == selectedPerson.PersonID)
+                    {
+                        foreach (var peer in peopleDict.Values)
+                        {
+                            if (peer.DirectMgrPersonID == directMgrPersonID && peer.PersonID != selectedPerson.PersonID)
+                            {
+                                manager.DirectReports.Add(peer);
+                            }
+                        }
+                        manager.DirectReports.Add(selectedPerson);
+                    }
+                }
+                return manager;
+            }
+        }
+
+        return selectedPerson; // Return the selected person if no manager is found
+    }
+}
