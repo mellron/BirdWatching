@@ -1,146 +1,38 @@
-public class Person
-{
-    public int PersonID { get; set; }
-    public string PreferredID { get; set; }
-    public string FirstNM { get; set; }
-    public string LastNM { get; set; }
-    public string JobTitle { get; set; }
-}
-
-public class OrgChart
-{
-    public Person SelectedPerson { get; set; }
-    public List<Person> Managers { get; set; } = new List<Person>();
-    public List<Person> Peers { get; set; } = new List<Person>();
-}
-
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-
-[ApiController]
-[Route("api/[controller]")]
-public class OrgChartController : ControllerBase
-{
-    private readonly string _connectionString = "your_connection_string_here"; // Update with your connection string
-
-    [HttpGet("{preferredID}")]
-    public IActionResult GetOrgChart(string preferredID)
-    {
-        try
-        {
-            // Execute the stored procedure and get the data
-            DataTable dataTable = GetDataFromStoredProcedure(_connectionString);
-
-            // Build the structure
-            OrgChart result = BuildStructure(dataTable, preferredID);
-
-            // Return the result as JSON
-            return Ok(result);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, ex.Message);
-        }
-    }
-
-    private DataTable GetDataFromStoredProcedure(string connectionString)
-    {
-        DataTable dataTable = new DataTable();
-
-        using (SqlConnection connection = new SqlConnection(connectionString))
-        {
-            using (SqlCommand command = new SqlCommand("SEL_OrgChart", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                adapter.Fill(dataTable);
-            }
-        }
-
-        return dataTable;
-    }
-
-    private OrgChart BuildStructure(DataTable dataTable, string preferredID)
-    {
-        Dictionary<string, Person> personDict = new Dictionary<string, Person>();
-        Person selectedPerson = null;
-        string directMgrPreferredID = null;
-        OrgChart orgChart = new OrgChart();
-
-        // Step 1: Create Person objects and store them in the dictionary
-        foreach (DataRow row in dataTable.Rows)
-        {
-            string queryID = row["QueryID"].ToString();
-            if (queryID == "OrgChart_Reports_Contractor")
-                continue;
-
-            string id = row["PreferredID"].ToString();
-
-            if (!personDict.ContainsKey(id))
-            {
-                personDict[id] = new Person
-                {
-                    PersonID = Convert.ToInt32(row["PersonID"]),
-                    PreferredID = id,
-                    FirstNM = row["FirstNM"].ToString(),
-                    LastNM = row["LastNM"].ToString(),
-                    JobTitle = row["JobTitle"].ToString()
-                };
-            }
-
-            if (id == preferredID)
-            {
-                selectedPerson = personDict[id];
-                directMgrPreferredID = row["EmployeeMgrPreferredID"].ToString();
-                orgChart.SelectedPerson = selectedPerson;
-            }
-        }
-
-        // Step 2: Add the top-level managers (OrgChart_Managers) to the OrgChart
-        foreach (DataRow row in dataTable.Rows)
-        {
-            if (row["QueryID"].ToString() == "OrgChart_Managers")
-            {
-                string id = row["PreferredID"].ToString();
-                if (id != preferredID) // Exclude the selected person from managers
-                {
-                    orgChart.Managers.Add(new Person
-                    {
-                        PersonID = Convert.ToInt32(row["PersonID"]),
-                        PreferredID = id,
-                        FirstNM = row["FirstNM"].ToString(),
-                        LastNM = row["LastNM"].ToString(),
-                        JobTitle = row["JobTitle"].ToString()
-                    });
-                }
-            }
-        }
-
-        // Step 3: Add the selected person and their peers to the OrgChart
-        if (selectedPerson != null)
-        {
-            // Add peers (OrgChart_Peers)
-            foreach (DataRow row in dataTable.Rows)
-            {
-                if (row["QueryID"].ToString() == "OrgChart_Peers" && row["EmployeeMgrPreferredID"].ToString() == directMgrPreferredID)
-                {
-                    string peerID = row["PreferredID"].ToString();
-                    if (peerID != preferredID && personDict.ContainsKey(peerID))
-                    {
-                        Person peer = personDict[peerID];
-                        orgChart.Peers.Add(peer);
-                    }
-                }
-            }
-        }
-
-        return orgChart;
-    }
-}
-
-
+1. EMP_ID: Employee ID (BenefitsID)
+2. LOGIN: Preferred ID
+3. ACTIVE_FLG: Status Code
+4. FULL_NAME: Full name in the format 'Last Name, First Name'
+5. LAST_NAME: Last Name
+6. FST_NAME: First Name
+7. MID_NAME: Middle Name
+8. WORK_PH_NUM: Work Phone Number
+9. MAIL_STOP: Mail Location Code
+10. EMP_STATUS: Employee Status Description
+11. JOB_FAMILY_CD: Job Family Description
+12. MGR_LOGIN: Manager's Preferred ID
+13. OFFICER_CD: Workforce ID
+14. BUS_LINE_NAME: Business Line Name (Cost Center Name)
+15. BUS_LINE_COST_CENTER: Business Line Cost Center Number
+16. HIRE_DT: Hire Date
+17. TERM_DT: Termination Date
+18. WORK_LOC_CITY: Work Location City
+19. WORK_LOC_STATE: Work Location State
+20. WORK_LOC_ZIPCODE: Work Location Zip Code
+21. BRANCH_CODE: Branch Code
+22. BRANCH_DESC: Branch Description
+23. SUPERVISORID: Supervisor ID (Manager's BenefitsID)
+24. MVP_ROLLUP_LVL_01: MVP Rollup Level 1 (Person_1's BenefitsID)
+25. MVP_ROLLUP_LVL_02: MVP Rollup Level 2 (Person_2's BenefitsID)
+26. MVP_ROLLUP_LVL_03: MVP Rollup Level 3 (Person_3's BenefitsID)
+27. MVP_ROLLUP_LVL_04: MVP Rollup Level 4 (Person_4's BenefitsID)
+28. MVP_ROLLUP_LVL_05: MVP Rollup Level 5 (Person_5's BenefitsID)
+29. MVP_ROLLUP_LVL_06: MVP Rollup Level 6 (Person_6's BenefitsID)
+30. MVP_ROLLUP_LVL_07: MVP Rollup Level 7 (Person_7's BenefitsID)
+31. MVP_ROLLUP_LVL_08: MVP Rollup Level 8 (Person_8's BenefitsID)
+32. MVP_ROLLUP_LVL_09: MVP Rollup Level 9 (Person_9's BenefitsID)
+33. MVP_ROLLUP_LVL_10: MVP Rollup Level 10 (Person_10's BenefitsID)
+34. NAME_SUFFIX: Name Suffix
+35. TOP_EMPLOYEELEVEL: Top Employee Level (Manager Hierarchy Level)
+36. XLATLONGNAME: Status Description (same as EMP_STATUS)
+37. TYPECD: Type Code
+38. EMAIL: Work Email Address
