@@ -25,3 +25,31 @@
         </AssignVariable>
     </Response>
 </ServiceCallout>
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-CallEmpAuthJWT">
+    <DisplayName>Call EmpDir AuthJWT</DisplayName>
+    <Request clearPayload="true">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Verb>POST</Verb>
+        <URL>https://employeedirectory.us.bank-dns.com/usbservicesjwt/security/createToken</URL>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Body>
+            <Text>
+                { "username":"HROPAPI_User","password":"4MN9RI3z0XNaVKZJR2dKYQ5p//b63KulRGdgc+FaKgg=" }
+            </Text>
+        </Body>
+    </Request>
+    <Response>
+        <Set>
+            <Payload contentType="application/json"/>
+        </Set>
+        <AssignVariable>
+            <Name>authJWTTokenResponse</Name>
+            <Ref>response</Ref>
+        </AssignVariable>
+    </Response>
+</ServiceCallout>
