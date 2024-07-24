@@ -1,55 +1,35 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-CallAuthJWT">
-    <DisplayName>Call AuthJWT Service</DisplayName>
-    <Request>
-        <Set>
-            <Verb>POST</Verb>
-            <URL>https://employee-directory.us.bank-dns.com/usbservicesjwt/AuthJWT</URL>
-            <Headers>
-                <Header name="Content-Type">application/json</Header>
-            </Headers>
-            <Body>
-                <Text>
-                    { "username":"HROPAPI_User","password":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }
-                </Text>
-            </Body>
-        </Set>
-    </Request>
-    <Response>
-        <Set>
-            <Payload contentType="application/json"/>
-        </Set>
-        <AssignVariable>
-            <Name>authTokenResponse</Name>
-            <Ref>response</Ref>
-        </AssignVariable>
-    </Response>
-</ServiceCallout>
+<!-- AssignMessage Policy to Set Request Payload -->
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetRequestPayload">
+    <DisplayName>AM-SetRequestPayload</DisplayName>
+    <AssignTo createNew="true" transport="http" type="request">myRequest</AssignTo>
+    <Set>
+        <Payload contentType="application/json">
+            {"username":"HROPAPI_User", "password":"4MN9RI3z0XNaVKZJR2dKYQ5p//b63KulRGdgc+FaKgg="}
+        </Payload>
+    </Set>
+</AssignMessage>
 
-
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-CallEmpAuthJWT">
-    <DisplayName>Call EmpDir AuthJWT</DisplayName>
-    <Request clearPayload="true">
+<!-- ServiceCallout Policy to Make the HTTP Call -->
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="ServiceCall_usbdirOrg">
+    <DisplayName>ServiceCall_usbdirOrg</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="myRequest">
         <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
-        <Verb>POST</Verb>
-        <URL>https://employeedirectory.us.bank-dns.com/usbservicesjwt/security/createToken</URL>
-        <Headers>
-            <Header name="Content-Type">application/json</Header>
-        </Headers>
-        <Body>
-            <Text>
-                { "username":"HROPAPI_User","password":"4MN9RI3z0XNaVKZJR2dKYQ5p//b63KulRGdgc+FaKgg=" }
-            </Text>
-        </Body>
     </Request>
-    <Response>
-        <Set>
-            <Payload contentType="application/json"/>
-        </Set>
-        <AssignVariable>
-            <Name>authJWTTokenResponse</Name>
-            <Ref>response</Ref>
-        </AssignVariable>
-    </Response>
+    <Response>calloutResponse</Response>
+    <HTTPTargetConnection>
+        <Properties>
+            <Property name="connect.timeout.millis">3000</Property>
+            <Property name="response.timeout.millis">5000</Property>
+        </Properties>
+        <URL>https://dev-employeedirectory.us.bank-dns.com/usbservicesjwt/GetGSTorgchart</URL>
+    </HTTPTargetConnection>
 </ServiceCallout>
+
+<!-- AssignMessage Policy to Set the Token in the Return Variable -->
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetTokenVariable">
+    <DisplayName>AM-SetTokenVariable</DisplayName>
+    <Set>
+        <Variable name="usbdir_token">{calloutResponse}</Variable>
+    </Set>
+</AssignMessage>
