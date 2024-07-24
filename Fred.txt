@@ -1,35 +1,10 @@
-<!-- AssignMessage Policy to Set Request Payload -->
-<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetRequestPayload">
-    <DisplayName>AM-SetRequestPayload</DisplayName>
-    <AssignTo createNew="true" transport="http" type="request">myRequest</AssignTo>
+<!-- AssignMessage Policy to Set the Response -->
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetResponse">
+    <DisplayName>AM-SetResponse</DisplayName>
     <Set>
         <Payload contentType="application/json">
-            {"username":"HROPAPI_User", "password":"4MN9RI3z0XNaVKZJR2dKYQ5p//b63KulRGdgc+FaKgg="}
+            {"orgChart":"{orgChartResponse}"}
         </Payload>
     </Set>
-</AssignMessage>
-
-<!-- ServiceCallout Policy to Make the HTTP Call -->
-<ServiceCallout async="false" continueOnError="false" enabled="true" name="ServiceCall_usbdirOrg">
-    <DisplayName>ServiceCall_usbdirOrg</DisplayName>
-    <Properties/>
-    <Request clearPayload="true" variable="myRequest">
-        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
-    </Request>
-    <Response>calloutResponse</Response>
-    <HTTPTargetConnection>
-        <Properties>
-            <Property name="connect.timeout.millis">3000</Property>
-            <Property name="response.timeout.millis">5000</Property>
-        </Properties>
-        <URL>https://dev-employeedirectory.us.bank-dns.com/usbservicesjwt/GetGSTorgchart</URL>
-    </HTTPTargetConnection>
-</ServiceCallout>
-
-<!-- AssignMessage Policy to Set the Token in the Return Variable -->
-<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetTokenVariable">
-    <DisplayName>AM-SetTokenVariable</DisplayName>
-    <Set>
-        <Variable name="usbdir_token">{calloutResponse}</Variable>
-    </Set>
+    <AssignTo type="response"/>
 </AssignMessage>
