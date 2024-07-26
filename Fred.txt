@@ -1,10 +1,22 @@
-<!-- AssignMessage Policy to Set the Response -->
-<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetResponse">
-    <DisplayName>AM-SetResponse</DisplayName>
-    <Set>
-        <Payload contentType="application/json">
-            {"orgChart":"{orgChartResponse}"}
-        </Payload>
-    </Set>
-    <AssignTo type="response"/>
-</AssignMessage>
+4a0af8f0-7aeb-4e56-8634-f6efc914b38f
+3ec0b66e-e737-4131-b766-89fef651386e
+
+
+Create access token .  Note the Scope
+
+<OAuthV2 name="OAuth-v2-Generate-Token">
+    <Operation>GenerateAccessToken</Operation>
+    <ExpiresIn>3600</ExpiresIn>
+    <SupportedGrantTypes>
+        <GrantType>client_credentials</GrantType>
+    </SupportedGrantTypes>
+    <GenerateResponse/>
+    <Scope>read write admin</Scope>  
+</OAuthV2>
+
+
+<OAuthV2 name="OAuth-v2-Verify-Token">
+    <Operation>VerifyAccessToken</Operation>
+    <AccessToken>request.queryparam.access_token</AccessToken>
+    <Scope>read</Scope> 
+</OAuthV2>
