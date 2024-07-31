@@ -1,11 +1,1 @@
-<AssignMessage async="false" continueOnError="false" enabled="true" name="RemoveCORSHeaders">
-    <DisplayName>Remove CORS Headers</DisplayName>
-    <Remove>
-        <Headers>
-            <Header name="Access-Control-Allow-Origin"/>
-            <Header name="Access-Control-Allow-Methods"/>
-            <Header name="Access-Control-Allow-Headers"/>
-            <Header name="Access-Control-Max-Age"/>
-        </Headers>
-    </Remove>
-</AssignMessage>
+powershell -Command "Invoke-WebRequest -Uri 'https://aka.ms/azuredatastudio' -OutFile 'AzureDataStudio.exe'"
