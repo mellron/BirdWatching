@@ -1,1 +1,6 @@
 powershell -Command "Invoke-WebRequest -Uri 'https://aka.ms/azuredatastudio' -OutFile 'AzureDataStudio.exe'"
+
+
+https://www.udemy.com/course/gitlab-ci-pipelines-ci-cd-and-devops-for-beginners/?couponCode=ST4MT73124
+
+https://www.udemy.com/course/gitlab-cicd-course/?couponCode=ST4MT73124
