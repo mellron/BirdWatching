@@ -1,0 +1,60 @@
+using System;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using Microsoft.Graph;
+using Microsoft.Identity.Client;
+
+namespace GraphProfileImage
+{
+    class Program
+    {
+        private const string tenantId = "YOUR_TENANT_ID";
+        private const string clientId = "YOUR_APPLICATION_ID";
+        private const string clientSecret = "YOUR_CLIENT_SECRET";
+        private const string userDisplayName = "USER_DISPLAY_NAME"; // Replace with the user's display name
+
+        static async Task Main(string[] args)
+        {
+            var graphClient = GetAuthenticatedGraphClient();
+            var user = await GetUserByDisplayNameAsync(graphClient, userDisplayName);
+
+            if (user != null)
+            {
+                var photo = await graphClient.Users[user.Id].Photo.Content.Request().GetAsync();
+                using (var fileStream = new System.IO.FileStream("profileImage.jpg", System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                {
+                    photo.CopyTo(fileStream);
+                }
+
+                Console.WriteLine("Profile image saved successfully.");
+            }
+            else
+            {
+                Console.WriteLine("User not found.");
+            }
+        }
+
+        private static GraphServiceClient GetAuthenticatedGraphClient()
+        {
+            var confidentialClientApplication = ConfidentialClientApplicationBuilder
+                .Create(clientId)
+                .WithTenantId(tenantId)
+                .WithClientSecret(clientSecret)
+                .Build();
+
+            var authProvider = new ClientCredentialProvider(confidentialClientApplication);
+
+            return new GraphServiceClient(authProvider);
+        }
+
+        private static async Task<User> GetUserByDisplayNameAsync(GraphServiceClient graphClient, string displayName)
+        {
+            var users = await graphClient.Users
+                .Request()
+                .Filter($"displayName eq '{displayName}'")
+                .GetAsync();
+
+            return users.Count > 0 ? users[0] : null;
+        }
+    }
+}
