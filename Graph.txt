@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
@@ -13,12 +12,12 @@ namespace GraphProfileImage
         private const string tenantId = "YOUR_TENANT_ID";
         private const string clientId = "YOUR_APPLICATION_ID";
         private const string clientSecret = "YOUR_CLIENT_SECRET";
-        private const string userDisplayName = "USER_DISPLAY_NAME"; // Replace with the user's display name
+        private const string userEmail = "USER_EMAIL"; // Replace with the user's email address
 
         static async Task Main(string[] args)
         {
             var graphClient = GetAuthenticatedGraphClient();
-            var user = await GetUserByDisplayNameAsync(graphClient, userDisplayName);
+            var user = await GetUserByEmailAsync(graphClient, userEmail);
 
             if (user != null)
             {
@@ -44,27 +43,27 @@ namespace GraphProfileImage
             return new GraphServiceClient(clientSecretCredential, new[] { "https://graph.microsoft.com/.default" });
         }
 
-        private static async Task<User> GetUserByDisplayNameAsync(GraphServiceClient graphClient, string displayName)
+        private static async Task<User> GetUserByEmailAsync(GraphServiceClient graphClient, string email)
         {
             var users = await graphClient.Users
                 .GetAsync(requestConfiguration =>
                 {
-                    requestConfiguration.QueryParameters.Filter = $"startswith(displayName, '{displayName}')";
+                    requestConfiguration.QueryParameters.Filter = $"userPrincipalName eq '{email}'";
                 });
 
             if (users.Value.Count > 0)
             {
-                Console.WriteLine($"Found {users.Value.Count} user(s) with display name starting with '{displayName}':");
+                Console.WriteLine($"Found {users.Value.Count} user(s) with email '{email}':");
                 foreach (var user in users.Value)
                 {
                     Console.WriteLine($"- {user.DisplayName} ({user.Id})");
                 }
 
-                // Return the first user that matches the display name exactly
-                return users.Value.FirstOrDefault(u => u.DisplayName.Equals(displayName, StringComparison.OrdinalIgnoreCase));
+                // Return the first user that matches the email exactly
+                return users.Value.FirstOrDefault(u => u.UserPrincipalName.Equals(email, StringComparison.OrdinalIgnoreCase));
             }
 
-            Console.WriteLine($"No users found with display name starting with '{displayName}'");
+            Console.WriteLine($"No users found with email '{email}'");
             return null;
         }
     }
