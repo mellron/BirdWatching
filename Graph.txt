@@ -1,78 +1,10 @@
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Azure.Identity;
-using Microsoft.Identity.Client;
+TENANT_ID="your-tenant-id"
+CLIENT_ID="your-client-id"
+CLIENT_SECRET="your-client-secret"
 
-namespace GraphProfileImage
-{
-    class Program
-    {
-        private const string tenantId = "YOUR_TENANT_ID"; // Directory (tenant) ID
-        private const string clientId = "YOUR_CLIENT_ID"; // Application (client) ID
-        private const string clientSecret = "YOUR_CLIENT_SECRET"; // The actual secret value
-
-        static async Task Main(string[] args)
-        {
-            try
-            {
-                string accessToken = await GetAccessTokenAsync();
-
-                if (!string.IsNullOrEmpty(accessToken))
-                {
-                    await GetProfilePhotoAsync(accessToken);
-                }
-                else
-                {
-                    Console.WriteLine("Failed to obtain access token.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Exception: {ex.Message}");
-            }
-        }
-
-        private static async Task<string> GetAccessTokenAsync()
-        {
-            var clientSecretCredential = new ClientSecretCredential(tenantId, clientId, clientSecret);
-            var tokenRequestContext = new TokenRequestContext(new[] { "https://graph.microsoft.com/.default" });
-
-            try
-            {
-                var tokenResponse = await clientSecretCredential.GetTokenAsync(tokenRequestContext);
-                return tokenResponse.Token;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error acquiring access token: {ex.Message}");
-                return null;
-            }
-        }
-
-        private static async Task GetProfilePhotoAsync(string accessToken)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-
-                var response = await httpClient.GetAsync("https://graph.microsoft.com/v1.0/me/photo/$value");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    using (var fileStream = new System.IO.FileStream("profileImage.jpg", System.IO.FileMode.Create, System.IO.FileAccess.Write))
-                    {
-                        await response.Content.CopyToAsync(fileStream);
-                    }
-
-                    Console.WriteLine("Profile image saved successfully.");
-                }
-                else
-                {
-                    Console.WriteLine($"Failed to retrieve profile photo. Status code: {response.StatusCode}");
-                }
-            }
-        }
-    }
-}
+curl -X POST https://login.microsoftonline.com/$TENANT_ID/oauth2/v2.0/token \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "client_id=$CLIENT_ID" \
+-d "scope=https://graph.microsoft.com/.default" \
+-d "client_secret=$CLIENT_SECRET" \
+-d "grant_type=client_credentials"
