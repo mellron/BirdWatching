@@ -1,70 +1,78 @@
 using System;
-using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Microsoft.Graph;
-using Microsoft.Graph.Models;
 using Azure.Identity;
+using Microsoft.Identity.Client;
 
 namespace GraphProfileImage
 {
     class Program
     {
-        private const string tenantId = "YOUR_TENANT_ID";
-        private const string clientId = "YOUR_APPLICATION_ID";
-        private const string clientSecret = "YOUR_CLIENT_SECRET";
-        private const string userEmail = "USER_EMAIL"; // Replace with the user's email address
+        private const string tenantId = "YOUR_TENANT_ID"; // Directory (tenant) ID
+        private const string clientId = "YOUR_CLIENT_ID"; // Application (client) ID
+        private const string clientSecret = "YOUR_CLIENT_SECRET"; // The actual secret value
 
         static async Task Main(string[] args)
         {
-            var graphClient = GetAuthenticatedGraphClient();
-            var user = await GetUserByEmailAsync(graphClient, userEmail);
-
-            if (user != null)
+            try
             {
-                var photoStream = await graphClient.Users[user.Id].Photo.Content.GetAsync();
+                string accessToken = await GetAccessTokenAsync();
 
-                using (var fileStream = new FileStream("profileImage.jpg", FileMode.Create, FileAccess.Write))
+                if (!string.IsNullOrEmpty(accessToken))
                 {
-                    await photoStream.CopyToAsync(fileStream);
+                    await GetProfilePhotoAsync(accessToken);
                 }
-
-                Console.WriteLine("Profile image saved successfully.");
+                else
+                {
+                    Console.WriteLine("Failed to obtain access token.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("User not found.");
+                Console.WriteLine($"Exception: {ex.Message}");
             }
         }
 
-        private static GraphServiceClient GetAuthenticatedGraphClient()
+        private static async Task<string> GetAccessTokenAsync()
         {
             var clientSecretCredential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+            var tokenRequestContext = new TokenRequestContext(new[] { "https://graph.microsoft.com/.default" });
 
-            return new GraphServiceClient(clientSecretCredential, new[] { "https://graph.microsoft.com/.default" });
+            try
+            {
+                var tokenResponse = await clientSecretCredential.GetTokenAsync(tokenRequestContext);
+                return tokenResponse.Token;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error acquiring access token: {ex.Message}");
+                return null;
+            }
         }
 
-        private static async Task<User> GetUserByEmailAsync(GraphServiceClient graphClient, string email)
+        private static async Task GetProfilePhotoAsync(string accessToken)
         {
-            var users = await graphClient.Users
-                .GetAsync(requestConfiguration =>
-                {
-                    requestConfiguration.QueryParameters.Filter = $"userPrincipalName eq '{email}'";
-                });
-
-            if (users.Value.Count > 0)
+            using (var httpClient = new HttpClient())
             {
-                Console.WriteLine($"Found {users.Value.Count} user(s) with email '{email}':");
-                foreach (var user in users.Value)
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+                var response = await httpClient.GetAsync("https://graph.microsoft.com/v1.0/me/photo/$value");
+
+                if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine($"- {user.DisplayName} ({user.Id})");
+                    using (var fileStream = new System.IO.FileStream("profileImage.jpg", System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                    {
+                        await response.Content.CopyToAsync(fileStream);
+                    }
+
+                    Console.WriteLine("Profile image saved successfully.");
                 }
-
-                // Return the first user that matches the email exactly
-                return users.Value.FirstOrDefault(u => u.UserPrincipalName.Equals(email, StringComparison.OrdinalIgnoreCase));
+                else
+                {
+                    Console.WriteLine($"Failed to retrieve profile photo. Status code: {response.StatusCode}");
+                }
             }
-
-            Console.WriteLine($"No users found with email '{email}'");
-            return null;
         }
     }
 }
