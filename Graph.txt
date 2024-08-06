@@ -1,8 +1,10 @@
 using System;
-using System.Net.Http.Headers;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Graph;
-using Microsoft.Identity.Client;
+using Microsoft.Graph.Models;
+using Azure.Identity;
 
 namespace GraphProfileImage
 {
@@ -20,10 +22,11 @@ namespace GraphProfileImage
 
             if (user != null)
             {
-                var photo = await graphClient.Users[user.Id].Photo.Content.Request().GetAsync();
-                using (var fileStream = new System.IO.FileStream("profileImage.jpg", System.IO.FileMode.Create, System.IO.FileAccess.Write))
+                var photoStream = await graphClient.Users[user.Id].Photo.Content.GetAsync();
+
+                using (var fileStream = new FileStream("profileImage.jpg", FileMode.Create, FileAccess.Write))
                 {
-                    photo.CopyTo(fileStream);
+                    await photoStream.CopyToAsync(fileStream);
                 }
 
                 Console.WriteLine("Profile image saved successfully.");
@@ -36,25 +39,33 @@ namespace GraphProfileImage
 
         private static GraphServiceClient GetAuthenticatedGraphClient()
         {
-            var confidentialClientApplication = ConfidentialClientApplicationBuilder
-                .Create(clientId)
-                .WithTenantId(tenantId)
-                .WithClientSecret(clientSecret)
-                .Build();
+            var clientSecretCredential = new ClientSecretCredential(tenantId, clientId, clientSecret);
 
-            var authProvider = new ClientCredentialProvider(confidentialClientApplication);
-
-            return new GraphServiceClient(authProvider);
+            return new GraphServiceClient(clientSecretCredential, new[] { "https://graph.microsoft.com/.default" });
         }
 
         private static async Task<User> GetUserByDisplayNameAsync(GraphServiceClient graphClient, string displayName)
         {
             var users = await graphClient.Users
-                .Request()
-                .Filter($"displayName eq '{displayName}'")
-                .GetAsync();
+                .GetAsync(requestConfiguration =>
+                {
+                    requestConfiguration.QueryParameters.Filter = $"startswith(displayName, '{displayName}')";
+                });
 
-            return users.Count > 0 ? users[0] : null;
+            if (users.Value.Count > 0)
+            {
+                Console.WriteLine($"Found {users.Value.Count} user(s) with display name starting with '{displayName}':");
+                foreach (var user in users.Value)
+                {
+                    Console.WriteLine($"- {user.DisplayName} ({user.Id})");
+                }
+
+                // Return the first user that matches the display name exactly
+                return users.Value.FirstOrDefault(u => u.DisplayName.Equals(displayName, StringComparison.OrdinalIgnoreCase));
+            }
+
+            Console.WriteLine($"No users found with display name starting with '{displayName}'");
+            return null;
         }
     }
 }
