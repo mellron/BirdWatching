@@ -1,91 +1,70 @@
 using System;
-using System.Collections.Generic;
-using System.Text.Json.Serialization;
-
-public class SecretResponse
-{
-    [JsonPropertyName("request_id")]
-    public string RequestId { get; set; }
-
-    [JsonPropertyName("lease_id")]
-    public string LeaseId { get; set; }
-
-    [JsonPropertyName("renewable")]
-    public bool Renewable { get; set; }
-
-    [JsonPropertyName("lease_duration")]
-    public int LeaseDuration { get; set; }
-
-    [JsonPropertyName("data")]
-    public SecretData Data { get; set; }
-
-    [JsonPropertyName("wrap_info")]
-    public object WrapInfo { get; set; }
-
-    [JsonPropertyName("warnings")]
-    public object Warnings { get; set; }
-
-    [JsonPropertyName("auth")]
-    public object Auth { get; set; }
-
-    [JsonPropertyName("mount_type")]
-    public string MountType { get; set; }
-}
-
-public class SecretData
-{
-    // Renamed property to Secrets
-    [JsonPropertyName("data")]
-    public Dictionary<string, string> Secrets { get; set; }
-
-    [JsonPropertyName("metadata")]
-    public Metadata Metadata { get; set; }
-}
-
-public class Metadata
-{
-    [JsonPropertyName("created_time")]
-    public DateTime CreatedTime { get; set; }
-
-    [JsonPropertyName("custom_metadata")]
-    public object CustomMetadata { get; set; }
-
-    [JsonPropertyName("deletion_time")]
-    public string DeletionTime { get; set; }
-
-    [JsonPropertyName("destroyed")]
-    public bool Destroyed { get; set; }
-
-    [JsonPropertyName("version")]
-    public int Version { get; set; }
-}
-
-
-// examples 
-
-using System;
+using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using System.Text.Json;
+using Microsoft.Extensions.Caching.Memory;
 
-public class Program
+public class UserProfileImageService
 {
-    public static async Task Main(string[] args)
+    private readonly IMemoryCache _cache;
+    private readonly HttpClient _httpClient;
+
+    public UserProfileImageService(IMemoryCache cache, HttpClient httpClient)
     {
-        string url = "your_hashicorp_vault_url";
-        HttpClient client = new HttpClient();
-
-        HttpResponseMessage response = await client.GetAsync(url);
-        response.EnsureSuccessStatusCode();
-
-        string jsonResponse = await response.Content.ReadAsStringAsync();
-
-        // Deserialize JSON response into SecretResponse object
-        SecretResponse secretResponse = JsonSerializer.Deserialize<SecretResponse>(jsonResponse);
-
-        // Access the properties of SecretResponse
-        Console.WriteLine($"Request ID: {secretResponse.RequestId}");
-        Console.WriteLine($"HROPAPI_User: {secretResponse.Data.Secrets["HROPAPI_User"]}");
-        Console.WriteLine($"Created Time: {secretResponse.Data.Metadata.CreatedTime}");
+        _cache = cache;
+        _httpClient = httpClient;
     }
+
+    public async Task<byte[]> GetUserProfileImageAsync(string userId, string accessToken)
+    {
+        if (_cache.TryGetValue(userId, out CachedImage cachedImage))
+        {
+            // If the image is cached, use the ETag to check if it has changed
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, $"https://graph.microsoft.com/v1.0/users/{userId}/photo/$value");
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            requestMessage.Headers.IfNoneMatch.Add(new EntityTagHeaderValue(cachedImage.ETag));
+
+            var response = await _httpClient.SendAsync(requestMessage);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.NotModified)
+            {
+                // Return the cached image if it hasn't changed
+                return cachedImage.ImageData;
+            }
+            else if (response.IsSuccessStatusCode)
+            {
+                // Update the cache if the image has changed
+                var imageData = await response.Content.ReadAsByteArrayAsync();
+                var eTag = response.Headers.ETag?.Tag;
+
+                _cache.Set(userId, new CachedImage { ImageData = imageData, ETag = eTag }, TimeSpan.FromHours(24));
+
+                return imageData;
+            }
+        }
+        else
+        {
+            // Fetch and cache the image if not already cached
+            var response = await _httpClient.GetAsync($"https://graph.microsoft.com/v1.0/users/{userId}/photo/$value");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var imageData = await response.Content.ReadAsByteArrayAsync();
+                var eTag = response.Headers.ETag?.Tag;
+
+                _cache.Set(userId, new CachedImage { ImageData = imageData, ETag = eTag }, TimeSpan.FromHours(24));
+
+                return imageData;
+            }
+        }
+
+        return null;
+    }
+}
+
+public class CachedImage
+{
+    public byte[] ImageData { get; set; }
+    public string ETag { get; set; }
 }
