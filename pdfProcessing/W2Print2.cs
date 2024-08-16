@@ -155,11 +155,23 @@ namespace W2PrintProcessor
             Console.WriteLine("****************************************************");
         }
 
-        // Updated AddressExtract method to use PdfPig
+        
         public string AddressExtract(Page page)
         {
-            string text = page.Text;
-            return text.Substring(0, text.IndexOf("\n")).Trim();
+            // Define the rectangle area from which to extract text
+            PdfRectangle rect = new PdfRectangle(14, page.Height - 162, 14 + 280, page.Height - (162 + 54));
+
+            // Extract text from the specified region
+            string addressLines = string.Empty;
+            foreach (var word in page.GetWords())
+            {
+                if (rect.Contains(word.BoundingBox))
+                {
+                    addressLines += word.Text + " ";
+                }
+            }
+
+            return addressLines.Trim();
         }
 
         public void SetupBatch()
