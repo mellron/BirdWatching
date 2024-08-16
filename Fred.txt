@@ -1,43 +1,84 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using UglyToad.PdfPig.Content;
-using UglyToad.PdfPig.Geometry;
+using PdfSharpCore.Pdf;
+using PdfSharpCore.Pdf.IO;
 
 namespace W2PrintProcessor
 {
     class W2Print
     {
-        public string AddressExtract(Page page)
+        public void SavePageAsPdf(Page page, string outputPath, string filename)
         {
-            // Define the rectangle area from which to extract text
-            PdfRectangle rect = new PdfRectangle(
-                14,                        // Lower-left x-coordinate
-                page.Height - 162,         // Lower-left y-coordinate
-                14 + 280,                  // Upper-right x-coordinate
-                page.Height - (162 + 54)   // Upper-right y-coordinate
-            );
-
-            string addressLines = string.Empty;
-
-            // Group words by their y-coordinate to form lines
-            var lines = page.GetWords()
-                            .Where(word => rect.Contains(word.BoundingBox)) // Only consider words inside the rectangle
-                            .GroupBy(word => Math.Round(word.BoundingBox.Bottom, 2))
-                            .OrderByDescending(g => g.Key); // Descending order for top-to-bottom reading
-
-            foreach (var line in lines)
+            try
             {
-                foreach (var word in line.OrderBy(w => w.BoundingBox.Left)) // Order words from left to right
-                {
-                    addressLines += word.Text + " ";
-                }
-                addressLines = addressLines.Trim() + "\n"; // Add a newline after each line
-            }
+                // Ensure the output directory exists
+                Directory.CreateDirectory(outputPath);
 
-            return addressLines.TrimEnd(); // Remove the last newline character
+                // Combine the output path and filename
+                string fullPath = Path.Combine(outputPath, filename);
+
+                // Create a new PDF document using PdfSharpCore
+                PdfDocument newDocument = new PdfDocument();
+
+                // Extract the content from the page's parent document
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    // Here, you save the original PDF's page content to the stream
+                    PdfDocument originalDocument = PdfReader.Open(page.DocumentSource, PdfDocumentOpenMode.Import);
+                    PdfPage newPage = newDocument.AddPage(originalDocument.Pages[page.Number - 1]);
+
+                    // Save the new PDF to the specified file
+                    newDocument.Save(fullPath);
+                    Console.WriteLine($"Page saved as {fullPath}");
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine($"Error: Directory not found - {ex.Message}");
+                throw new Exception("Failed to create or access the specified directory.", ex);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Error: I/O error occurred - {ex.Message}");
+                throw new Exception("Failed to save the PDF file due to an I/O error.", ex);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Console.WriteLine($"Error: Unauthorized access - {ex.Message}");
+                throw new Exception("Failed to save the PDF file due to insufficient permissions.", ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: An unexpected error occurred - {ex.Message}");
+                throw new Exception("An unexpected error occurred while saving the PDF file.", ex);
+            }
         }
 
         // Other methods of the W2Print class...
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Example usage:
+            // Assuming you have a Page object from PdfPig
+
+            try
+            {
+                using (PdfDocument pdfDocument = PdfDocument.Open("input.pdf"))
+                {
+                    Page page = pdfDocument.GetPage(1); // Replace with the desired page number
+
+                    W2Print processor = new W2Print();
+                    processor.SavePageAsPdf(page, "output", "extracted_page_1.pdf");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred during processing: {ex.Message}");
+            }
+        }
     }
 }
