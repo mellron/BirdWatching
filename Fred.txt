@@ -8,7 +8,7 @@ namespace W2PrintProcessor
 {
     class W2Print
     {
-        public void SavePageAsPdf(Page page, string outputPath, string filename)
+        public void SavePageAsPdf(UglyToad.PdfPig.Content.Page page, string outputPath, string filename)
         {
             try
             {
@@ -19,14 +19,14 @@ namespace W2PrintProcessor
                 string fullPath = Path.Combine(outputPath, filename);
 
                 // Create a new PDF document using PdfSharpCore
-                PdfDocument newDocument = new PdfDocument();
+                PdfSharpCore.Pdf.PdfDocument newDocument = new PdfSharpCore.Pdf.PdfDocument();
 
                 // Extract the content from the page's parent document
                 using (MemoryStream stream = new MemoryStream())
                 {
                     // Here, you save the original PDF's page content to the stream
-                    PdfDocument originalDocument = PdfReader.Open(page.DocumentSource, PdfDocumentOpenMode.Import);
-                    PdfPage newPage = newDocument.AddPage(originalDocument.Pages[page.Number - 1]);
+                    PdfSharpCore.Pdf.PdfDocument originalDocument = PdfSharpCore.Pdf.IO.PdfReader.Open(page.DocumentSource, PdfSharpCore.Pdf.IO.PdfDocumentOpenMode.Import);
+                    PdfSharpCore.Pdf.PdfPage newPage = newDocument.AddPage(originalDocument.Pages[page.Number - 1]);
 
                     // Save the new PDF to the specified file
                     newDocument.Save(fullPath);
@@ -67,9 +67,9 @@ namespace W2PrintProcessor
 
             try
             {
-                using (PdfDocument pdfDocument = PdfDocument.Open("input.pdf"))
+                using (PdfSharpCore.Pdf.PdfDocument pdfDocument = PdfSharpCore.Pdf.IO.PdfReader.Open("input.pdf"))
                 {
-                    Page page = pdfDocument.GetPage(1); // Replace with the desired page number
+                    UglyToad.PdfPig.Content.Page page = pdfDocument.GetPage(1); // Replace with the desired page number
 
                     W2Print processor = new W2Print();
                     processor.SavePageAsPdf(page, "output", "extracted_page_1.pdf");
