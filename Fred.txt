@@ -1,84 +1,90 @@
-using System;
-using System.IO;
-using UglyToad.PdfPig.Content;
-using PdfSharpCore.Pdf;
-using PdfSharpCore.Pdf.IO;
+WITH MaxImportDates AS (
+    SELECT
+         CT.ContractorMasterID,
+         MAX(CT.RecordID) AS RecordID
+    FROM
+        Contractors.[VMSContractorListHistory] CT
+    WHERE
+        CT.ContractorMasterID IS NOT NULL
+    GROUP BY
+        ContractorMasterID
+),
+ContractorDetails AS (
+    SELECT   
+        LTRIM(RTRIM(WL.MailLocationCD)) AS MailLocationCD
+        ,WL.LongDESC AS LongDESC
+        ,WL.AddressLine1 AS AddressLine1
+        ,WL.AddressLine2 AS AddressLine2
+        ,WL.City AS City
+        ,WL.StateCD AS StateCD
+        ,ZipCode.ZipCD AS ZipCD
+        ,CASE
+            WHEN Country.CountryCD3 IS NULL THEN Country.CountryCD
+            ELSE Country.CountryCD3
+         END AS CountryCD
+        ,Country.CountryNM
+        ,CAST(BWI.StartDate AS Datetime) AS HireDT
+        ,EM.AssignmentLaborCategoryCode
+        ,EM.AssignmentLaborCategoryName
+        ,EM.SupplierName
+        ,EM.SupplierCode
+        ,EM.OnshoreOffshore
+        ,BWI.RecordID
+        ,BWI.ImportDateTime
+        ,BWI.ContractorMasterID
+        ,BWI.CurrentStatus
+        ,BWI.VMSSourceKey
+        ,BWI.AssignmentID
+        ,BWI.RequestID
+        ,BWI.FirstName
+        ,BWI.MiddleName
+        ,BWI.LastName
+        ,BWI.TransactionDate
+        ,BWI.EffectiveDate
+        ,BWI.StartDate
+        ,BWI.EndDate
+        ,BWI.TerminationDate
+        ,CASE
+            WHEN BWI.PreferredID IS NULL OR RTRIM(LTRIM(BWI.PreferredID)) = '' THEN AD.PreferredID
+            ELSE BWI.PreferredID
+         END AS PreferredID
+        ,BWI.ManagerPreferredID
+        ,BWI.JobTitleCode
+        ,BWI.SystemAccess
+        ,BWI.InfoSecIgnoreRecord
+        ,BWI.MailLocationCode
+        ,BWI.MailCodeOverride
+        ,BWI.TimeKeepingSendToVMS
+    FROM
+        MaxImportDates MID
+    INNER JOIN
+        Contractors.[VMSContractorListHistory] BWI
+        ON MID.ContractorMasterID = BWI.ContractorMasterID AND
+           MID.RecordID = BWI.RecordID
+    INNER JOIN
+        Contractors.EngagementsMaster EM ON EM.ContractorMasterID = BWI.ContractorMasterID
+    LEFT JOIN
+        dbo.MailLocation WL ON WL.MailLocationCD = BWI.MailLocationCode
+    INNER JOIN
+        dbo.ZipCode ON ZipCode.ZipCodeID = WL.ZipCodeID
+    LEFT JOIN
+        dbo.Country ON Country.CountryCD = WL.CountryCD
+    LEFT JOIN
+        dbo.AD_Person_LOAD AD ON AD.employeeID = BWI.ContractorMasterID
+    WHERE
+        BWI.PreferredID IS NOT NULL
+        AND BWI.PreferredID <> ''
+),
+RankedRecords AS (
+    SELECT
+        CD.*,
+        ROW_NUMBER() OVER (PARTITION BY CD.PreferredID ORDER BY CD.RecordID DESC) AS RN
+    FROM
+        ContractorDetails CD
+)
 
-namespace W2PrintProcessor
-{
-    class W2Print
-    {
-        public void SavePageAsPdf(UglyToad.PdfPig.Content.Page page, string outputPath, string filename)
-        {
-            try
-            {
-                // Ensure the output directory exists
-                Directory.CreateDirectory(outputPath);
-
-                // Combine the output path and filename
-                string fullPath = Path.Combine(outputPath, filename);
-
-                // Create a new PDF document using PdfSharpCore
-                PdfSharpCore.Pdf.PdfDocument newDocument = new PdfSharpCore.Pdf.PdfDocument();
-
-                // Extract the content from the page's parent document
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    // Here, you save the original PDF's page content to the stream
-                    PdfSharpCore.Pdf.PdfDocument originalDocument = PdfSharpCore.Pdf.IO.PdfReader.Open(page.DocumentSource, PdfSharpCore.Pdf.IO.PdfDocumentOpenMode.Import);
-                    PdfSharpCore.Pdf.PdfPage newPage = newDocument.AddPage(originalDocument.Pages[page.Number - 1]);
-
-                    // Save the new PDF to the specified file
-                    newDocument.Save(fullPath);
-                    Console.WriteLine($"Page saved as {fullPath}");
-                }
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                Console.WriteLine($"Error: Directory not found - {ex.Message}");
-                throw new Exception("Failed to create or access the specified directory.", ex);
-            }
-            catch (IOException ex)
-            {
-                Console.WriteLine($"Error: I/O error occurred - {ex.Message}");
-                throw new Exception("Failed to save the PDF file due to an I/O error.", ex);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Console.WriteLine($"Error: Unauthorized access - {ex.Message}");
-                throw new Exception("Failed to save the PDF file due to insufficient permissions.", ex);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: An unexpected error occurred - {ex.Message}");
-                throw new Exception("An unexpected error occurred while saving the PDF file.", ex);
-            }
-        }
-
-        // Other methods of the W2Print class...
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Example usage:
-            // Assuming you have a Page object from PdfPig
-
-            try
-            {
-                using (PdfSharpCore.Pdf.PdfDocument pdfDocument = PdfSharpCore.Pdf.IO.PdfReader.Open("input.pdf"))
-                {
-                    UglyToad.PdfPig.Content.Page page = pdfDocument.GetPage(1); // Replace with the desired page number
-
-                    W2Print processor = new W2Print();
-                    processor.SavePageAsPdf(page, "output", "extracted_page_1.pdf");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred during processing: {ex.Message}");
-            }
-        }
-    }
-}
+SELECT *
+FROM
+    RankedRecords
+WHERE
+    RN = 1;
