@@ -1,1 +1,34 @@
-lively-meadow-042e0100f.5.azurestaticapps.net
+
+PRODUCTION Environment:
+	SQL Server: VMCKSA69901M08X.us.bank-dns.com,49001
+	Citrix Server:
+		VMTKSA69901MR0
+		VMTKSA69901MR1
+	SSRS Server: VMBKSA69901A1T (both front end and SQL back end)
+	SSIS Server: VMBKSA69901MHK
+
+UAT Environment:
+	SQL Server: VMCKSA69901M08U.us.bank-dns.com,49001
+	Citrix Server: VMTKSA69901MNX
+	SSRS Server: VMBKSA69901A1R (both front end and SQL back end)
+	SSIS Server: VMBKSA69901MHJ
+
+DEVELOPMENT Environment:
+	SQL Server: VMBKSA69901MRS.us.bank-dns.com,49001
+	Citrix Server: VMTKSA69901MNW
+	SSRS Server: VMBKSA69901A1Q (both front end and SQL back end)
+	SSIS Server: VMBKSA69901MHH
+
+IT Environment:
+	SQL Server: VMBKSA69901MRT.us.bank-dns.com,49001
+	Citrix Server: VMTKSA69901MNW
+	SSRS Server: VMBKSA69901A1Q (both front end and SQL back end)
+	SSIS Server: VMBKSA69901MHH
+
+DR (Disaster Recovery) Environment:
+	SQL Server: VMCKSA69901M08X.us.bank-dns.com,49001
+	Citrix Server: VMTMN14GLBSMHT
+	SSRS Server:
+		VMBMNAJ9C01M0L (front end)
+		VMBMNAJ9C01M0K (SQL back end)
+	SSIS Server: VMBMN14GLBSM7E
