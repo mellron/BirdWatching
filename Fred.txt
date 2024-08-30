@@ -1,34 +1,33 @@
+public void Main()
+{
+    string filePath = Dts.Connections["Contractors.txt"].AcquireConnection(Dts.Transaction) as string;
+    int retryCount = 3;
+    bool success = false;
 
-PRODUCTION Environment:
-	SQL Server: VMCKSA69901M08X.us.bank-dns.com,49001
-	Citrix Server:
-		VMTKSA69901MR0
-		VMTKSA69901MR1
-	SSRS Server: VMBKSA69901A1T (both front end and SQL back end)
-	SSIS Server: VMBKSA69901MHK
+    for (int i = 0; i < retryCount; i++)
+    {
+        try
+        {
+            using (StreamWriter sw = File.AppendText(filePath))
+            {
+                sw.WriteLine(Dts.Variables["User::RowCount"].Value.ToString());
+            }
+            success = true;
+            break; // Exit the loop if writing succeeds
+        }
+        catch (IOException ex)
+        {
+            Dts.Events.FireWarning(0, "ScriptTask", $"Failed to write to file. Attempt {i + 1} of {retryCount}. Error: {ex.Message}", "", 0);
+            System.Threading.Thread.Sleep(5000); // Wait 5 seconds before retrying
+        }
+    }
 
-UAT Environment:
-	SQL Server: VMCKSA69901M08U.us.bank-dns.com,49001
-	Citrix Server: VMTKSA69901MNX
-	SSRS Server: VMBKSA69901A1R (both front end and SQL back end)
-	SSIS Server: VMBKSA69901MHJ
-
-DEVELOPMENT Environment:
-	SQL Server: VMBKSA69901MRS.us.bank-dns.com,49001
-	Citrix Server: VMTKSA69901MNW
-	SSRS Server: VMBKSA69901A1Q (both front end and SQL back end)
-	SSIS Server: VMBKSA69901MHH
-
-IT Environment:
-	SQL Server: VMBKSA69901MRT.us.bank-dns.com,49001
-	Citrix Server: VMTKSA69901MNW
-	SSRS Server: VMBKSA69901A1Q (both front end and SQL back end)
-	SSIS Server: VMBKSA69901MHH
-
-DR (Disaster Recovery) Environment:
-	SQL Server: VMCKSA69901M08X.us.bank-dns.com,49001
-	Citrix Server: VMTMN14GLBSMHT
-	SSRS Server:
-		VMBMNAJ9C01M0L (front end)
-		VMBMNAJ9C01M0K (SQL back end)
-	SSIS Server: VMBMN14GLBSM7E
+    if (!success)
+    {
+        Dts.TaskResult = (int)ScriptResults.Failure;
+    }
+    else
+    {
+        Dts.TaskResult = (int)ScriptResults.Success;
+    }
+}
