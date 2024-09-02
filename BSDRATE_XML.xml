@@ -1,0 +1,14 @@
+<Files>
+  <File scheduledtime="15:00" DayOfTheWeek="Mo">
+    <SourceDirectory>C:\Source\</SourceDirectory>
+    <DestinationDirectory>C:\Destination\</DestinationDirectory>
+    <SourceFileName>BSDRATE_1.txt</SourceFileName>
+    <DestinationFileName>BSDRATE_1.txt</DestinationFileName>
+  </File>
+  <File scheduledtime="16:00" DayOfTheWeek="All">
+    <SourceDirectory>C:\Source\</SourceDirectory>
+    <DestinationDirectory>C:\Destination\</DestinationDirectory>
+    <SourceFileName>BSDRate_2.txt</SourceFileName>
+    <DestinationFileName>BSDRate_2.txt</DestinationFileName>
+  </File>
+</Files>
