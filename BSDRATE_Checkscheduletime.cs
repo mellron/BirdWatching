@@ -1,36 +1,109 @@
-using System;
-
 public void Main()
 {
-    // Retrieve variables from SSIS package
-    string scheduledTime = Dts.Variables["User::ScheduledTime"].Value.ToString(); // Format: "HH:mm"
-    string dayOfTheWeek = Dts.Variables["User::DayOfTheWeek"].Value.ToString();  // Values: "All", "Mo", "Tu", "We", "Th", "Fr", or combinations like "MoTu"
+    // Get the current XML node passed to the script
+    GetVarables();
 
-    // Parse the scheduled time in "HH:mm" format
-    TimeSpan scheduledTimeSpan = TimeSpan.ParseExact(scheduledTime, "hh\\:mm", null);
-    TimeSpan currentTimeSpan = DateTime.Now.TimeOfDay;
+    // Process the node to determine if the file should be copied
+    ParseNode();
 
-    // Get the current day of the week
-    string currentDay = DateTime.Now.ToString("ddd"); // "Mon", "Tue", etc.
-    currentDay = currentDay.Substring(0, 2); // "Mo", "Tu", etc.
+    // Set the output variables based on the results of ParseNode
+    SetReturnVarables();
 
-    // Check if the current day is in the specified DayOfTheWeek or if it's set to "All"
-    bool isDayMatch = dayOfTheWeek.Equals("All", StringComparison.OrdinalIgnoreCase) || dayOfTheWeek.Contains(currentDay);
+    // Set the task result to success if everything ran correctly
+    Dts.TaskResult = (int)ScriptResults.Success;
+}
 
-    // Check if the current time is past or equal to the scheduled time
-    bool isTimeMatch = currentTimeSpan >= scheduledTimeSpan;
+public void GetVarables()
+{
+    // Retrieve the current node being passed into the script
+    m_oNode = (System.Xml.XmlNode)Dts.Variables["Node"].Value;
+}
 
-    // Decide whether to execute the copy script or skip
-    if (isDayMatch && isTimeMatch)
+public void SetReturnVarables()
+{
+    if (m_bCopyFile)
     {
-        Dts.Variables["User::ShouldExecuteCopy"].Value = true;
-        Dts.Events.FireInformation(0, "Check DateTime Script", "Conditions met. Proceeding with file copy.", string.Empty, 0);
+        Dts.Variables["bCopyFile"].Value = m_bCopyFile;
+
+        // Set the variables from the selected XML node.
+        Dts.Variables["User::sSourceDirectory"].Value = m_oNode.SelectSingleNode("SourceDirectory").InnerText;
+        Dts.Variables["User::sSourceFileName"].Value = m_oNode.SelectSingleNode("SourceFileName").InnerText;
+        Dts.Variables["User::sDestination"].Value = m_oNode.SelectSingleNode("DestinationDirectory").InnerText;
+        Dts.Variables["User::sDestinationFileName"].Value = m_oNode.SelectSingleNode("DestinationFileName").InnerText;
     }
     else
     {
-        Dts.Variables["User::ShouldExecuteCopy"].Value = false;
-        Dts.Events.FireInformation(0, "Check DateTime Script", "Conditions not met. Skipping file copy.", string.Empty, 0);
+        // Optionally set the task result to failure if no action is taken
+        Dts.TaskResult = (int)ScriptResults.Failure;
+    }
+}
+
+public void ParseNode()
+{
+    DateTime _DT = DateTime.Today;
+    DayOfWeek _TodayDayOfWeek = _DT.DayOfWeek;
+
+    bool _bAction = true;
+    m_bCopyFile = true;
+
+    if (m_oNode.Attributes["schedule"] != null)
+    {
+        string _days = m_oNode.Attributes["schedule"].Value.ToString();
+
+        if (_days != "All")
+        {
+            switch (_TodayDayOfWeek)
+            {
+                case DayOfWeek.Sunday:
+                    _bAction = (_days.IndexOf("Su") > -1);
+                    break;
+                case DayOfWeek.Monday:
+                    _bAction = (_days.IndexOf("Mo") > -1);
+                    break;
+                case DayOfWeek.Tuesday:
+                    _bAction = (_days.IndexOf("Tu") > -1);
+                    break;
+                case DayOfWeek.Wednesday:
+                    _bAction = (_days.IndexOf("We") > -1);
+                    break;
+                case DayOfWeek.Thursday:
+                    _bAction = (_days.IndexOf("Th") > -1);
+                    break;
+                case DayOfWeek.Friday:
+                    _bAction = (_days.IndexOf("Fr") > -1);
+                    break;
+                case DayOfWeek.Saturday:
+                    _bAction = (_days.IndexOf("Sa") > -1);
+                    break;
+                default:
+                    _bAction = false;
+                    break;
+            }
+        }
     }
 
-    Dts.TaskResult = (int)ScriptResults.Success;
+    if (m_oNode.Attributes["start_time"] != null && _bAction)
+    {
+        string _start_time = m_oNode.Attributes["start_time"].Value.ToString();
+        string[] _comp = _start_time.Split(':');
+
+        DateTime _moment = DateTime.Now;
+
+        int _runhour = Convert.ToInt32(_comp[0]);
+        int _runmin = Convert.ToInt32(_comp[1]);
+
+        int _hour = _moment.Hour;
+        int _min = _moment.Minute;
+
+        if (_runhour == _hour && (_min >= _runmin && _min <= _runmin + 5))
+        {
+            _bAction = true;
+        }
+        else
+        {
+            _bAction = false;
+        }
+    }
+
+    m_bCopyFile = m_bCopyFile && _bAction;
 }
