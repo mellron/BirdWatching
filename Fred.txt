@@ -1,33 +1,177 @@
-public void Main()
-{
-    string filePath = Dts.Connections["Contractors.txt"].AcquireConnection(Dts.Transaction) as string;
-    int retryCount = 3;
-    bool success = false;
-
-    for (int i = 0; i < retryCount; i++)
-    {
-        try
-        {
-            using (StreamWriter sw = File.AppendText(filePath))
-            {
-                sw.WriteLine(Dts.Variables["User::RowCount"].Value.ToString());
-            }
-            success = true;
-            break; // Exit the loop if writing succeeds
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasury Servers Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
         }
-        catch (IOException ex)
-        {
-            Dts.Events.FireWarning(0, "ScriptTask", $"Failed to write to file. Attempt {i + 1} of {retryCount}. Error: {ex.Message}", "", 0);
-            System.Threading.Thread.Sleep(5000); // Wait 5 seconds before retrying
+        h1, h2 {
+            color: #004d99;
         }
-    }
+        h1 {
+            font-size: 24px;
+            border-bottom: 2px solid #004d99;
+            padding-bottom: 10px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
 
-    if (!success)
-    {
-        Dts.TaskResult = (int)ScriptResults.Failure;
-    }
-    else
-    {
-        Dts.TaskResult = (int)ScriptResults.Success;
-    }
-}
+    <h1>Treasury Servers Overview</h1>
+
+    <div class="section">
+        <h2>1. Operations Applications and Tier 1 Users</h2>
+        <ul>
+            <li>Servers: VMTKSA69901MR0, VMTKSA69901MNX, VMTKSA69901MNW, VMTMN14GLBSMHT</li>
+            <li>Environment: Production, UAT, Development, Disaster Recovery</li>
+            <li>Citrix: Citrix-load balanced</li>
+            <li>DEV and IT usage</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>2. SQL Servers and Clusters</h2>
+        <ul>
+            <li>SQL Servers:
+                <ul>
+                    <li>VMCKSA69901M08X.us.bank-dns.com, 49001</li>
+                    <li>VMCKSA69901M08U.us.bank-dns.com, 49001</li>
+                    <li>VMBKSA69901MRS.us.bank-dns.com, 49001</li>
+                </ul>
+            </li>
+            <li>Clusters:
+                <ul>
+                    <li>VMCKSA69901M8Y, VMCKSA69901M8V</li>
+                    <li>SQL Always On HA Group (SQL 2017 at both OBC and CBC)</li>
+                </ul>
+            </li>
+            <li>Dev/IT Alias: ctdbdev1, ctdbit1 (wip)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. TFS Application Servers</h2>
+        <ul>
+            <li>Servers:
+                <ul>
+                    <li>VMAKSA69901BM4, VMAKSA69901B7H</li>
+                    <li>VMAKSA69901BM5, VMAKSA69901B7L</li>
+                    <li>VMAMN14GLBSC4M, VMAMN14GLBSC4N</li>
+                </ul>
+            </li>
+            <li>SQL Backends:
+                <ul>
+                    <li>SVCKSA69901MZS, SVCKSA69901MZP</li>
+                    <li>SVCKSA69901MZU, SVCKSA69901MZR</li>
+                </ul>
+            </li>
+            <li>High Availability Group: SQL 2017</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>4. Kubernetes Clusters (Rancher Managed)</h2>
+        <ul>
+            <li>Clusters:
+                <ul>
+                    <li>gen-obc-k8-prod1, gen-obc-k8-uat1, gen-obc-k8-test1, gen-cbc-k8-prod1</li>
+                </ul>
+            </li>
+            <li>Namespaces:
+                <ul>
+                    <li>apl-corp-treas-sys-prod1, apl-corp-treas-sys-uat1</li>
+                    <li>apl-corp-treas-sys-it1, apl-corp-treas-sys-dev1</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>5. InTrader Servers</h2>
+        <ul>
+            <li>Servers:
+                <ul>
+                    <li>SVAKSA69901A6B, SVAKSA69901A4F, SVAKSA69901A4F</li>
+                </ul>
+            </li>
+            <li>Alias: ITSUNDR, ITSUNPRD, ITSUNTST</li>
+            <li>High Availability: ITSUNHA</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>6. SSIS & SSRS Systems</h2>
+        <ul>
+            <li>SSIS Servers:
+                <ul>
+                    <li>VMBKSA69901MHK, VMBKSA69901MHJ</li>
+                    <li>SSIS File Paths:
+                        <ul>
+                            <li>\\VMBKSA69901MHK\ssis\CorpTreasury</li>
+                            <li>\\VMBMN14GLBSM7E\ssis\CorpTreasury</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>SSRS Frontend and Backend:
+                <ul>
+                    <li>SQL backend (2019): VMBKSA69901A1T, 49001</li>
+                    <li>Frontend URL: http://VMBKSA69901A1T/ReportServer</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Datastage Databases</h2>
+        <ul>
+            <li>Database Alias:
+                <ul>
+                    <li>ctdb1, ctdbuat1, ctdbdev1</li>
+                </ul>
+            </li>
+            <li>SQL Version: SQL 2017, SQL 2008 EE x64</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>8. Other Systems (Model/Analysis, TPG & QRM)</h2>
+        <ul>
+            <li>Systems:
+                <ul>
+                    <li>VMBKSA69901MUC.us.bank-dns.com, 49001</li>
+                    <li>VMBKSA69901MUB.us.bank-dns.com, 49001</li>
+                    <li>VMBKSA69901MRS.us.bank-dns.com, 49001</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>9. Disaster Recovery Systems</h2>
+        <!-- Add relevant content here -->
+    </div>
+
+    <div class="section">
+        <h2>10. Production Systems</h2>
+        <!-- Add relevant content here -->
+    </div>
+
+</body>
+</html>
