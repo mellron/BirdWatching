@@ -1,41 +1,58 @@
 using System;
-using Microsoft.SqlServer.Dts.Runtime;
-using System.IO;
+using System.Threading;
 
-public void Main()
+public class ConsoleSpinner : IDisposable
 {
-    // Read variables
-    string vBloombergFileName = Dts.Variables["User::vBloombergFileName"].Value.ToString();
-    string vBSDDevArchiveFolder = Dts.Variables["User::vBSDDevArchiveFolder"].Value.ToString();
-    string vBSDArchiveFolder = Dts.Variables["User::vBSDArchiveFolder"].Value.ToString();
-    string vFirstSecondRun = Dts.Variables["User::vFirstSecondRun"].Value.ToString();
+    private static readonly char[] Sequence = { '|', '/', '-', '\\' }; // The spinner sequence
+    private int _counter;
+    private bool _active;
+    private readonly Thread _thread;
 
-    // Extract file name and extension separately
-    string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(vBloombergFileName);
-    string fileExtension = Path.GetExtension(vBloombergFileName);
-
-    // If vFirstSecondRun is not "second", append "1" to the file name; otherwise, append "2"
-    if (vFirstSecondRun != "second")
+    public ConsoleSpinner()
     {
-        fileNameWithoutExtension += "1";  // Append "1" to the file name if it's not "second"
-    }
-    else
-    {
-        fileNameWithoutExtension += "2";  // Append "2" to the file name if it is "second"
+        _counter = 0;
+        _active = false;
+        _thread = new Thread(Spin);
     }
 
-    // Combine the folder path and the modified file name with its extension to create the destination file path
-    string vBloombergDestinationFile = Path.Combine(vBSDDevArchiveFolder, fileNameWithoutExtension + fileExtension);
+    public void Start()
+    {
+        _active = true;
+        if (!_thread.IsAlive)
+        {
+            _thread.Start(); // Start the spinner in a new thread
+        }
+    }
 
-    // Set the destination file path
-    Dts.Variables["User::vBloombergDestinationFile"].Value = vBloombergDestinationFile;
+    public void Stop()
+    {
+        _active = false;
+        _thread.Join(); // Wait for the thread to finish
+    }
 
-    // Now build the source file path based on User::vBSDArchiveFolder and apply the same logic for "1" or "2"
-    string vBloombergSourceFile = Path.Combine(vBSDArchiveFolder, fileNameWithoutExtension + fileExtension);
+    private void Spin()
+    {
+        while (_active)
+        {
+            Turn();
+            Thread.Sleep(100); // Change the speed of the spinner
+        }
+    }
 
-    // Set the source file path
-    Dts.Variables["User::vBloombergSourceFile"].Value = vBloombergSourceFile;
+    private void Turn()
+    {
+        Console.Write(Sequence[_counter]); // Write the spinner character
+        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop); // Reset the cursor position
 
-    // Signal success
-    Dts.TaskResult = (int)ScriptResults.Success;
+        _counter++;
+        if (_counter >= Sequence.Length)
+        {
+            _counter = 0;
+        }
+    }
+
+    public void Dispose()
+    {
+        Stop(); // Stop the spinner when disposing
+    }
 }
