@@ -1,58 +1,50 @@
 using System;
 using System.Threading;
 
-public class ConsoleSpinner : IDisposable
+public class Spinner : IDisposable
 {
-    private static readonly char[] Sequence = { '|', '/', '-', '\\' }; // The spinner sequence
-    private int _counter;
+    private readonly string[] _sequence = { "/", "-", "\\", "|" }; // Characters for the spinner
+    private int _counter = 0;
+    private readonly int _delay;
     private bool _active;
-    private readonly Thread _thread;
+    private readonly Thread _spinnerThread;
 
-    public ConsoleSpinner()
+    public Spinner(int delay = 100)
     {
-        _counter = 0;
+        _delay = delay;
         _active = false;
-        _thread = new Thread(Spin);
+        _spinnerThread = new Thread(Spin);
     }
 
     public void Start()
     {
         _active = true;
-        if (!_thread.IsAlive)
+        if (!_spinnerThread.IsAlive)
         {
-            _thread.Start(); // Start the spinner in a new thread
+            _spinnerThread.Start();
         }
     }
 
     public void Stop()
     {
         _active = false;
-        _thread.Join(); // Wait for the thread to finish
+        _spinnerThread.Join();  // Wait for the thread to finish
     }
 
     private void Spin()
     {
         while (_active)
         {
-            Turn();
-            Thread.Sleep(100); // Change the speed of the spinner
-        }
-    }
-
-    private void Turn()
-    {
-        Console.Write(Sequence[_counter]); // Write the spinner character
-        Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop); // Reset the cursor position
-
-        _counter++;
-        if (_counter >= Sequence.Length)
-        {
-            _counter = 0;
+            Console.Write(_sequence[_counter]);   // Write spinner character
+            _counter = (_counter + 1) % _sequence.Length;
+            Console.Out.Flush();                 // Force the output to update
+            Thread.Sleep(_delay);
+            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop); // Go back to overwrite the previous character
         }
     }
 
     public void Dispose()
     {
-        Stop(); // Stop the spinner when disposing
+        Stop();
     }
 }
