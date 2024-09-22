@@ -1,71 +1,81 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using UglyToad.PdfPig.Writer;
-using UglyToad.PdfPig.Content;
+using PdfSharpCore.Pdf;
+using PdfSharpCore.Pdf.IO;
 
 namespace util
 {
     public static class PdfUtil
     {
+        // Static variable to hold the loaded PDF document
+        private static PdfDocument originalDocument = null;
+
+        // Static variable to hold the currently loaded PDF filename
+        private static string currentPdfFilename = string.Empty;
+
+        // Lock object for thread safety
+        private static readonly object lockObj = new object();
+
         /// <summary>
-        /// Saves the specified page as a new PDF using PdfPig.Writer
+        /// Saves a specific page from the input PDF file to a new PDF using PdfSharpCore, and re-loads the file if the filename changes.
         /// </summary>
-        /// <param name="page">The page to save</param>
-        /// <param name="outputPath">The directory where the new PDF should be saved</param>
-        /// <param name="filename">The name of the new PDF file</param>
-        public static void SavePageAsPdf(Page page, string outputPath, string filename)
+        /// <param name="inputPdfPath">Path to the input PDF file</param>
+        /// <param name="outputPath">Directory to save the new PDF</param>
+        /// <param name="filename">Name of the output PDF file</param>
+        /// <param name="pageNumber">Page number to extract and save</param>
+        public static void SavePageAsPdf(string inputPdfPath, string outputPath, string filename, int pageNumber)
         {
             try
             {
-                // Ensure the output directory exists
-                Directory.CreateDirectory(outputPath);
+
 
                 // Combine the output path and filename
                 string fullPath = Path.Combine(outputPath, filename);
 
-                // Create a memory stream to hold the new PDF
-                using MemoryStream stream = new MemoryStream();
-
-                // Create a new PDF using PdfPig's PdfDocumentBuilder
-                var pdfBuilder = new PdfDocumentBuilder();
-
-                // Add the page as a new page to the PdfDocumentBuilder
-                var builderPage = pdfBuilder.AddPage(page.Width, page.Height);
-
-                // Copy the content of the original page
-                foreach (var word in page.GetWords())
+                // Thread-safe check and load the PDF only if the filename has changed or the document is not loaded
+                lock (lockObj)
                 {
-                    builderPage.AddText(word.Text, new PdfPoint(word.BoundingBox.Left, word.BoundingBox.Bottom), fontSize: 12);
+                    // If the filename is different or the document is null, reload the PDF
+                    if (originalDocument == null || !string.Equals(currentPdfFilename, inputPdfPath, StringComparison.OrdinalIgnoreCase))
+                    {
+                        // Dispose of the old document if it exists
+                        originalDocument?.Dispose();
+
+                         // Ensure the output directory exists
+                        Directory.CreateDirectory(outputPath);
+
+                        // Load the new PDF document
+                        originalDocument = PdfReader.Open(inputPdfPath, PdfDocumentOpenMode.Import);
+
+                        currentPdfFilename = inputPdfPath; // Update the current filename
+
+                    }
                 }
 
-                // Save the new PDF to the stream
-                pdfBuilder.Save(stream);
+                // Create a new PDF document for the output
+                using (PdfDocument newDocument = new PdfDocument())
+                {
+                    // Ensure the requested page number is valid
+                    if (pageNumber > 0 && pageNumber <= originalDocument.PageCount)
+                    {
+                        // Add the specified page to the new document
+                        newDocument.AddPage(originalDocument.Pages[pageNumber - 1]);
 
-                // Write the stream to a file
-                File.WriteAllBytes(fullPath, stream.ToArray());
+                        // Save the new PDF document to the specified file
+                        newDocument.Save(fullPath);
 
-                Console.WriteLine($"Page saved as {fullPath}");
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                Console.WriteLine($"Error: Directory not found - {ex.Message}");
-                throw new Exception("Failed to create or access the specified directory.", ex);
-            }
-            catch (IOException ex)
-            {
-                Console.WriteLine($"Error: I/O error occurred - {ex.Message}");
-                throw new Exception("Failed to save the PDF file due to an I/O error.", ex);
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                Console.WriteLine($"Error: Unauthorized access - {ex.Message}");
-                throw new Exception("Failed to save the PDF file due to insufficient permissions.", ex);
+                        Console.WriteLine($"Page {pageNumber} saved as {fullPath}");
+                    }
+                    else
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(pageNumber), "Page number is out of range.");
+                    }
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: An unexpected error occurred - {ex.Message}");
-                throw new Exception("An unexpected error occurred while saving the PDF file.", ex);
+                Console.WriteLine($"Error: {ex.Message}");
+                throw;
             }
         }
     }
