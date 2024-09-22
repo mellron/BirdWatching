@@ -1,50 +1,72 @@
 using System;
-using System.Threading;
+using System.Collections.Generic;
+using System.IO;
+using UglyToad.PdfPig.Writer;
+using UglyToad.PdfPig.Content;
 
-public class Spinner : IDisposable
+namespace util
 {
-    private readonly string[] _sequence = { "/", "-", "\\", "|" }; // Characters for the spinner
-    private int _counter = 0;
-    private readonly int _delay;
-    private bool _active;
-    private readonly Thread _spinnerThread;
-
-    public Spinner(int delay = 100)
+    public static class PdfUtil
     {
-        _delay = delay;
-        _active = false;
-        _spinnerThread = new Thread(Spin);
-    }
-
-    public void Start()
-    {
-        _active = true;
-        if (!_spinnerThread.IsAlive)
+        /// <summary>
+        /// Saves the specified page as a new PDF using PdfPig.Writer
+        /// </summary>
+        /// <param name="page">The page to save</param>
+        /// <param name="outputPath">The directory where the new PDF should be saved</param>
+        /// <param name="filename">The name of the new PDF file</param>
+        public static void SavePageAsPdf(Page page, string outputPath, string filename)
         {
-            _spinnerThread.Start();
+            try
+            {
+                // Ensure the output directory exists
+                Directory.CreateDirectory(outputPath);
+
+                // Combine the output path and filename
+                string fullPath = Path.Combine(outputPath, filename);
+
+                // Create a memory stream to hold the new PDF
+                using MemoryStream stream = new MemoryStream();
+
+                // Create a new PDF using PdfPig's PdfDocumentBuilder
+                var pdfBuilder = new PdfDocumentBuilder();
+
+                // Add the page as a new page to the PdfDocumentBuilder
+                var builderPage = pdfBuilder.AddPage(page.Width, page.Height);
+
+                // Copy the content of the original page
+                foreach (var word in page.GetWords())
+                {
+                    builderPage.AddText(word.Text, new PdfPoint(word.BoundingBox.Left, word.BoundingBox.Bottom), fontSize: 12);
+                }
+
+                // Save the new PDF to the stream
+                pdfBuilder.Save(stream);
+
+                // Write the stream to a file
+                File.WriteAllBytes(fullPath, stream.ToArray());
+
+                Console.WriteLine($"Page saved as {fullPath}");
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine($"Error: Directory not found - {ex.Message}");
+                throw new Exception("Failed to create or access the specified directory.", ex);
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Error: I/O error occurred - {ex.Message}");
+                throw new Exception("Failed to save the PDF file due to an I/O error.", ex);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Console.WriteLine($"Error: Unauthorized access - {ex.Message}");
+                throw new Exception("Failed to save the PDF file due to insufficient permissions.", ex);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: An unexpected error occurred - {ex.Message}");
+                throw new Exception("An unexpected error occurred while saving the PDF file.", ex);
+            }
         }
-    }
-
-    public void Stop()
-    {
-        _active = false;
-        _spinnerThread.Join();  // Wait for the thread to finish
-    }
-
-    private void Spin()
-    {
-        while (_active)
-        {
-            Console.Write(_sequence[_counter]);   // Write spinner character
-            _counter = (_counter + 1) % _sequence.Length;
-            Console.Out.Flush();                 // Force the output to update
-            Thread.Sleep(_delay);
-            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop); // Go back to overwrite the previous character
-        }
-    }
-
-    public void Dispose()
-    {
-        Stop();
     }
 }
