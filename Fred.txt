@@ -1,113 +1,84 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
-public class BatchDirectoryMover
+namespace testtrim
+
 {
-    private readonly string sourceRootPath;
-    private readonly string destinationRootPath;
-    private readonly int maxParallelTransfers;
-
-    public BatchDirectoryMover(string sourceRootPath, string destinationRootPath, int maxParallelTransfers)
+    class Program
     {
-        if (string.IsNullOrWhiteSpace(sourceRootPath) || string.IsNullOrWhiteSpace(destinationRootPath))
+        static void Main(string[] args)
         {
-            throw new ArgumentException("Source and destination paths must not be empty.");
-        }
+            // Example string with many columns
+            string _Myline = "225540|CDWYNJA|Carl|D|Wynja|Carl Wynja|Carl|D|Wynja|Carl Wynja||carl.wynja@usbank.com|+1 (605) 3398619|ECZX|Commercial Banking Group Mgr|Senior Vice President|EP-SD-0750|SD-Sioux Falls Main|141 N Main Ave||Sioux Falls|SD|57104|USA|300|03000018300|NORTH CENTRAL PLAINS ADMIN|99998880017 INSTITUTIONAL CLIENT GROUP|99998880007 WEALTH CORPORATE COMMERCIAL AND INSTITUTIONAL BKG|Katie Simpson|B110221|628805|katie.simpson1@usbank.com|CDW02|Active|40||USASALARY|USA Salary (United States)|1992-08-17|1992-08-17|1992-08-17|2024-03-05|0750|3912|SD-Sioux Falls Main|141 N Main Ave||Sioux Falls|SD|57104|USA|USA|Regular|B|USB West Hired prior 02/27/01||Employee|USD||Market Leader | Iowa/Nebraska/South Dakota/North Dakota Commercial Banking|Client Center|asdfasdf|asdfasdf|asdfasdf|asfas|afdasdf|adfasdf|asdfasdf";
 
-        this.sourceRootPath = sourceRootPath;
-        this.destinationRootPath = destinationRootPath;
-        this.maxParallelTransfers = maxParallelTransfers > 0 ? maxParallelTransfers : throw new ArgumentException("Max parallel transfers must be greater than zero.");
-    }
+            // Call CountColumns to count the number of columns in the string
+            int columnCount = CountColumns(_Myline);
 
-    /// <summary>
-    /// Moves the provided list of batch directories from the source to the destination.
-    /// </summary>
-    /// <param name="batchDirectories">List of batch directories to move (e.g., batch_001, batch_002)</param>
-    public async Task MoveBatchDirectoriesAsync(List<string> batchDirectories)
-    {
-        if (batchDirectories == null || batchDirectories.Count == 0)
-        {
-            throw new ArgumentException("The list of batch directories must not be null or empty.");
-        }
-
-        // Create a list to track the transfer tasks
-        List<Task> transferTasks = new List<Task>();
-
-        foreach (var batchDirectory in batchDirectories)
-        {
-            string sourceBatchPath = Path.Combine(sourceRootPath, batchDirectory);
-            string destinationBatchPath = Path.Combine(destinationRootPath, batchDirectory);
-
-            // Check if we've reached the max number of parallel transfers
-            if (transferTasks.Count >= maxParallelTransfers)
+            if (columnCount <= 68 )
             {
-                // Wait for one of the tasks to complete before starting new ones
-                Task completedTask = await Task.WhenAny(transferTasks);
-                transferTasks.Remove(completedTask);
+                Console.WriteLine("All Looks okay");
+                Console.WriteLine(_Myline);
+                return;
             }
+                       
+            int istart  = FindNthOccurrence(_Myline, '|', 61);
 
-            // Start a new task to move the batch directory
-            transferTasks.Add(Task.Run(() => MoveDirectory(sourceBatchPath, destinationBatchPath)));
+            string result = _Myline.Substring(istart+1); 
+
+            int  iend = FindNthOccurrenceFromEnd(result, '|', 7); 
+
+            result = result.Substring(0, iend).Trim();
+            
+            result = result.Replace('|', '/');
+
+            Console.WriteLine(result);
         }
 
-        // Wait for all remaining tasks to complete
-        await Task.WhenAll(transferTasks);
-    }
-
-    /// <summary>
-    /// Moves a single batch directory from the source path to the destination path.
-    /// </summary>
-    /// <param name="sourcePath">The source directory path.</param>
-    /// <param name="destinationPath">The destination directory path.</param>
-    private void MoveDirectory(string sourcePath, string destinationPath)
-    {
-        try
+ 
+        // Make a metohd that takes a string _myline and counts the number of | characters in it and returns the count
+        static int CountColumns(string _myline)
         {
-            // Check if the source directory exists
-            if (!Directory.Exists(sourcePath))
+            // Count the number of '|' characters in the string
+            int columnCount = _myline.Count(c => c == '|');
+
+            // Return the count
+            return columnCount;
+        }
+
+        static int FindNthOccurrenceFromEnd(string input, char character, int n)
+        {
+            int count = 0;
+            for (int i = input.Length - 1; i >= 0; i--)
             {
-                throw new DirectoryNotFoundException($"Source directory '{sourcePath}' does not exist.");
+                if (input[i] == character)
+                {
+                    count++;
+                    if (count == n)
+                    {
+                        return i;
+                    }
+                }
             }
+            return -1; // Return -1 if the nth occurrence is not found
+        }
 
-            // Check if the destination directory already exists
-            if (Directory.Exists(destinationPath))
+        static int FindNthOccurrence(string input, char character, int n)
+        {
+            int count = 0;
+            for (int i = 0; i < input.Length; i++)
             {
-                throw new IOException($"Destination directory '{destinationPath}' already exists.");
+                if (input[i] == character)
+                {
+                    count++;
+                    if (count == n)
+                    {
+                        return i;
+                    }
+                }
             }
-
-            // Move the directory
-            Directory.Move(sourcePath, destinationPath);
-        }
-        catch (Exception ex)
-        {
-            throw new InvalidOperationException($"Error moving directory '{sourcePath}' to '{destinationPath}': {ex.Message}", ex);
-        }
-    }
-
-    /// <summary>
-    /// Collects all subdirectory names from the provided path and returns them as a List<string>.
-    /// </summary>
-    /// <param name="directoryPath">The directory from which to collect subdirectories.</param>
-    /// <returns>A List of subdirectory names.</returns>
-    public List<string> GetBatchDirectories(string directoryPath)
-    {
-        if (!Directory.Exists(directoryPath))
-        {
-            throw new DirectoryNotFoundException($"The directory '{directoryPath}' does not exist.");
+            return -1; // Return -1 if the nth occurrence is not found
         }
 
-        // Get all subdirectories in the provided directory path
-        var subdirectories = Directory.GetDirectories(directoryPath);
-
-        // Extract only the directory names (not the full path)
-        var batchDirectoryNames = new List<string>();
-        foreach (var subdirectory in subdirectories)
-        {
-            batchDirectoryNames.Add(Path.GetFileName(subdirectory));
-        }
-
-        return batchDirectoryNames;
     }
 }
