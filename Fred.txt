@@ -8,3 +8,21 @@ INNER JOIN CalculatedRateDefinitions
     ON CalculatedRateCategories.CalculatedRateID = CalculatedRateDefinitions.CalculatedRateID
 INNER JOIN @tempRateNames TempR 
     ON TempR.shortname = CalculatedRateDefinitions.ShortName;
+
+
+
+SELECT 
+    'INSERT INTO [BSDRate].[dbo].[CalculatedRateValues] ([CalculatedRateID], [CalculatedDate], [Value], [Override], [Processed], [UpdatedBy], [UpdatedDate]) ' +
+    'SELECT (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = ''' 
+    + TempR.shortname + '''), '
+    + 'CAST(CalculatedRateValues.CalculatedDate AS DATE), '
+    + CAST(CalculatedRateValues.[Value] AS VARCHAR(38)) + ', '
+    + ISNULL(CAST(CalculatedRateValues.[Override] AS VARCHAR), '0') + ', '
+    + ISNULL(CAST(CalculatedRateValues.[Processed] AS VARCHAR), '0') + ', '
+    + ISNULL(CalculatedRateValues.[UpdatedBy], '''system''') + ', '
+    + 'CAST(CalculatedRateValues.[UpdatedDate] AS VARCHAR)'
+FROM CalculatedRateValues
+INNER JOIN CalculatedRateDefinitions 
+    ON CalculatedRateValues.CalculatedRateID = CalculatedRateDefinitions.CalculatedRateID
+INNER JOIN @tempRateNames TempR 
+    ON TempR.shortname = CalculatedRateDefinitions.ShortName;
