@@ -1,84 +1,10 @@
-using System;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-
-namespace testtrim
-
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Example string with many columns
-            string _Myline = "225540|CDWYNJA|Carl|D|Wynja|Carl Wynja|Carl|D|Wynja|Carl Wynja||carl.wynja@usbank.com|+1 (605) 3398619|ECZX|Commercial Banking Group Mgr|Senior Vice President|EP-SD-0750|SD-Sioux Falls Main|141 N Main Ave||Sioux Falls|SD|57104|USA|300|03000018300|NORTH CENTRAL PLAINS ADMIN|99998880017 INSTITUTIONAL CLIENT GROUP|99998880007 WEALTH CORPORATE COMMERCIAL AND INSTITUTIONAL BKG|Katie Simpson|B110221|628805|katie.simpson1@usbank.com|CDW02|Active|40||USASALARY|USA Salary (United States)|1992-08-17|1992-08-17|1992-08-17|2024-03-05|0750|3912|SD-Sioux Falls Main|141 N Main Ave||Sioux Falls|SD|57104|USA|USA|Regular|B|USB West Hired prior 02/27/01||Employee|USD||Market Leader | Iowa/Nebraska/South Dakota/North Dakota Commercial Banking|Client Center|asdfasdf|asdfasdf|asdfasdf|asfas|afdasdf|adfasdf|asdfasdf";
-
-            // Call CountColumns to count the number of columns in the string
-            int columnCount = CountColumns(_Myline);
-
-            if (columnCount <= 68 )
-            {
-                Console.WriteLine("All Looks okay");
-                Console.WriteLine(_Myline);
-                return;
-            }
-                       
-            int istart  = FindNthOccurrence(_Myline, '|', 61);
-
-            string result = _Myline.Substring(istart+1); 
-
-            int  iend = FindNthOccurrenceFromEnd(result, '|', 7); 
-
-            result = result.Substring(0, iend).Trim();
-            
-            result = result.Replace('|', '/');
-
-            Console.WriteLine(result);
-        }
-
- 
-        // Make a metohd that takes a string _myline and counts the number of | characters in it and returns the count
-        static int CountColumns(string _myline)
-        {
-            // Count the number of '|' characters in the string
-            int columnCount = _myline.Count(c => c == '|');
-
-            // Return the count
-            return columnCount;
-        }
-
-        static int FindNthOccurrenceFromEnd(string input, char character, int n)
-        {
-            int count = 0;
-            for (int i = input.Length - 1; i >= 0; i--)
-            {
-                if (input[i] == character)
-                {
-                    count++;
-                    if (count == n)
-                    {
-                        return i;
-                    }
-                }
-            }
-            return -1; // Return -1 if the nth occurrence is not found
-        }
-
-        static int FindNthOccurrence(string input, char character, int n)
-        {
-            int count = 0;
-            for (int i = 0; i < input.Length; i++)
-            {
-                if (input[i] == character)
-                {
-                    count++;
-                    if (count == n)
-                    {
-                        return i;
-                    }
-                }
-            }
-            return -1; // Return -1 if the nth occurrence is not found
-        }
-
-    }
-}
+-- Generating the INSERT statement with a subquery to get the CalculatedRateID
+SELECT TOP (10)
+    'INSERT INTO [BSDRate].[dbo].[CalculatedRateCategories] ([CalculatedRateID], [CategoryID]) ' +
+    'SELECT (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = ''' 
+    + TempR.shortname + '''), ' + ISNULL(CAST(CalculatedRateCategories.[CategoryID] AS VARCHAR), '0')
+FROM CalculatedRateCategories 
+INNER JOIN CalculatedRateDefinitions 
+    ON CalculatedRateCategories.CalculatedRateID = CalculatedRateDefinitions.CalculatedRateID
+INNER JOIN @tempRateNames TempR 
+    ON TempR.shortname = CalculatedRateDefinitions.ShortName;
