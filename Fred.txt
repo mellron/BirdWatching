@@ -1,731 +1,2139 @@
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit15Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit1Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit20Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit25Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit2Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit30Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit3Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit4Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit5Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit6Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('currFHLBCredit7Y')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb100monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb101monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb102monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb103monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb104monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb105monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb106monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb107monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb109monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb10monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb110monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb111monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb112monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb113monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb114monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb115monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb116monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb117monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb118monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb119monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb11monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb121monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb122monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb123monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb124monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb125monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb126monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb127monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb128monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb129monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb130monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb131monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb132monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb133monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb134monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb135monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb136monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb137monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb138monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb139monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb13monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb140monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb141monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb142monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb143monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb144monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb145monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb146monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb147monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb148monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb149monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb14monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb150monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb151monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb152monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb153monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb154monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb155monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb156monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb157monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb158monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb159monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb160monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb161monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb162monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb163monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb164monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb165monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb166monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb167monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb168monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb169monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb16monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb170monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb171monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb172monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb173monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb174monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb175monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb176monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb177monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb178monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb179monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb17monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb181monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb182monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb183monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb184monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb185monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb186monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb187monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb188monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb189monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb190monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb191monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb192monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb193monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb194monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb195monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb196monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb197monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb198monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb199monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb19monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb200monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb201monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb202monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb203monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb204monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb205monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb206monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb207monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb208monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb209monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb20monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb210monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb211monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb212monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb213monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb214monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb215monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb216monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb217monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb218monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb219monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb220monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb221monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb222monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb223monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb224monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb225monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb226monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb227monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb228monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb229monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb22monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb230monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb231monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb232monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb233monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb234monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb235monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb236monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb237monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb238monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb239monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb23monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb241monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb242monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb243monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb244monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb245monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb246monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb247monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb248monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb249monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb250monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb251monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb252monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb253monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb254monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb255monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb256monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb257monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb258monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb259monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb25monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb260monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb261monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb262monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb263monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb264monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb265monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb266monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb267monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb268monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb269monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb26monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb270monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb271monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb272monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb273monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb274monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb275monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb276monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb277monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb278monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb279monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb280monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb281monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb282monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb283monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb284monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb285monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb286monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb287monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb288monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb289monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb28monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb290monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb291monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb292monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb293monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb294monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb295monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb296monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb297monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb298monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb299monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb29monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb300monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb301monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb302monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb303monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb304monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb305monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb306monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb307monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb308monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb309monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb30yearcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb310monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb311monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb312monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb313monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb314monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb315monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb316monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb317monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb318monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb319monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb31monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb320monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb321monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb322monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb323monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb324monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb325monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb326monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb327monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb328monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb329monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb32monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb330monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb331monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb332monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb333monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb334monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb335monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb336monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb337monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb338monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb339monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb340monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb341monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb342monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb343monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb344monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb345monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb346monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb347monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb348monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb349monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb34monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb350monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb351monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb352monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb353monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb354monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb355monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb356monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb357monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb358monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb359monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb35monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb37monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb38monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb39monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb40monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb41monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb43monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb44monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb45monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb46monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb47monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb49monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb50monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb51monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb52monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb53monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb55monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb56monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb57monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb58monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb59monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb61monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb62monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb63monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb64monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb65monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb66monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb67monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb68monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb69monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb70monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb71monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb73monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb74monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb75monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb76monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb77monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb78monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb79monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb80monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb81monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb82monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb83monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb85monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb86monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb87monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb88monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb89monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb90monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb91monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb92monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb93monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb94monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb95monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb97monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb98monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlb99monthcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit100Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit101Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit102Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit103Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit104Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit105Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit106Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit107Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit108Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit109Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit10Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit110Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit111Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit112Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit113Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit114Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit115Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit116Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit117Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit118Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit119Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit11Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit120Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit121Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit122Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit123Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit124Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit125Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit126Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit127Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit128Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit129Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit12Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit130Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit131Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit132Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit133Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit134Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit135Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit136Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit137Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit138Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit139Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit13Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit140Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit141Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit142Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit143Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit144Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit145Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit146Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit147Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit148Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit149Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit14Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit150Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit151Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit152Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit153Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit154Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit155Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit156Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit157Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit158Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit159Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit15Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit160Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit161Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit162Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit163Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit164Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit165Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit166Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit167Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit168Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit169Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit16Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit170Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit171Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit172Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit173Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit174Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit175Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit176Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit177Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit178Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit179Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit17Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit180Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit181Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit182Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit183Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit184Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit185Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit186Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit187Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit188Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit189Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit18Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit190Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit191Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit192Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit193Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit194Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit195Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit196Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit197Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit198Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit199Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit19Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit1Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit200Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit201Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit202Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit203Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit204Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit205Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit206Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit207Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit208Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit209Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit20Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit210Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit211Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit212Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit213Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit214Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit215Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit216Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit217Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit218Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit219Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit21Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit220Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit221Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit222Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit223Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit224Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit225Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit226Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit227Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit228Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit229Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit22Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit230Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit231Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit232Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit233Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit234Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit235Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit236Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit237Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit238Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit239Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit23Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit240Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit241Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit242Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit243Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit244Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit245Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit246Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit247Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit248Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit249Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit24Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit250Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit251Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit252Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit253Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit254Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit255Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit256Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit257Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit258Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit259Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit25Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit260Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit261Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit262Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit263Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit264Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit265Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit266Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit267Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit268Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit269Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit26Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit270Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit271Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit272Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit273Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit274Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit275Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit276Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit277Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit278Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit279Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit27Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit280Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit281Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit282Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit283Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit284Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit285Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit286Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit287Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit288Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit289Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit28Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit290Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit291Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit292Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit293Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit294Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit295Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit296Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit297Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit298Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit299Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit29Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit2Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit300Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit301Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit302Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit303Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit304Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit305Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit306Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit307Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit308Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit309Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit30Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit310Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit311Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit312Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit313Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit314Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit315Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit316Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit317Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit318Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit319Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit31Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit320Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit321Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit322Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit323Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit324Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit325Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit326Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit327Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit328Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit329Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit32Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit330Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit331Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit332Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit333Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit334Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit335Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit336Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit337Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit338Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit339Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit33Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit340Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit341Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit342Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit343Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit344Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit345Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit346Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit347Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit348Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit349Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit34Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit350Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit351Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit352Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit353Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit354Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit355Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit356Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit357Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit358Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit359Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit35Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit360Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit36Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit37Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit38Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit39Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit3Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit40Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit41Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit42Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit43Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit44Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit45Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit46Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit47Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit48Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit49Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit4Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit50Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit51Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit52Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit53Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit54Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit55Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit56Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit57Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit58Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit59Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit5Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit60Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit61Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit62Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit63Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit64Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit65Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit66Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit67Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit68Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit69Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit6Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit70Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit71Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit72Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit73Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit74Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit75Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit76Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit77Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit78Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit79Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit7Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit80Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit81Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit82Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit83Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit84Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit85Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit86Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit87Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit88Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit89Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit8Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit90Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit91Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit92Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit93Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit94Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit95Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit96Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit97Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit98Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit99Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbcredit9Mcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbeighteenmocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbeightmocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbeightyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbfifteenmocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbfifteenyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbfiftyfourmocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbfivemocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbfiveyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbfortytwomocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbfourmocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbfouryearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbninemocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbnineyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbonemocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlboneyearcurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbsevenmocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbsevenyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbsixmocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbsixyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbtenyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbthirtymocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbthirtythreemocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbthreemocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbthreeyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbtwentyonemocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbtwentysevenmocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbtwentyyearscurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbtwomocurve')
-INSERT INTO @tempRateNames (shortname) VALUES ('fhlbtwoyearscurve')
+
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class CalculatorsForm
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposi3ng AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.CalculatorsTabControl = New System.Windows.Forms.TabControl()
+        Me.FTPRateCalculatorTabPage = New System.Windows.Forms.TabPage()
+        Me.FTPRateDateWarningLabel = New System.Windows.Forms.Label()
+        Me.FTPResultsGroupBox = New System.Windows.Forms.GroupBox()
+        Me.FTPAllInCustRateTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPSpreadTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPAllInCOFResultTextBox = New System.Windows.Forms.TextBox()
+        Me.FTPAllInCustRateLabel = New System.Windows.Forms.Label()
+        Me.FTPWaiverResultTextBox = New System.Windows.Forms.TextBox()
+        Me.FTPForwardResultTextBox = New System.Windows.Forms.TextBox()
+        Me.FTPSpreadLabel = New System.Windows.Forms.Label()
+        Me.FTPCOFResultTextBox = New System.Windows.Forms.TextBox()
+        Me.FTPAllInCOFResultLabel = New System.Windows.Forms.Label()
+        Me.FTPWaiverResultLabel = New System.Windows.Forms.Label()
+        Me.FTPForwardResultLabel = New System.Windows.Forms.Label()
+        Me.FTPCOFResultLabel = New System.Windows.Forms.Label()
+        Me.FTPResetButton = New System.Windows.Forms.Button()
+        Me.FTPInputsTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.AccrualBasisLabel = New System.Windows.Forms.Label()
+        Me.FTPResidualLabel = New System.Windows.Forms.Label()
+        Me.AmortizationTypeLabel = New System.Windows.Forms.Label()
+        Me.FTPForwardLabel = New System.Windows.Forms.Label()
+        Me.InterestFrequencyLabel = New System.Windows.Forms.Label()
+        Me.FTPInterestOnlyLabel = New System.Windows.Forms.Label()
+        Me.PrincipalFrequencyLabel = New System.Windows.Forms.Label()
+        Me.FTPAmortizationLabel = New System.Windows.Forms.Label()
+        Me.PrepaymentWaiverLabel = New System.Windows.Forms.Label()
+        Me.FTPTermLabel = New System.Windows.Forms.Label()
+        Me.FTPMosToFirstIntPmtLabel = New System.Windows.Forms.Label()
+        Me.FTPMosToFirstPrinPmtLabel = New System.Windows.Forms.Label()
+        Me.FTPMosToFirstPrinPmtTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPMosToFirstIntPmtTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPTermTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPAmortizationTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPInterestOnlyTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPForwardTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPResidualTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPAccrualBasisComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.FTPAmortizationTypeComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.FTPInterestFrequencyComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.FTPPrincipalFrequencyComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.FTPPrepaymentWaiverComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.IrregularButton = New System.Windows.Forms.Button()
+        Me.CIPRateCalculatorTabPage = New System.Windows.Forms.TabPage()
+        Me.CIPRateDateWarningLabel = New System.Windows.Forms.Label()
+        Me.CIPResetButton = New System.Windows.Forms.Button()
+        Me.CIPResultsGroupBox = New System.Windows.Forms.GroupBox()
+        Me.CIPAllInCustRateTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.CIPSpreadTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.CIPRateResultTextBox = New System.Windows.Forms.TextBox()
+        Me.CIPWaiverResultTextBox = New System.Windows.Forms.TextBox()
+        Me.Label = New System.Windows.Forms.Label()
+        Me.CIPAllInCustRateLabel = New System.Windows.Forms.Label()
+        Me.CIPSpreadLabel = New System.Windows.Forms.Label()
+        Me.CIPAllInCOFResultTextBox = New System.Windows.Forms.TextBox()
+        Me.CIPForwardResultTextBox = New System.Windows.Forms.TextBox()
+        Me.CIPAllInCOFResultsLabel = New System.Windows.Forms.Label()
+        Me.CIPForwardResultsLabel = New System.Windows.Forms.Label()
+        Me.CIPRateResultsLabel = New System.Windows.Forms.Label()
+        Me.CIPInputsTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CIPInterestOnlyTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.CIPTermLabel = New System.Windows.Forms.Label()
+        Me.CIPAmortizationLabel = New System.Windows.Forms.Label()
+        Me.CIPForwardLabel = New System.Windows.Forms.Label()
+        Me.CIPPrepaymentWaiverLabel = New System.Windows.Forms.Label()
+        Me.CIPTermTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.CIPAmortizationTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.CIPForwardTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.CIPPrepaymentWaiverComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CIPInterestFrequencyComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.CIPPrincipalFrequencyComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.CIPAccrualBasisComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.CIPAmortizationTypeComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.ALSRateCalculatorTabPage = New System.Windows.Forms.TabPage()
+        Me.ALSRateDateWarningLabel = New System.Windows.Forms.Label()
+        Me.ALSResultsGroupBox = New System.Windows.Forms.GroupBox()
+        Me.ALSAllInCustRateTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.ALSSpreadTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.ALSAllInCustRateLabel = New System.Windows.Forms.Label()
+        Me.ALSSpreadLabel = New System.Windows.Forms.Label()
+        Me.ALSCPRResultTextBox = New System.Windows.Forms.TextBox()
+        Me.ALSAllInCOFResultTextBox = New System.Windows.Forms.TextBox()
+        Me.ALSOptionCostResultTextBox = New System.Windows.Forms.TextBox()
+        Me.ALSCOFResultTextBox = New System.Windows.Forms.TextBox()
+        Me.ALSCPRResultsLabel = New System.Windows.Forms.Label()
+        Me.ALSAllInCOFResultsLabel = New System.Windows.Forms.Label()
+        Me.ALSOptionCostResultsLabel = New System.Windows.Forms.Label()
+        Me.ALSCOFResultsLabel = New System.Windows.Forms.Label()
+        Me.ALSResetButton = New System.Windows.Forms.Button()
+        Me.ALSInputsTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.ALSTermLabel = New System.Windows.Forms.Label()
+        Me.ALSAmortizationLabel = New System.Windows.Forms.Label()
+        Me.ALSLoanTypeLabel = New System.Windows.Forms.Label()
+        Me.ALSTermTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.ALSAmortizationTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.ALSConsumerLoanTypeComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.PandIPaymentCalculatorTabPage = New System.Windows.Forms.TabPage()
+        Me.PICalculateButton = New System.Windows.Forms.Button()
+        Me.PIResetButton = New System.Windows.Forms.Button()
+        Me.FTPHistoricalCalculatorTabPage = New System.Windows.Forms.TabPage()
+        Me.ToggleFormattingButton = New System.Windows.Forms.Button()
+        Me.FTPHistResetButton = New System.Windows.Forms.Button()
+        Me.FTPHistCalculateButton = New System.Windows.Forms.Button()
+        Me.FTPHistAutoGridControl = New TreasuryFormsControls.Treasury.FormsControls.AutoGridControl()
+        Me.FTPHistTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.FTPHistStartDateLabel = New System.Windows.Forms.Label()
+        Me.FTPHistEndDateLabel = New System.Windows.Forms.Label()
+        Me.FTPHistTermLabel = New System.Windows.Forms.Label()
+        Me.FTPHistAmortLabel = New System.Windows.Forms.Label()
+        Me.FTPHistAccrualBasisLabel = New System.Windows.Forms.Label()
+        Me.FTPHistAmortizationTypeLabel = New System.Windows.Forms.Label()
+        Me.FTPHistInterestFrequencyLabel = New System.Windows.Forms.Label()
+        Me.FTPHistPrincipalFrequencyLabel = New System.Windows.Forms.Label()
+        Me.FTPHistStartDateTreasuryDateTimePicker = New TreasuryFormsControls.Treasury.FormsControls.TreasuryDateTimePicker()
+        Me.FTPHistEndDateTreasuryDateTimePicker = New TreasuryFormsControls.Treasury.FormsControls.TreasuryDateTimePicker()
+        Me.FTPHistTermTreasuryTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPHistAmortTreasuryTextBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox()
+        Me.FTPHistAccrualBasisTreasuryComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.FTPHistAmortTypeTreasuryComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.FTPHistIntFreqTreasuryComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.FTPHistPrinFreqTreasuryComboBox = New TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.HistoricalLabel = New System.Windows.Forms.Label()
+        Me.RateDateTreasuryDateTimePicker = New TreasuryFormsControls.Treasury.FormsControls.TreasuryDateTimePicker()
+        Me.FHLBCredit360Calculator = New System.Windows.Forms.TabPage()
+        Me.PICalcControl = New BSDRate.PICalculatorControl()
+        Me.CalculatorsTabControl.SuspendLayout()
+        Me.FTPRateCalculatorTabPage.SuspendLayout()
+        Me.FHLBCredit360Calculator.SuspendLayout()
+        Me.FTPResultsGroupBox.SuspendLayout()
+        Me.FTPInputsTableLayoutPanel.SuspendLayout()
+        Me.CIPRateCalculatorTabPage.SuspendLayout()
+        Me.CIPResultsGroupBox.SuspendLayout()
+        Me.CIPInputsTableLayoutPanel.SuspendLayout()
+        Me.ALSRateCalculatorTabPage.SuspendLayout()
+        Me.ALSResultsGroupBox.SuspendLayout()
+        Me.ALSInputsTableLayoutPanel.SuspendLayout()
+        Me.PandIPaymentCalculatorTabPage.SuspendLayout()
+        Me.FTPHistoricalCalculatorTabPage.SuspendLayout()
+        CType(Me.FTPHistAutoGridControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FTPHistTableLayoutPanel.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'CalculatorsTabControl
+        '
+        Me.CalculatorsTabControl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CalculatorsTabControl.Controls.Add(Me.FTPRateCalculatorTabPage)
+        Me.CalculatorsTabControl.Controls.Add(Me.CIPRateCalculatorTabPage)
+        Me.CalculatorsTabControl.Controls.Add(Me.ALSRateCalculatorTabPage)
+        Me.CalculatorsTabControl.Controls.Add(Me.PandIPaymentCalculatorTabPage)
+        Me.CalculatorsTabControl.Controls.Add(Me.FTPHistoricalCalculatorTabPage)
+        Me.CalculatorsTabControl.Controls.Add(Me.FHLBCredit360Calculator)
+        Me.CalculatorsTabControl.Location = New System.Drawing.Point(-7, 118)
+        Me.CalculatorsTabControl.Margin = New System.Windows.Forms.Padding(7)
+        Me.CalculatorsTabControl.Name = "CalculatorsTabControl"
+        Me.CalculatorsTabControl.SelectedIndex = 0
+        Me.CalculatorsTabControl.Size = New System.Drawing.Size(1356, 968)
+        Me.CalculatorsTabControl.TabIndex = 0
+        Me.CalculatorsTabControl.TabStop = False
+        '
+        'FTPRateCalculatorTabPage
+        '
+        Me.FTPRateCalculatorTabPage.Controls.Add(Me.FTPRateDateWarningLabel)
+        Me.FTPRateCalculatorTabPage.Controls.Add(Me.FTPResultsGroupBox)
+        Me.FTPRateCalculatorTabPage.Controls.Add(Me.FTPResetButton)
+        Me.FTPRateCalculatorTabPage.Controls.Add(Me.FTPInputsTableLayoutPanel)
+        Me.FTPRateCalculatorTabPage.Location = New System.Drawing.Point(4, 38)
+        Me.FTPRateCalculatorTabPage.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPRateCalculatorTabPage.Name = "FTPRateCalculatorTabPage"
+        Me.FTPRateCalculatorTabPage.Padding = New System.Windows.Forms.Padding(7)
+        Me.FTPRateCalculatorTabPage.Size = New System.Drawing.Size(1348, 926)
+        Me.FTPRateCalculatorTabPage.TabIndex = 0
+        Me.FTPRateCalculatorTabPage.Text = "FTP Rate Calculator"
+        Me.FTPRateCalculatorTabPage.UseVisualStyleBackColor = True
+        '
+        'FTPRateDateWarningLabel
+        '
+        Me.FTPRateDateWarningLabel.ForeColor = System.Drawing.Color.Red
+        Me.FTPRateDateWarningLabel.Location = New System.Drawing.Point(628, 540)
+        Me.FTPRateDateWarningLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPRateDateWarningLabel.Name = "FTPRateDateWarningLabel"
+        Me.FTPRateDateWarningLabel.Size = New System.Drawing.Size(588, 165)
+        Me.FTPRateDateWarningLabel.TabIndex = 89
+        '
+        'FTPResultsGroupBox
+        '
+        Me.FTPResultsGroupBox.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPAllInCustRateTextBox)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPSpreadTextBox)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPAllInCOFResultTextBox)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPAllInCustRateLabel)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPWaiverResultTextBox)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPForwardResultTextBox)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPSpreadLabel)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPCOFResultTextBox)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPAllInCOFResultLabel)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPWaiverResultLabel)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPForwardResultLabel)
+        Me.FTPResultsGroupBox.Controls.Add(Me.FTPCOFResultLabel)
+        Me.FTPResultsGroupBox.Location = New System.Drawing.Point(119, 437)
+        Me.FTPResultsGroupBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPResultsGroupBox.Name = "FTPResultsGroupBox"
+        Me.FTPResultsGroupBox.Padding = New System.Windows.Forms.Padding(7)
+        Me.FTPResultsGroupBox.Size = New System.Drawing.Size(408, 424)
+        Me.FTPResultsGroupBox.TabIndex = 13
+        Me.FTPResultsGroupBox.TabStop = False
+        Me.FTPResultsGroupBox.Text = "Results"
+        '
+        'FTPAllInCustRateTextBox
+        '
+        Me.FTPAllInCustRateTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.FTPAllInCustRateTextBox.EnterAsTab = True
+        Me.FTPAllInCustRateTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPAllInCustRateTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Percentage
+        Me.FTPAllInCustRateTextBox.Location = New System.Drawing.Point(224, 355)
+        Me.FTPAllInCustRateTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPAllInCustRateTextBox.Name = "FTPAllInCustRateTextBox"
+        Me.FTPAllInCustRateTextBox.NormalBackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.FTPAllInCustRateTextBox.SelectOnFocus = True
+        Me.FTPAllInCustRateTextBox.Size = New System.Drawing.Size(146, 35)
+        Me.FTPAllInCustRateTextBox.TabIndex = 15
+        Me.FTPAllInCustRateTextBox.Tooltip = ""
+        '
+        'FTPSpreadTextBox
+        '
+        Me.FTPSpreadTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.FTPSpreadTextBox.EnterAsTab = True
+        Me.FTPSpreadTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPSpreadTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Percentage
+        Me.FTPSpreadTextBox.Location = New System.Drawing.Point(224, 294)
+        Me.FTPSpreadTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPSpreadTextBox.Name = "FTPSpreadTextBox"
+        Me.FTPSpreadTextBox.NormalBackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.FTPSpreadTextBox.SelectOnFocus = True
+        Me.FTPSpreadTextBox.Size = New System.Drawing.Size(146, 35)
+        Me.FTPSpreadTextBox.TabIndex = 14
+        Me.FTPSpreadTextBox.Tooltip = ""
+        '
+        'FTPAllInCOFResultTextBox
+        '
+        Me.FTPAllInCOFResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FTPAllInCOFResultTextBox.Location = New System.Drawing.Point(224, 232)
+        Me.FTPAllInCOFResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPAllInCOFResultTextBox.Name = "FTPAllInCOFResultTextBox"
+        Me.FTPAllInCOFResultTextBox.ReadOnly = True
+        Me.FTPAllInCOFResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.FTPAllInCOFResultTextBox.TabIndex = 22
+        Me.FTPAllInCOFResultTextBox.TabStop = False
+        Me.FTPAllInCOFResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'FTPAllInCustRateLabel
+        '
+        Me.FTPAllInCustRateLabel.AutoSize = True
+        Me.FTPAllInCustRateLabel.Location = New System.Drawing.Point(16, 361)
+        Me.FTPAllInCustRateLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPAllInCustRateLabel.Name = "FTPAllInCustRateLabel"
+        Me.FTPAllInCustRateLabel.Size = New System.Drawing.Size(183, 29)
+        Me.FTPAllInCustRateLabel.TabIndex = 1
+        Me.FTPAllInCustRateLabel.Text = "All-In Cust. Rate"
+        '
+        'FTPWaiverResultTextBox
+        '
+        Me.FTPWaiverResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FTPWaiverResultTextBox.Location = New System.Drawing.Point(224, 167)
+        Me.FTPWaiverResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPWaiverResultTextBox.Name = "FTPWaiverResultTextBox"
+        Me.FTPWaiverResultTextBox.ReadOnly = True
+        Me.FTPWaiverResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.FTPWaiverResultTextBox.TabIndex = 23
+        Me.FTPWaiverResultTextBox.TabStop = False
+        Me.FTPWaiverResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'FTPForwardResultTextBox
+        '
+        Me.FTPForwardResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FTPForwardResultTextBox.Location = New System.Drawing.Point(224, 103)
+        Me.FTPForwardResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPForwardResultTextBox.Name = "FTPForwardResultTextBox"
+        Me.FTPForwardResultTextBox.ReadOnly = True
+        Me.FTPForwardResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.FTPForwardResultTextBox.TabIndex = 24
+        Me.FTPForwardResultTextBox.TabStop = False
+        Me.FTPForwardResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'FTPSpreadLabel
+        '
+        Me.FTPSpreadLabel.AutoSize = True
+        Me.FTPSpreadLabel.Location = New System.Drawing.Point(16, 301)
+        Me.FTPSpreadLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPSpreadLabel.Name = "FTPSpreadLabel"
+        Me.FTPSpreadLabel.Size = New System.Drawing.Size(92, 29)
+        Me.FTPSpreadLabel.TabIndex = 0
+        Me.FTPSpreadLabel.Text = "Spread"
+        '
+        'FTPCOFResultTextBox
+        '
+        Me.FTPCOFResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FTPCOFResultTextBox.Location = New System.Drawing.Point(224, 38)
+        Me.FTPCOFResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPCOFResultTextBox.Name = "FTPCOFResultTextBox"
+        Me.FTPCOFResultTextBox.ReadOnly = True
+        Me.FTPCOFResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.FTPCOFResultTextBox.TabIndex = 4
+        Me.FTPCOFResultTextBox.TabStop = False
+        Me.FTPCOFResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'FTPAllInCOFResultLabel
+        '
+        Me.FTPAllInCOFResultLabel.AutoSize = True
+        Me.FTPAllInCOFResultLabel.Location = New System.Drawing.Point(16, 239)
+        Me.FTPAllInCOFResultLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPAllInCOFResultLabel.Name = "FTPAllInCOFResultLabel"
+        Me.FTPAllInCOFResultLabel.Size = New System.Drawing.Size(124, 29)
+        Me.FTPAllInCOFResultLabel.TabIndex = 3
+        Me.FTPAllInCOFResultLabel.Text = "All-In COF"
+        '
+        'FTPWaiverResultLabel
+        '
+        Me.FTPWaiverResultLabel.AutoSize = True
+        Me.FTPWaiverResultLabel.Location = New System.Drawing.Point(16, 174)
+        Me.FTPWaiverResultLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPWaiverResultLabel.Name = "FTPWaiverResultLabel"
+        Me.FTPWaiverResultLabel.Size = New System.Drawing.Size(87, 29)
+        Me.FTPWaiverResultLabel.TabIndex = 2
+        Me.FTPWaiverResultLabel.Text = "Waiver"
+        '
+        'FTPForwardResultLabel
+        '
+        Me.FTPForwardResultLabel.AutoSize = True
+        Me.FTPForwardResultLabel.Location = New System.Drawing.Point(16, 109)
+        Me.FTPForwardResultLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPForwardResultLabel.Name = "FTPForwardResultLabel"
+        Me.FTPForwardResultLabel.Size = New System.Drawing.Size(103, 29)
+        Me.FTPForwardResultLabel.TabIndex = 1
+        Me.FTPForwardResultLabel.Text = "Forward"
+        '
+        'FTPCOFResultLabel
+        '
+        Me.FTPCOFResultLabel.AutoSize = True
+        Me.FTPCOFResultLabel.Location = New System.Drawing.Point(16, 45)
+        Me.FTPCOFResultLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPCOFResultLabel.Name = "FTPCOFResultLabel"
+        Me.FTPCOFResultLabel.Size = New System.Drawing.Size(64, 29)
+        Me.FTPCOFResultLabel.TabIndex = 0
+        Me.FTPCOFResultLabel.Text = "COF"
+        '
+        'FTPResetButton
+        '
+        Me.FTPResetButton.Location = New System.Drawing.Point(1041, 810)
+        Me.FTPResetButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPResetButton.Name = "FTPResetButton"
+        Me.FTPResetButton.Size = New System.Drawing.Size(175, 51)
+        Me.FTPResetButton.TabIndex = 88
+        Me.FTPResetButton.Text = "Reset"
+        Me.FTPResetButton.UseVisualStyleBackColor = True
+        '
+        'FTPInputsTableLayoutPanel
+        '
+        Me.FTPInputsTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.FTPInputsTableLayoutPanel.ColumnCount = 5
+        Me.FTPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.0!))
+        Me.FTPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.0!))
+        Me.FTPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.0!))
+        Me.FTPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.0!))
+        Me.FTPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.0!))
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.AccrualBasisLabel, 0, 0)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPResidualLabel, 3, 4)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.AmortizationTypeLabel, 0, 1)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPForwardLabel, 3, 3)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.InterestFrequencyLabel, 0, 2)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPInterestOnlyLabel, 3, 2)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.PrincipalFrequencyLabel, 0, 3)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPAmortizationLabel, 3, 1)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.PrepaymentWaiverLabel, 0, 4)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPTermLabel, 3, 0)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPMosToFirstIntPmtLabel, 1, 5)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPMosToFirstPrinPmtLabel, 1, 6)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPMosToFirstPrinPmtTextBox, 4, 6)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPMosToFirstIntPmtTextBox, 4, 5)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPTermTextBox, 4, 0)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPAmortizationTextBox, 4, 1)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPInterestOnlyTextBox, 4, 2)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPForwardTextBox, 4, 3)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPResidualTextBox, 4, 4)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPAccrualBasisComboBox, 1, 0)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPAmortizationTypeComboBox, 1, 1)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPInterestFrequencyComboBox, 1, 2)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPPrincipalFrequencyComboBox, 1, 3)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.FTPPrepaymentWaiverComboBox, 1, 4)
+        Me.FTPInputsTableLayoutPanel.Controls.Add(Me.IrregularButton, 2, 1)
+        Me.FTPInputsTableLayoutPanel.Location = New System.Drawing.Point(119, 45)
+        Me.FTPInputsTableLayoutPanel.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPInputsTableLayoutPanel.Name = "FTPInputsTableLayoutPanel"
+        Me.FTPInputsTableLayoutPanel.RowCount = 7
+        Me.FTPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.FTPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.FTPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.FTPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.FTPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.FTPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.FTPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571!))
+        Me.FTPInputsTableLayoutPanel.Size = New System.Drawing.Size(1097, 417)
+        Me.FTPInputsTableLayoutPanel.TabIndex = 2
+        Me.FTPInputsTableLayoutPanel.TabStop = True
+        '
+        'AccrualBasisLabel
+        '
+        Me.AccrualBasisLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AccrualBasisLabel.Location = New System.Drawing.Point(7, 0)
+        Me.AccrualBasisLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.AccrualBasisLabel.Name = "AccrualBasisLabel"
+        Me.AccrualBasisLabel.Size = New System.Drawing.Size(249, 59)
+        Me.AccrualBasisLabel.TabIndex = 1
+        Me.AccrualBasisLabel.Text = "Accrual Basis"
+        Me.AccrualBasisLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPResidualLabel
+        '
+        Me.FTPResidualLabel.AutoSize = True
+        Me.FTPResidualLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPResidualLabel.Location = New System.Drawing.Point(631, 236)
+        Me.FTPResidualLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPResidualLabel.Name = "FTPResidualLabel"
+        Me.FTPResidualLabel.Size = New System.Drawing.Size(194, 59)
+        Me.FTPResidualLabel.TabIndex = 20
+        Me.FTPResidualLabel.Text = "Residual"
+        Me.FTPResidualLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'AmortizationTypeLabel
+        '
+        Me.AmortizationTypeLabel.AutoSize = True
+        Me.AmortizationTypeLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AmortizationTypeLabel.Location = New System.Drawing.Point(7, 59)
+        Me.AmortizationTypeLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.AmortizationTypeLabel.Name = "AmortizationTypeLabel"
+        Me.AmortizationTypeLabel.Size = New System.Drawing.Size(249, 59)
+        Me.AmortizationTypeLabel.TabIndex = 2
+        Me.AmortizationTypeLabel.Text = "Amortization Type"
+        Me.AmortizationTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPForwardLabel
+        '
+        Me.FTPForwardLabel.AutoSize = True
+        Me.FTPForwardLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPForwardLabel.Location = New System.Drawing.Point(631, 177)
+        Me.FTPForwardLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPForwardLabel.Name = "FTPForwardLabel"
+        Me.FTPForwardLabel.Size = New System.Drawing.Size(194, 59)
+        Me.FTPForwardLabel.TabIndex = 19
+        Me.FTPForwardLabel.Text = "Forward"
+        Me.FTPForwardLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'InterestFrequencyLabel
+        '
+        Me.InterestFrequencyLabel.AutoSize = True
+        Me.InterestFrequencyLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.InterestFrequencyLabel.Location = New System.Drawing.Point(7, 118)
+        Me.InterestFrequencyLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.InterestFrequencyLabel.Name = "InterestFrequencyLabel"
+        Me.InterestFrequencyLabel.Size = New System.Drawing.Size(249, 59)
+        Me.InterestFrequencyLabel.TabIndex = 3
+        Me.InterestFrequencyLabel.Text = "Interest Frequency"
+        Me.InterestFrequencyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPInterestOnlyLabel
+        '
+        Me.FTPInterestOnlyLabel.AutoSize = True
+        Me.FTPInterestOnlyLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPInterestOnlyLabel.Location = New System.Drawing.Point(631, 118)
+        Me.FTPInterestOnlyLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPInterestOnlyLabel.Name = "FTPInterestOnlyLabel"
+        Me.FTPInterestOnlyLabel.Size = New System.Drawing.Size(194, 59)
+        Me.FTPInterestOnlyLabel.TabIndex = 18
+        Me.FTPInterestOnlyLabel.Text = "Interest Only"
+        Me.FTPInterestOnlyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PrincipalFrequencyLabel
+        '
+        Me.PrincipalFrequencyLabel.AutoSize = True
+        Me.PrincipalFrequencyLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PrincipalFrequencyLabel.Location = New System.Drawing.Point(7, 177)
+        Me.PrincipalFrequencyLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.PrincipalFrequencyLabel.Name = "PrincipalFrequencyLabel"
+        Me.PrincipalFrequencyLabel.Size = New System.Drawing.Size(249, 59)
+        Me.PrincipalFrequencyLabel.TabIndex = 4
+        Me.PrincipalFrequencyLabel.Text = "Principal Frequency"
+        Me.PrincipalFrequencyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPAmortizationLabel
+        '
+        Me.FTPAmortizationLabel.AutoSize = True
+        Me.FTPAmortizationLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPAmortizationLabel.Location = New System.Drawing.Point(631, 59)
+        Me.FTPAmortizationLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPAmortizationLabel.Name = "FTPAmortizationLabel"
+        Me.FTPAmortizationLabel.Size = New System.Drawing.Size(194, 59)
+        Me.FTPAmortizationLabel.TabIndex = 17
+        Me.FTPAmortizationLabel.Text = "Amortization"
+        Me.FTPAmortizationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PrepaymentWaiverLabel
+        '
+        Me.PrepaymentWaiverLabel.AutoSize = True
+        Me.PrepaymentWaiverLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PrepaymentWaiverLabel.Location = New System.Drawing.Point(7, 236)
+        Me.PrepaymentWaiverLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.PrepaymentWaiverLabel.Name = "PrepaymentWaiverLabel"
+        Me.PrepaymentWaiverLabel.Size = New System.Drawing.Size(249, 59)
+        Me.PrepaymentWaiverLabel.TabIndex = 5
+        Me.PrepaymentWaiverLabel.Text = "Prepayment Waiver"
+        Me.PrepaymentWaiverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPTermLabel
+        '
+        Me.FTPTermLabel.AutoSize = True
+        Me.FTPTermLabel.Dock = System.Windows.Forms.DockStyle.Left
+        Me.FTPTermLabel.Location = New System.Drawing.Point(631, 0)
+        Me.FTPTermLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPTermLabel.Name = "FTPTermLabel"
+        Me.FTPTermLabel.Size = New System.Drawing.Size(71, 59)
+        Me.FTPTermLabel.TabIndex = 16
+        Me.FTPTermLabel.Text = "Term"
+        Me.FTPTermLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPMosToFirstIntPmtLabel
+        '
+        Me.FTPMosToFirstIntPmtLabel.AutoSize = True
+        Me.FTPInputsTableLayoutPanel.SetColumnSpan(Me.FTPMosToFirstIntPmtLabel, 3)
+        Me.FTPMosToFirstIntPmtLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPMosToFirstIntPmtLabel.Enabled = False
+        Me.FTPMosToFirstIntPmtLabel.Location = New System.Drawing.Point(270, 295)
+        Me.FTPMosToFirstIntPmtLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPMosToFirstIntPmtLabel.Name = "FTPMosToFirstIntPmtLabel"
+        Me.FTPMosToFirstIntPmtLabel.Size = New System.Drawing.Size(555, 59)
+        Me.FTPMosToFirstIntPmtLabel.TabIndex = 21
+        Me.FTPMosToFirstIntPmtLabel.Text = "Months to 1st Interest Payment"
+        Me.FTPMosToFirstIntPmtLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'FTPMosToFirstPrinPmtLabel
+        '
+        Me.FTPMosToFirstPrinPmtLabel.AutoSize = True
+        Me.FTPInputsTableLayoutPanel.SetColumnSpan(Me.FTPMosToFirstPrinPmtLabel, 3)
+        Me.FTPMosToFirstPrinPmtLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPMosToFirstPrinPmtLabel.Enabled = False
+        Me.FTPMosToFirstPrinPmtLabel.Location = New System.Drawing.Point(270, 354)
+        Me.FTPMosToFirstPrinPmtLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPMosToFirstPrinPmtLabel.Name = "FTPMosToFirstPrinPmtLabel"
+        Me.FTPMosToFirstPrinPmtLabel.Size = New System.Drawing.Size(555, 63)
+        Me.FTPMosToFirstPrinPmtLabel.TabIndex = 22
+        Me.FTPMosToFirstPrinPmtLabel.Text = "Months to 1st Principal Payment"
+        Me.FTPMosToFirstPrinPmtLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'FTPMosToFirstPrinPmtTextBox
+        '
+        Me.FTPMosToFirstPrinPmtTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPMosToFirstPrinPmtTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPMosToFirstPrinPmtTextBox.Enabled = False
+        Me.FTPMosToFirstPrinPmtTextBox.EnterAsTab = True
+        Me.FTPMosToFirstPrinPmtTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPMosToFirstPrinPmtTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.FTPMosToFirstPrinPmtTextBox.Location = New System.Drawing.Point(839, 361)
+        Me.FTPMosToFirstPrinPmtTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPMosToFirstPrinPmtTextBox.Name = "FTPMosToFirstPrinPmtTextBox"
+        Me.FTPMosToFirstPrinPmtTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPMosToFirstPrinPmtTextBox.SelectOnFocus = True
+        Me.FTPMosToFirstPrinPmtTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.FTPMosToFirstPrinPmtTextBox.TabIndex = 13
+        Me.FTPMosToFirstPrinPmtTextBox.Tooltip = ""
+        '
+        'FTPMosToFirstIntPmtTextBox
+        '
+        Me.FTPMosToFirstIntPmtTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPMosToFirstIntPmtTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPMosToFirstIntPmtTextBox.Enabled = False
+        Me.FTPMosToFirstIntPmtTextBox.EnterAsTab = True
+        Me.FTPMosToFirstIntPmtTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPMosToFirstIntPmtTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.FTPMosToFirstIntPmtTextBox.Location = New System.Drawing.Point(839, 302)
+        Me.FTPMosToFirstIntPmtTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPMosToFirstIntPmtTextBox.Name = "FTPMosToFirstIntPmtTextBox"
+        Me.FTPMosToFirstIntPmtTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPMosToFirstIntPmtTextBox.SelectOnFocus = True
+        Me.FTPMosToFirstIntPmtTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.FTPMosToFirstIntPmtTextBox.TabIndex = 12
+        Me.FTPMosToFirstIntPmtTextBox.Tooltip = ""
+        '
+        'FTPTermTextBox
+        '
+        Me.FTPTermTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPTermTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPTermTextBox.EnterAsTab = True
+        Me.FTPTermTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPTermTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.FTPTermTextBox.Location = New System.Drawing.Point(839, 7)
+        Me.FTPTermTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPTermTextBox.Name = "FTPTermTextBox"
+        Me.FTPTermTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPTermTextBox.SelectOnFocus = True
+        Me.FTPTermTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.FTPTermTextBox.TabIndex = 7
+        Me.FTPTermTextBox.Tooltip = ""
+        '
+        'FTPAmortizationTextBox
+        '
+        Me.FTPAmortizationTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPAmortizationTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPAmortizationTextBox.EnterAsTab = True
+        Me.FTPAmortizationTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPAmortizationTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.FTPAmortizationTextBox.Location = New System.Drawing.Point(839, 66)
+        Me.FTPAmortizationTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPAmortizationTextBox.Name = "FTPAmortizationTextBox"
+        Me.FTPAmortizationTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPAmortizationTextBox.SelectOnFocus = True
+        Me.FTPAmortizationTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.FTPAmortizationTextBox.TabIndex = 8
+        Me.FTPAmortizationTextBox.Tooltip = ""
+        '
+        'FTPInterestOnlyTextBox
+        '
+        Me.FTPInterestOnlyTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPInterestOnlyTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPInterestOnlyTextBox.EnterAsTab = True
+        Me.FTPInterestOnlyTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPInterestOnlyTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.FTPInterestOnlyTextBox.Location = New System.Drawing.Point(839, 125)
+        Me.FTPInterestOnlyTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPInterestOnlyTextBox.Name = "FTPInterestOnlyTextBox"
+        Me.FTPInterestOnlyTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPInterestOnlyTextBox.SelectOnFocus = True
+        Me.FTPInterestOnlyTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.FTPInterestOnlyTextBox.TabIndex = 9
+        Me.FTPInterestOnlyTextBox.Tooltip = ""
+        '
+        'FTPForwardTextBox
+        '
+        Me.FTPForwardTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPForwardTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPForwardTextBox.EnterAsTab = True
+        Me.FTPForwardTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPForwardTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.FTPForwardTextBox.Location = New System.Drawing.Point(839, 184)
+        Me.FTPForwardTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPForwardTextBox.Name = "FTPForwardTextBox"
+        Me.FTPForwardTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPForwardTextBox.SelectOnFocus = True
+        Me.FTPForwardTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.FTPForwardTextBox.TabIndex = 10
+        Me.FTPForwardTextBox.Tooltip = ""
+        '
+        'FTPResidualTextBox
+        '
+        Me.FTPResidualTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPResidualTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPResidualTextBox.EnterAsTab = True
+        Me.FTPResidualTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPResidualTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Percentage
+        Me.FTPResidualTextBox.Location = New System.Drawing.Point(839, 243)
+        Me.FTPResidualTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPResidualTextBox.Name = "FTPResidualTextBox"
+        Me.FTPResidualTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPResidualTextBox.SelectOnFocus = True
+        Me.FTPResidualTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.FTPResidualTextBox.TabIndex = 11
+        Me.FTPResidualTextBox.Tooltip = ""
+        '
+        'FTPAccrualBasisComboBox
+        '
+        Me.FTPAccrualBasisComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPAccrualBasisComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPAccrualBasisComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPAccrualBasisComboBox.EnterAsTab = True
+        Me.FTPAccrualBasisComboBox.FormattingEnabled = True
+        Me.FTPAccrualBasisComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPAccrualBasisComboBox.Location = New System.Drawing.Point(270, 7)
+        Me.FTPAccrualBasisComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPAccrualBasisComboBox.Name = "FTPAccrualBasisComboBox"
+        Me.FTPAccrualBasisComboBox.Size = New System.Drawing.Size(282, 37)
+        Me.FTPAccrualBasisComboBox.TabIndex = 2
+        Me.FTPAccrualBasisComboBox.Tooltip = ""
+        '
+        'FTPAmortizationTypeComboBox
+        '
+        Me.FTPAmortizationTypeComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPAmortizationTypeComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPAmortizationTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPAmortizationTypeComboBox.EnterAsTab = True
+        Me.FTPAmortizationTypeComboBox.FormattingEnabled = True
+        Me.FTPAmortizationTypeComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPAmortizationTypeComboBox.Location = New System.Drawing.Point(270, 66)
+        Me.FTPAmortizationTypeComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPAmortizationTypeComboBox.Name = "FTPAmortizationTypeComboBox"
+        Me.FTPAmortizationTypeComboBox.Size = New System.Drawing.Size(282, 37)
+        Me.FTPAmortizationTypeComboBox.TabIndex = 3
+        Me.FTPAmortizationTypeComboBox.Tooltip = ""
+        '
+        'FTPInterestFrequencyComboBox
+        '
+        Me.FTPInterestFrequencyComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPInterestFrequencyComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPInterestFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPInterestFrequencyComboBox.EnterAsTab = True
+        Me.FTPInterestFrequencyComboBox.FormattingEnabled = True
+        Me.FTPInterestFrequencyComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPInterestFrequencyComboBox.Location = New System.Drawing.Point(270, 125)
+        Me.FTPInterestFrequencyComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPInterestFrequencyComboBox.Name = "FTPInterestFrequencyComboBox"
+        Me.FTPInterestFrequencyComboBox.Size = New System.Drawing.Size(282, 37)
+        Me.FTPInterestFrequencyComboBox.TabIndex = 4
+        Me.FTPInterestFrequencyComboBox.Tooltip = ""
+        '
+        'FTPPrincipalFrequencyComboBox
+        '
+        Me.FTPPrincipalFrequencyComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPPrincipalFrequencyComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPPrincipalFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPPrincipalFrequencyComboBox.EnterAsTab = True
+        Me.FTPPrincipalFrequencyComboBox.FormattingEnabled = True
+        Me.FTPPrincipalFrequencyComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPPrincipalFrequencyComboBox.Location = New System.Drawing.Point(270, 184)
+        Me.FTPPrincipalFrequencyComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPPrincipalFrequencyComboBox.Name = "FTPPrincipalFrequencyComboBox"
+        Me.FTPPrincipalFrequencyComboBox.Size = New System.Drawing.Size(282, 37)
+        Me.FTPPrincipalFrequencyComboBox.TabIndex = 5
+        Me.FTPPrincipalFrequencyComboBox.Tooltip = ""
+        '
+        'FTPPrepaymentWaiverComboBox
+        '
+        Me.FTPPrepaymentWaiverComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPPrepaymentWaiverComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPPrepaymentWaiverComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPPrepaymentWaiverComboBox.EnterAsTab = True
+        Me.FTPPrepaymentWaiverComboBox.FormattingEnabled = True
+        Me.FTPPrepaymentWaiverComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPPrepaymentWaiverComboBox.Location = New System.Drawing.Point(270, 243)
+        Me.FTPPrepaymentWaiverComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPPrepaymentWaiverComboBox.Name = "FTPPrepaymentWaiverComboBox"
+        Me.FTPPrepaymentWaiverComboBox.Size = New System.Drawing.Size(282, 37)
+        Me.FTPPrepaymentWaiverComboBox.TabIndex = 6
+        Me.FTPPrepaymentWaiverComboBox.Tooltip = ""
+        '
+        'IrregularButton
+        '
+        Me.IrregularButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IrregularButton.Location = New System.Drawing.Point(566, 66)
+        Me.IrregularButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.IrregularButton.Name = "IrregularButton"
+        Me.IrregularButton.Size = New System.Drawing.Size(51, 45)
+        Me.IrregularButton.TabIndex = 90
+        Me.IrregularButton.Text = "?"
+        Me.IrregularButton.UseVisualStyleBackColor = True
+        Me.IrregularButton.Visible = False
+        '
+        'CIPRateCalculatorTabPage
+        '
+        Me.CIPRateCalculatorTabPage.BackColor = System.Drawing.Color.Linen
+        Me.CIPRateCalculatorTabPage.Controls.Add(Me.CIPRateDateWarningLabel)
+        Me.CIPRateCalculatorTabPage.Controls.Add(Me.CIPResetButton)
+        Me.CIPRateCalculatorTabPage.Controls.Add(Me.CIPResultsGroupBox)
+        Me.CIPRateCalculatorTabPage.Controls.Add(Me.CIPInputsTableLayoutPanel)
+        Me.CIPRateCalculatorTabPage.Location = New System.Drawing.Point(4, 38)
+        Me.CIPRateCalculatorTabPage.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPRateCalculatorTabPage.Name = "CIPRateCalculatorTabPage"
+        Me.CIPRateCalculatorTabPage.Padding = New System.Windows.Forms.Padding(7)
+        Me.CIPRateCalculatorTabPage.Size = New System.Drawing.Size(1348, 926)
+        Me.CIPRateCalculatorTabPage.TabIndex = 1
+        Me.CIPRateCalculatorTabPage.Text = "CIP Rate Calculator"
+        '
+        'CIPRateDateWarningLabel
+        '
+        Me.CIPRateDateWarningLabel.ForeColor = System.Drawing.Color.Red
+        Me.CIPRateDateWarningLabel.Location = New System.Drawing.Point(628, 540)
+        Me.CIPRateDateWarningLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPRateDateWarningLabel.Name = "CIPRateDateWarningLabel"
+        Me.CIPRateDateWarningLabel.Size = New System.Drawing.Size(588, 165)
+        Me.CIPRateDateWarningLabel.TabIndex = 90
+        '
+        'CIPResetButton
+        '
+        Me.CIPResetButton.Location = New System.Drawing.Point(1041, 810)
+        Me.CIPResetButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPResetButton.Name = "CIPResetButton"
+        Me.CIPResetButton.Size = New System.Drawing.Size(175, 51)
+        Me.CIPResetButton.TabIndex = 8
+        Me.CIPResetButton.Text = "Reset"
+        Me.CIPResetButton.UseVisualStyleBackColor = True
+        '
+        'CIPResultsGroupBox
+        '
+        Me.CIPResultsGroupBox.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPAllInCustRateTextBox)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPSpreadTextBox)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPRateResultTextBox)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPWaiverResultTextBox)
+        Me.CIPResultsGroupBox.Controls.Add(Me.Label)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPAllInCustRateLabel)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPSpreadLabel)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPAllInCOFResultTextBox)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPForwardResultTextBox)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPAllInCOFResultsLabel)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPForwardResultsLabel)
+        Me.CIPResultsGroupBox.Controls.Add(Me.CIPRateResultsLabel)
+        Me.CIPResultsGroupBox.Location = New System.Drawing.Point(119, 437)
+        Me.CIPResultsGroupBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPResultsGroupBox.Name = "CIPResultsGroupBox"
+        Me.CIPResultsGroupBox.Padding = New System.Windows.Forms.Padding(7)
+        Me.CIPResultsGroupBox.Size = New System.Drawing.Size(408, 424)
+        Me.CIPResultsGroupBox.TabIndex = 1
+        Me.CIPResultsGroupBox.TabStop = False
+        Me.CIPResultsGroupBox.Text = "Results"
+        '
+        'CIPAllInCustRateTextBox
+        '
+        Me.CIPAllInCustRateTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CIPAllInCustRateTextBox.EnterAsTab = True
+        Me.CIPAllInCustRateTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPAllInCustRateTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Percentage
+        Me.CIPAllInCustRateTextBox.Location = New System.Drawing.Point(226, 357)
+        Me.CIPAllInCustRateTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPAllInCustRateTextBox.Name = "CIPAllInCustRateTextBox"
+        Me.CIPAllInCustRateTextBox.NormalBackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CIPAllInCustRateTextBox.SelectOnFocus = True
+        Me.CIPAllInCustRateTextBox.Size = New System.Drawing.Size(146, 35)
+        Me.CIPAllInCustRateTextBox.TabIndex = 7
+        Me.CIPAllInCustRateTextBox.Tooltip = ""
+        '
+        'CIPSpreadTextBox
+        '
+        Me.CIPSpreadTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CIPSpreadTextBox.EnterAsTab = True
+        Me.CIPSpreadTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPSpreadTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Percentage
+        Me.CIPSpreadTextBox.Location = New System.Drawing.Point(226, 297)
+        Me.CIPSpreadTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPSpreadTextBox.Name = "CIPSpreadTextBox"
+        Me.CIPSpreadTextBox.NormalBackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CIPSpreadTextBox.SelectOnFocus = True
+        Me.CIPSpreadTextBox.Size = New System.Drawing.Size(146, 35)
+        Me.CIPSpreadTextBox.TabIndex = 6
+        Me.CIPSpreadTextBox.Tooltip = ""
+        '
+        'CIPRateResultTextBox
+        '
+        Me.CIPRateResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CIPRateResultTextBox.Location = New System.Drawing.Point(226, 38)
+        Me.CIPRateResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPRateResultTextBox.Name = "CIPRateResultTextBox"
+        Me.CIPRateResultTextBox.ReadOnly = True
+        Me.CIPRateResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.CIPRateResultTextBox.TabIndex = 10
+        Me.CIPRateResultTextBox.TabStop = False
+        Me.CIPRateResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CIPWaiverResultTextBox
+        '
+        Me.CIPWaiverResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CIPWaiverResultTextBox.Location = New System.Drawing.Point(226, 170)
+        Me.CIPWaiverResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPWaiverResultTextBox.Name = "CIPWaiverResultTextBox"
+        Me.CIPWaiverResultTextBox.ReadOnly = True
+        Me.CIPWaiverResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.CIPWaiverResultTextBox.TabIndex = 9
+        Me.CIPWaiverResultTextBox.TabStop = False
+        Me.CIPWaiverResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label
+        '
+        Me.Label.AutoSize = True
+        Me.Label.Location = New System.Drawing.Point(14, 174)
+        Me.Label.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label.Name = "Label"
+        Me.Label.Size = New System.Drawing.Size(87, 29)
+        Me.Label.TabIndex = 8
+        Me.Label.Text = "Waiver"
+        '
+        'CIPAllInCustRateLabel
+        '
+        Me.CIPAllInCustRateLabel.AutoSize = True
+        Me.CIPAllInCustRateLabel.Location = New System.Drawing.Point(16, 364)
+        Me.CIPAllInCustRateLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPAllInCustRateLabel.Name = "CIPAllInCustRateLabel"
+        Me.CIPAllInCustRateLabel.Size = New System.Drawing.Size(183, 29)
+        Me.CIPAllInCustRateLabel.TabIndex = 7
+        Me.CIPAllInCustRateLabel.Text = "All-In Cust. Rate"
+        '
+        'CIPSpreadLabel
+        '
+        Me.CIPSpreadLabel.AutoSize = True
+        Me.CIPSpreadLabel.Location = New System.Drawing.Point(16, 303)
+        Me.CIPSpreadLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPSpreadLabel.Name = "CIPSpreadLabel"
+        Me.CIPSpreadLabel.Size = New System.Drawing.Size(92, 29)
+        Me.CIPSpreadLabel.TabIndex = 6
+        Me.CIPSpreadLabel.Text = "Spread"
+        '
+        'CIPAllInCOFResultTextBox
+        '
+        Me.CIPAllInCOFResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CIPAllInCOFResultTextBox.Location = New System.Drawing.Point(226, 234)
+        Me.CIPAllInCOFResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPAllInCOFResultTextBox.Name = "CIPAllInCOFResultTextBox"
+        Me.CIPAllInCOFResultTextBox.ReadOnly = True
+        Me.CIPAllInCOFResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.CIPAllInCOFResultTextBox.TabIndex = 4
+        Me.CIPAllInCOFResultTextBox.TabStop = False
+        Me.CIPAllInCOFResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CIPForwardResultTextBox
+        '
+        Me.CIPForwardResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CIPForwardResultTextBox.Location = New System.Drawing.Point(226, 105)
+        Me.CIPForwardResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPForwardResultTextBox.Name = "CIPForwardResultTextBox"
+        Me.CIPForwardResultTextBox.ReadOnly = True
+        Me.CIPForwardResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.CIPForwardResultTextBox.TabIndex = 5
+        Me.CIPForwardResultTextBox.TabStop = False
+        Me.CIPForwardResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'CIPAllInCOFResultsLabel
+        '
+        Me.CIPAllInCOFResultsLabel.AutoSize = True
+        Me.CIPAllInCOFResultsLabel.Location = New System.Drawing.Point(16, 239)
+        Me.CIPAllInCOFResultsLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPAllInCOFResultsLabel.Name = "CIPAllInCOFResultsLabel"
+        Me.CIPAllInCOFResultsLabel.Size = New System.Drawing.Size(124, 29)
+        Me.CIPAllInCOFResultsLabel.TabIndex = 2
+        Me.CIPAllInCOFResultsLabel.Text = "All-In COF"
+        '
+        'CIPForwardResultsLabel
+        '
+        Me.CIPForwardResultsLabel.AutoSize = True
+        Me.CIPForwardResultsLabel.Location = New System.Drawing.Point(16, 109)
+        Me.CIPForwardResultsLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPForwardResultsLabel.Name = "CIPForwardResultsLabel"
+        Me.CIPForwardResultsLabel.Size = New System.Drawing.Size(103, 29)
+        Me.CIPForwardResultsLabel.TabIndex = 1
+        Me.CIPForwardResultsLabel.Text = "Forward"
+        '
+        'CIPRateResultsLabel
+        '
+        Me.CIPRateResultsLabel.AutoSize = True
+        Me.CIPRateResultsLabel.Location = New System.Drawing.Point(16, 45)
+        Me.CIPRateResultsLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPRateResultsLabel.Name = "CIPRateResultsLabel"
+        Me.CIPRateResultsLabel.Size = New System.Drawing.Size(108, 29)
+        Me.CIPRateResultsLabel.TabIndex = 0
+        Me.CIPRateResultsLabel.Text = "CIP Rate"
+        '
+        'CIPInputsTableLayoutPanel
+        '
+        Me.CIPInputsTableLayoutPanel.ColumnCount = 5
+        Me.CIPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.0!))
+        Me.CIPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.0!))
+        Me.CIPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.0!))
+        Me.CIPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.0!))
+        Me.CIPInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.0!))
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.Label6, 3, 2)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPInterestOnlyTextBox, 4, 2)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPTermLabel, 3, 0)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPAmortizationLabel, 3, 1)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPForwardLabel, 3, 3)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPPrepaymentWaiverLabel, 3, 4)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPTermTextBox, 4, 0)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPAmortizationTextBox, 4, 1)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPForwardTextBox, 4, 3)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPPrepaymentWaiverComboBox, 4, 4)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.Label2, 0, 2)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.Label3, 0, 3)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPInterestFrequencyComboBox, 1, 2)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPPrincipalFrequencyComboBox, 1, 3)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.Label4, 0, 0)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.Label5, 0, 1)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPAccrualBasisComboBox, 1, 0)
+        Me.CIPInputsTableLayoutPanel.Controls.Add(Me.CIPAmortizationTypeComboBox, 1, 1)
+        Me.CIPInputsTableLayoutPanel.Location = New System.Drawing.Point(119, 45)
+        Me.CIPInputsTableLayoutPanel.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPInputsTableLayoutPanel.Name = "CIPInputsTableLayoutPanel"
+        Me.CIPInputsTableLayoutPanel.RowCount = 6
+        Me.CIPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.CIPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.CIPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.CIPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.CIPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.CIPInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.CIPInputsTableLayoutPanel.Size = New System.Drawing.Size(1097, 308)
+        Me.CIPInputsTableLayoutPanel.TabIndex = 0
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Location = New System.Drawing.Point(576, 104)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(249, 52)
+        Me.Label6.TabIndex = 19
+        Me.Label6.Text = "Interest Only"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'CIPInterestOnlyTextBox
+        '
+        Me.CIPInterestOnlyTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPInterestOnlyTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPInterestOnlyTextBox.EnterAsTab = True
+        Me.CIPInterestOnlyTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPInterestOnlyTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.CIPInterestOnlyTextBox.Location = New System.Drawing.Point(839, 111)
+        Me.CIPInterestOnlyTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPInterestOnlyTextBox.Name = "CIPInterestOnlyTextBox"
+        Me.CIPInterestOnlyTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.CIPInterestOnlyTextBox.SelectOnFocus = True
+        Me.CIPInterestOnlyTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.CIPInterestOnlyTextBox.TabIndex = 4
+        Me.CIPInterestOnlyTextBox.Tooltip = ""
+        '
+        'CIPTermLabel
+        '
+        Me.CIPTermLabel.AutoSize = True
+        Me.CIPTermLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPTermLabel.Location = New System.Drawing.Point(576, 0)
+        Me.CIPTermLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPTermLabel.Name = "CIPTermLabel"
+        Me.CIPTermLabel.Size = New System.Drawing.Size(249, 52)
+        Me.CIPTermLabel.TabIndex = 0
+        Me.CIPTermLabel.Text = "Term"
+        Me.CIPTermLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'CIPAmortizationLabel
+        '
+        Me.CIPAmortizationLabel.AutoSize = True
+        Me.CIPAmortizationLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPAmortizationLabel.Location = New System.Drawing.Point(576, 52)
+        Me.CIPAmortizationLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPAmortizationLabel.Name = "CIPAmortizationLabel"
+        Me.CIPAmortizationLabel.Size = New System.Drawing.Size(249, 52)
+        Me.CIPAmortizationLabel.TabIndex = 1
+        Me.CIPAmortizationLabel.Text = "Amortization"
+        Me.CIPAmortizationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'CIPForwardLabel
+        '
+        Me.CIPForwardLabel.AutoSize = True
+        Me.CIPForwardLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPForwardLabel.Location = New System.Drawing.Point(576, 156)
+        Me.CIPForwardLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPForwardLabel.Name = "CIPForwardLabel"
+        Me.CIPForwardLabel.Size = New System.Drawing.Size(249, 52)
+        Me.CIPForwardLabel.TabIndex = 2
+        Me.CIPForwardLabel.Text = "Forward"
+        Me.CIPForwardLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'CIPPrepaymentWaiverLabel
+        '
+        Me.CIPPrepaymentWaiverLabel.AutoSize = True
+        Me.CIPPrepaymentWaiverLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPPrepaymentWaiverLabel.Location = New System.Drawing.Point(576, 208)
+        Me.CIPPrepaymentWaiverLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.CIPPrepaymentWaiverLabel.Name = "CIPPrepaymentWaiverLabel"
+        Me.CIPPrepaymentWaiverLabel.Size = New System.Drawing.Size(249, 52)
+        Me.CIPPrepaymentWaiverLabel.TabIndex = 6
+        Me.CIPPrepaymentWaiverLabel.Text = "Prepayment Waiver"
+        Me.CIPPrepaymentWaiverLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'CIPTermTextBox
+        '
+        Me.CIPTermTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPTermTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPTermTextBox.EnterAsTab = True
+        Me.CIPTermTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPTermTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.CIPTermTextBox.Location = New System.Drawing.Point(839, 7)
+        Me.CIPTermTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPTermTextBox.Name = "CIPTermTextBox"
+        Me.CIPTermTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.CIPTermTextBox.SelectOnFocus = True
+        Me.CIPTermTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.CIPTermTextBox.TabIndex = 2
+        Me.CIPTermTextBox.Tooltip = ""
+        '
+        'CIPAmortizationTextBox
+        '
+        Me.CIPAmortizationTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPAmortizationTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPAmortizationTextBox.EnterAsTab = True
+        Me.CIPAmortizationTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPAmortizationTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.CIPAmortizationTextBox.Location = New System.Drawing.Point(839, 59)
+        Me.CIPAmortizationTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPAmortizationTextBox.Name = "CIPAmortizationTextBox"
+        Me.CIPAmortizationTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.CIPAmortizationTextBox.SelectOnFocus = True
+        Me.CIPAmortizationTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.CIPAmortizationTextBox.TabIndex = 3
+        Me.CIPAmortizationTextBox.Tooltip = ""
+        '
+        'CIPForwardTextBox
+        '
+        Me.CIPForwardTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPForwardTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPForwardTextBox.EnterAsTab = True
+        Me.CIPForwardTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPForwardTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.CIPForwardTextBox.Location = New System.Drawing.Point(839, 163)
+        Me.CIPForwardTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPForwardTextBox.Name = "CIPForwardTextBox"
+        Me.CIPForwardTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.CIPForwardTextBox.SelectOnFocus = True
+        Me.CIPForwardTextBox.Size = New System.Drawing.Size(251, 35)
+        Me.CIPForwardTextBox.TabIndex = 5
+        Me.CIPForwardTextBox.Tooltip = ""
+        '
+        'CIPPrepaymentWaiverComboBox
+        '
+        Me.CIPPrepaymentWaiverComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPPrepaymentWaiverComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPPrepaymentWaiverComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CIPPrepaymentWaiverComboBox.EnterAsTab = True
+        Me.CIPPrepaymentWaiverComboBox.FormattingEnabled = True
+        Me.CIPPrepaymentWaiverComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPPrepaymentWaiverComboBox.Location = New System.Drawing.Point(839, 215)
+        Me.CIPPrepaymentWaiverComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPPrepaymentWaiverComboBox.Name = "CIPPrepaymentWaiverComboBox"
+        Me.CIPPrepaymentWaiverComboBox.Size = New System.Drawing.Size(251, 37)
+        Me.CIPPrepaymentWaiverComboBox.TabIndex = 6
+        Me.CIPPrepaymentWaiverComboBox.Tooltip = ""
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Location = New System.Drawing.Point(7, 104)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(249, 52)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Interest Frequency"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Location = New System.Drawing.Point(7, 156)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(249, 52)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Principal Frequency"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'CIPInterestFrequencyComboBox
+        '
+        Me.CIPInterestFrequencyComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPInterestFrequencyComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPInterestFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CIPInterestFrequencyComboBox.EnterAsTab = True
+        Me.CIPInterestFrequencyComboBox.FormattingEnabled = True
+        Me.CIPInterestFrequencyComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPInterestFrequencyComboBox.Location = New System.Drawing.Point(270, 111)
+        Me.CIPInterestFrequencyComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPInterestFrequencyComboBox.Name = "CIPInterestFrequencyComboBox"
+        Me.CIPInterestFrequencyComboBox.Size = New System.Drawing.Size(249, 37)
+        Me.CIPInterestFrequencyComboBox.TabIndex = 9
+        Me.CIPInterestFrequencyComboBox.Tooltip = ""
+        '
+        'CIPPrincipalFrequencyComboBox
+        '
+        Me.CIPPrincipalFrequencyComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPPrincipalFrequencyComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPPrincipalFrequencyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CIPPrincipalFrequencyComboBox.EnterAsTab = True
+        Me.CIPPrincipalFrequencyComboBox.FormattingEnabled = True
+        Me.CIPPrincipalFrequencyComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPPrincipalFrequencyComboBox.Location = New System.Drawing.Point(270, 163)
+        Me.CIPPrincipalFrequencyComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPPrincipalFrequencyComboBox.Name = "CIPPrincipalFrequencyComboBox"
+        Me.CIPPrincipalFrequencyComboBox.Size = New System.Drawing.Size(249, 37)
+        Me.CIPPrincipalFrequencyComboBox.TabIndex = 10
+        Me.CIPPrincipalFrequencyComboBox.Tooltip = ""
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Location = New System.Drawing.Point(7, 0)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(249, 52)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "Accrual Basis"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Location = New System.Drawing.Point(7, 52)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(249, 52)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "Amortization Type"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'CIPAccrualBasisComboBox
+        '
+        Me.CIPAccrualBasisComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPAccrualBasisComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPAccrualBasisComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CIPAccrualBasisComboBox.EnterAsTab = True
+        Me.CIPAccrualBasisComboBox.FormattingEnabled = True
+        Me.CIPAccrualBasisComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPAccrualBasisComboBox.Location = New System.Drawing.Point(270, 7)
+        Me.CIPAccrualBasisComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPAccrualBasisComboBox.Name = "CIPAccrualBasisComboBox"
+        Me.CIPAccrualBasisComboBox.Size = New System.Drawing.Size(249, 37)
+        Me.CIPAccrualBasisComboBox.TabIndex = 13
+        Me.CIPAccrualBasisComboBox.Tooltip = ""
+        '
+        'CIPAmortizationTypeComboBox
+        '
+        Me.CIPAmortizationTypeComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.CIPAmortizationTypeComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CIPAmortizationTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CIPAmortizationTypeComboBox.EnterAsTab = True
+        Me.CIPAmortizationTypeComboBox.FormattingEnabled = True
+        Me.CIPAmortizationTypeComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.CIPAmortizationTypeComboBox.Location = New System.Drawing.Point(270, 59)
+        Me.CIPAmortizationTypeComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.CIPAmortizationTypeComboBox.Name = "CIPAmortizationTypeComboBox"
+        Me.CIPAmortizationTypeComboBox.Size = New System.Drawing.Size(249, 37)
+        Me.CIPAmortizationTypeComboBox.TabIndex = 14
+        Me.CIPAmortizationTypeComboBox.Tooltip = ""
+        '
+        'ALSRateCalculatorTabPage
+        '
+        Me.ALSRateCalculatorTabPage.Controls.Add(Me.ALSRateDateWarningLabel)
+        Me.ALSRateCalculatorTabPage.Controls.Add(Me.ALSResultsGroupBox)
+        Me.ALSRateCalculatorTabPage.Controls.Add(Me.ALSResetButton)
+        Me.ALSRateCalculatorTabPage.Controls.Add(Me.ALSInputsTableLayoutPanel)
+        Me.ALSRateCalculatorTabPage.Location = New System.Drawing.Point(4, 38)
+        Me.ALSRateCalculatorTabPage.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSRateCalculatorTabPage.Name = "ALSRateCalculatorTabPage"
+        Me.ALSRateCalculatorTabPage.Size = New System.Drawing.Size(1348, 926)
+        Me.ALSRateCalculatorTabPage.TabIndex = 2
+        Me.ALSRateCalculatorTabPage.Text = "ALS Rate Calculator"
+        Me.ALSRateCalculatorTabPage.UseVisualStyleBackColor = True
+        '
+        'ALSRateDateWarningLabel
+        '
+        Me.ALSRateDateWarningLabel.ForeColor = System.Drawing.Color.Red
+        Me.ALSRateDateWarningLabel.Location = New System.Drawing.Point(628, 540)
+        Me.ALSRateDateWarningLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSRateDateWarningLabel.Name = "ALSRateDateWarningLabel"
+        Me.ALSRateDateWarningLabel.Size = New System.Drawing.Size(588, 165)
+        Me.ALSRateDateWarningLabel.TabIndex = 90
+        '
+        'ALSResultsGroupBox
+        '
+        Me.ALSResultsGroupBox.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSAllInCustRateTextBox)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSSpreadTextBox)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSAllInCustRateLabel)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSSpreadLabel)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSCPRResultTextBox)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSAllInCOFResultTextBox)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSOptionCostResultTextBox)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSCOFResultTextBox)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSCPRResultsLabel)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSAllInCOFResultsLabel)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSOptionCostResultsLabel)
+        Me.ALSResultsGroupBox.Controls.Add(Me.ALSCOFResultsLabel)
+        Me.ALSResultsGroupBox.Location = New System.Drawing.Point(119, 437)
+        Me.ALSResultsGroupBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSResultsGroupBox.Name = "ALSResultsGroupBox"
+        Me.ALSResultsGroupBox.Padding = New System.Windows.Forms.Padding(7)
+        Me.ALSResultsGroupBox.Size = New System.Drawing.Size(408, 424)
+        Me.ALSResultsGroupBox.TabIndex = 3
+        Me.ALSResultsGroupBox.TabStop = False
+        Me.ALSResultsGroupBox.Text = "Results"
+        '
+        'ALSAllInCustRateTextBox
+        '
+        Me.ALSAllInCustRateTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ALSAllInCustRateTextBox.EnterAsTab = True
+        Me.ALSAllInCustRateTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.ALSAllInCustRateTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Text
+        Me.ALSAllInCustRateTextBox.Location = New System.Drawing.Point(229, 357)
+        Me.ALSAllInCustRateTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSAllInCustRateTextBox.Name = "ALSAllInCustRateTextBox"
+        Me.ALSAllInCustRateTextBox.NormalBackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ALSAllInCustRateTextBox.SelectOnFocus = True
+        Me.ALSAllInCustRateTextBox.Size = New System.Drawing.Size(146, 35)
+        Me.ALSAllInCustRateTextBox.TabIndex = 11
+        Me.ALSAllInCustRateTextBox.Tooltip = ""
+        '
+        'ALSSpreadTextBox
+        '
+        Me.ALSSpreadTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ALSSpreadTextBox.EnterAsTab = True
+        Me.ALSSpreadTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.ALSSpreadTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Percentage
+        Me.ALSSpreadTextBox.Location = New System.Drawing.Point(229, 297)
+        Me.ALSSpreadTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSSpreadTextBox.Name = "ALSSpreadTextBox"
+        Me.ALSSpreadTextBox.NormalBackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ALSSpreadTextBox.SelectOnFocus = True
+        Me.ALSSpreadTextBox.Size = New System.Drawing.Size(146, 35)
+        Me.ALSSpreadTextBox.TabIndex = 10
+        Me.ALSSpreadTextBox.Tooltip = ""
+        '
+        'ALSAllInCustRateLabel
+        '
+        Me.ALSAllInCustRateLabel.AutoSize = True
+        Me.ALSAllInCustRateLabel.Location = New System.Drawing.Point(21, 364)
+        Me.ALSAllInCustRateLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSAllInCustRateLabel.Name = "ALSAllInCustRateLabel"
+        Me.ALSAllInCustRateLabel.Size = New System.Drawing.Size(183, 29)
+        Me.ALSAllInCustRateLabel.TabIndex = 9
+        Me.ALSAllInCustRateLabel.Text = "All-In Cust. Rate"
+        '
+        'ALSSpreadLabel
+        '
+        Me.ALSSpreadLabel.AutoSize = True
+        Me.ALSSpreadLabel.Location = New System.Drawing.Point(21, 303)
+        Me.ALSSpreadLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSSpreadLabel.Name = "ALSSpreadLabel"
+        Me.ALSSpreadLabel.Size = New System.Drawing.Size(92, 29)
+        Me.ALSSpreadLabel.TabIndex = 8
+        Me.ALSSpreadLabel.Text = "Spread"
+        '
+        'ALSCPRResultTextBox
+        '
+        Me.ALSCPRResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ALSCPRResultTextBox.Location = New System.Drawing.Point(229, 232)
+        Me.ALSCPRResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSCPRResultTextBox.Name = "ALSCPRResultTextBox"
+        Me.ALSCPRResultTextBox.ReadOnly = True
+        Me.ALSCPRResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.ALSCPRResultTextBox.TabIndex = 5
+        Me.ALSCPRResultTextBox.TabStop = False
+        Me.ALSCPRResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ALSAllInCOFResultTextBox
+        '
+        Me.ALSAllInCOFResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ALSAllInCOFResultTextBox.Location = New System.Drawing.Point(229, 167)
+        Me.ALSAllInCOFResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSAllInCOFResultTextBox.Name = "ALSAllInCOFResultTextBox"
+        Me.ALSAllInCOFResultTextBox.ReadOnly = True
+        Me.ALSAllInCOFResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.ALSAllInCOFResultTextBox.TabIndex = 6
+        Me.ALSAllInCOFResultTextBox.TabStop = False
+        Me.ALSAllInCOFResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ALSOptionCostResultTextBox
+        '
+        Me.ALSOptionCostResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ALSOptionCostResultTextBox.Location = New System.Drawing.Point(229, 103)
+        Me.ALSOptionCostResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSOptionCostResultTextBox.Name = "ALSOptionCostResultTextBox"
+        Me.ALSOptionCostResultTextBox.ReadOnly = True
+        Me.ALSOptionCostResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.ALSOptionCostResultTextBox.TabIndex = 7
+        Me.ALSOptionCostResultTextBox.TabStop = False
+        Me.ALSOptionCostResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ALSCOFResultTextBox
+        '
+        Me.ALSCOFResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ALSCOFResultTextBox.Location = New System.Drawing.Point(229, 38)
+        Me.ALSCOFResultTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSCOFResultTextBox.Name = "ALSCOFResultTextBox"
+        Me.ALSCOFResultTextBox.ReadOnly = True
+        Me.ALSCOFResultTextBox.Size = New System.Drawing.Size(149, 35)
+        Me.ALSCOFResultTextBox.TabIndex = 4
+        Me.ALSCOFResultTextBox.TabStop = False
+        Me.ALSCOFResultTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ALSCPRResultsLabel
+        '
+        Me.ALSCPRResultsLabel.AutoSize = True
+        Me.ALSCPRResultsLabel.Location = New System.Drawing.Point(21, 239)
+        Me.ALSCPRResultsLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSCPRResultsLabel.Name = "ALSCPRResultsLabel"
+        Me.ALSCPRResultsLabel.Size = New System.Drawing.Size(63, 29)
+        Me.ALSCPRResultsLabel.TabIndex = 3
+        Me.ALSCPRResultsLabel.Text = "CPR"
+        '
+        'ALSAllInCOFResultsLabel
+        '
+        Me.ALSAllInCOFResultsLabel.AutoSize = True
+        Me.ALSAllInCOFResultsLabel.Location = New System.Drawing.Point(21, 174)
+        Me.ALSAllInCOFResultsLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSAllInCOFResultsLabel.Name = "ALSAllInCOFResultsLabel"
+        Me.ALSAllInCOFResultsLabel.Size = New System.Drawing.Size(124, 29)
+        Me.ALSAllInCOFResultsLabel.TabIndex = 2
+        Me.ALSAllInCOFResultsLabel.Text = "All-In COF"
+        '
+        'ALSOptionCostResultsLabel
+        '
+        Me.ALSOptionCostResultsLabel.AutoSize = True
+        Me.ALSOptionCostResultsLabel.Location = New System.Drawing.Point(21, 109)
+        Me.ALSOptionCostResultsLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSOptionCostResultsLabel.Name = "ALSOptionCostResultsLabel"
+        Me.ALSOptionCostResultsLabel.Size = New System.Drawing.Size(140, 29)
+        Me.ALSOptionCostResultsLabel.TabIndex = 1
+        Me.ALSOptionCostResultsLabel.Text = "Option Cost"
+        '
+        'ALSCOFResultsLabel
+        '
+        Me.ALSCOFResultsLabel.AutoSize = True
+        Me.ALSCOFResultsLabel.Location = New System.Drawing.Point(21, 45)
+        Me.ALSCOFResultsLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSCOFResultsLabel.Name = "ALSCOFResultsLabel"
+        Me.ALSCOFResultsLabel.Size = New System.Drawing.Size(64, 29)
+        Me.ALSCOFResultsLabel.TabIndex = 0
+        Me.ALSCOFResultsLabel.Text = "COF"
+        '
+        'ALSResetButton
+        '
+        Me.ALSResetButton.Location = New System.Drawing.Point(1041, 810)
+        Me.ALSResetButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSResetButton.Name = "ALSResetButton"
+        Me.ALSResetButton.Size = New System.Drawing.Size(175, 51)
+        Me.ALSResetButton.TabIndex = 8
+        Me.ALSResetButton.Text = "Reset"
+        Me.ALSResetButton.UseVisualStyleBackColor = True
+        '
+        'ALSInputsTableLayoutPanel
+        '
+        Me.ALSInputsTableLayoutPanel.ColumnCount = 2
+        Me.ALSInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.ALSInputsTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.ALSInputsTableLayoutPanel.Controls.Add(Me.ALSTermLabel, 0, 0)
+        Me.ALSInputsTableLayoutPanel.Controls.Add(Me.ALSAmortizationLabel, 0, 1)
+        Me.ALSInputsTableLayoutPanel.Controls.Add(Me.ALSLoanTypeLabel, 0, 2)
+        Me.ALSInputsTableLayoutPanel.Controls.Add(Me.ALSTermTextBox, 1, 0)
+        Me.ALSInputsTableLayoutPanel.Controls.Add(Me.ALSAmortizationTextBox, 1, 1)
+        Me.ALSInputsTableLayoutPanel.Controls.Add(Me.ALSConsumerLoanTypeComboBox, 1, 2)
+        Me.ALSInputsTableLayoutPanel.Location = New System.Drawing.Point(119, 45)
+        Me.ALSInputsTableLayoutPanel.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSInputsTableLayoutPanel.Name = "ALSInputsTableLayoutPanel"
+        Me.ALSInputsTableLayoutPanel.RowCount = 4
+        Me.ALSInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.ALSInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.ALSInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.ALSInputsTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.ALSInputsTableLayoutPanel.Size = New System.Drawing.Size(630, 236)
+        Me.ALSInputsTableLayoutPanel.TabIndex = 0
+        '
+        'ALSTermLabel
+        '
+        Me.ALSTermLabel.AutoSize = True
+        Me.ALSTermLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ALSTermLabel.Location = New System.Drawing.Point(7, 0)
+        Me.ALSTermLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSTermLabel.Name = "ALSTermLabel"
+        Me.ALSTermLabel.Size = New System.Drawing.Size(301, 59)
+        Me.ALSTermLabel.TabIndex = 0
+        Me.ALSTermLabel.Text = "Term"
+        Me.ALSTermLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ALSAmortizationLabel
+        '
+        Me.ALSAmortizationLabel.AutoSize = True
+        Me.ALSAmortizationLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ALSAmortizationLabel.Location = New System.Drawing.Point(7, 59)
+        Me.ALSAmortizationLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSAmortizationLabel.Name = "ALSAmortizationLabel"
+        Me.ALSAmortizationLabel.Size = New System.Drawing.Size(301, 59)
+        Me.ALSAmortizationLabel.TabIndex = 1
+        Me.ALSAmortizationLabel.Text = "Amortization"
+        Me.ALSAmortizationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ALSLoanTypeLabel
+        '
+        Me.ALSLoanTypeLabel.AutoSize = True
+        Me.ALSLoanTypeLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ALSLoanTypeLabel.Location = New System.Drawing.Point(7, 118)
+        Me.ALSLoanTypeLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.ALSLoanTypeLabel.Name = "ALSLoanTypeLabel"
+        Me.ALSLoanTypeLabel.Size = New System.Drawing.Size(301, 59)
+        Me.ALSLoanTypeLabel.TabIndex = 2
+        Me.ALSLoanTypeLabel.Text = "Type of Consumer Loan"
+        Me.ALSLoanTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'ALSTermTextBox
+        '
+        Me.ALSTermTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.ALSTermTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ALSTermTextBox.EnterAsTab = True
+        Me.ALSTermTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.ALSTermTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.ALSTermTextBox.Location = New System.Drawing.Point(322, 7)
+        Me.ALSTermTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSTermTextBox.Name = "ALSTermTextBox"
+        Me.ALSTermTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.ALSTermTextBox.SelectOnFocus = True
+        Me.ALSTermTextBox.Size = New System.Drawing.Size(301, 35)
+        Me.ALSTermTextBox.TabIndex = 2
+        Me.ALSTermTextBox.Tooltip = ""
+        '
+        'ALSAmortizationTextBox
+        '
+        Me.ALSAmortizationTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.ALSAmortizationTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ALSAmortizationTextBox.EnterAsTab = True
+        Me.ALSAmortizationTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.ALSAmortizationTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.ALSAmortizationTextBox.Location = New System.Drawing.Point(322, 66)
+        Me.ALSAmortizationTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSAmortizationTextBox.Name = "ALSAmortizationTextBox"
+        Me.ALSAmortizationTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.ALSAmortizationTextBox.SelectOnFocus = True
+        Me.ALSAmortizationTextBox.Size = New System.Drawing.Size(301, 35)
+        Me.ALSAmortizationTextBox.TabIndex = 3
+        Me.ALSAmortizationTextBox.Tooltip = ""
+        '
+        'ALSConsumerLoanTypeComboBox
+        '
+        Me.ALSConsumerLoanTypeComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.ALSConsumerLoanTypeComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ALSConsumerLoanTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ALSConsumerLoanTypeComboBox.EnterAsTab = True
+        Me.ALSConsumerLoanTypeComboBox.FormattingEnabled = True
+        Me.ALSConsumerLoanTypeComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.ALSConsumerLoanTypeComboBox.Location = New System.Drawing.Point(322, 125)
+        Me.ALSConsumerLoanTypeComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.ALSConsumerLoanTypeComboBox.Name = "ALSConsumerLoanTypeComboBox"
+        Me.ALSConsumerLoanTypeComboBox.Size = New System.Drawing.Size(301, 37)
+        Me.ALSConsumerLoanTypeComboBox.TabIndex = 4
+        Me.ALSConsumerLoanTypeComboBox.Tooltip = ""
+        '
+        'PandIPaymentCalculatorTabPage
+        '
+        Me.PandIPaymentCalculatorTabPage.Controls.Add(Me.PICalcControl)
+        Me.PandIPaymentCalculatorTabPage.Controls.Add(Me.PICalculateButton)
+        Me.PandIPaymentCalculatorTabPage.Controls.Add(Me.PIResetButton)
+        Me.PandIPaymentCalculatorTabPage.Location = New System.Drawing.Point(4, 38)
+        Me.PandIPaymentCalculatorTabPage.Margin = New System.Windows.Forms.Padding(7)
+        Me.PandIPaymentCalculatorTabPage.Name = "PandIPaymentCalculatorTabPage"
+        Me.PandIPaymentCalculatorTabPage.Size = New System.Drawing.Size(1348, 926)
+        Me.PandIPaymentCalculatorTabPage.TabIndex = 3
+        Me.PandIPaymentCalculatorTabPage.Text = "P & I Payment Calculator"
+        Me.PandIPaymentCalculatorTabPage.UseVisualStyleBackColor = True
+        '
+        'PICalculateButton
+        '
+        Me.PICalculateButton.Location = New System.Drawing.Point(819, 810)
+        Me.PICalculateButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.PICalculateButton.Name = "PICalculateButton"
+        Me.PICalculateButton.Size = New System.Drawing.Size(175, 51)
+        Me.PICalculateButton.TabIndex = 7
+        Me.PICalculateButton.Text = "Calculate"
+        Me.PICalculateButton.UseVisualStyleBackColor = True
+        '
+        'PIResetButton
+        '
+        Me.PIResetButton.Location = New System.Drawing.Point(1048, 810)
+        Me.PIResetButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.PIResetButton.Name = "PIResetButton"
+        Me.PIResetButton.Size = New System.Drawing.Size(175, 51)
+        Me.PIResetButton.TabIndex = 8
+        Me.PIResetButton.Text = "Reset"
+        Me.PIResetButton.UseVisualStyleBackColor = True
+        '
+        'FTPHistoricalCalculatorTabPage
+        '
+        Me.FTPHistoricalCalculatorTabPage.Controls.Add(Me.ToggleFormattingButton)
+        Me.FTPHistoricalCalculatorTabPage.Controls.Add(Me.FTPHistResetButton)
+        Me.FTPHistoricalCalculatorTabPage.Controls.Add(Me.FTPHistCalculateButton)
+        Me.FTPHistoricalCalculatorTabPage.Controls.Add(Me.FTPHistAutoGridControl)
+        Me.FTPHistoricalCalculatorTabPage.Controls.Add(Me.FTPHistTableLayoutPanel)
+        Me.FTPHistoricalCalculatorTabPage.Location = New System.Drawing.Point(4, 38)
+        Me.FTPHistoricalCalculatorTabPage.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistoricalCalculatorTabPage.Name = "FTPHistoricalCalculatorTabPage"
+        Me.FTPHistoricalCalculatorTabPage.Size = New System.Drawing.Size(1348, 926)
+        Me.FTPHistoricalCalculatorTabPage.TabIndex = 4
+        Me.FTPHistoricalCalculatorTabPage.Text = "FTP Historical Calculator"
+        Me.FTPHistoricalCalculatorTabPage.UseVisualStyleBackColor = True
+        '
+        'ToggleFormattingButton
+        '
+        Me.ToggleFormattingButton.Location = New System.Drawing.Point(968, 462)
+        Me.ToggleFormattingButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.ToggleFormattingButton.Name = "ToggleFormattingButton"
+        Me.ToggleFormattingButton.Size = New System.Drawing.Size(236, 51)
+        Me.ToggleFormattingButton.TabIndex = 4
+        Me.ToggleFormattingButton.Text = "Toggle Formatting"
+        Me.ToggleFormattingButton.UseVisualStyleBackColor = True
+        '
+        'FTPHistResetButton
+        '
+        Me.FTPHistResetButton.Location = New System.Drawing.Point(968, 395)
+        Me.FTPHistResetButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistResetButton.Name = "FTPHistResetButton"
+        Me.FTPHistResetButton.Size = New System.Drawing.Size(236, 51)
+        Me.FTPHistResetButton.TabIndex = 3
+        Me.FTPHistResetButton.Text = "Reset"
+        Me.FTPHistResetButton.UseVisualStyleBackColor = True
+        '
+        'FTPHistCalculateButton
+        '
+        Me.FTPHistCalculateButton.Location = New System.Drawing.Point(968, 328)
+        Me.FTPHistCalculateButton.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistCalculateButton.Name = "FTPHistCalculateButton"
+        Me.FTPHistCalculateButton.Size = New System.Drawing.Size(236, 51)
+        Me.FTPHistCalculateButton.TabIndex = 2
+        Me.FTPHistCalculateButton.Text = "Calculate"
+        Me.FTPHistCalculateButton.UseVisualStyleBackColor = True
+        '
+        'FTPHistAutoGridControl
+        '
+        Me.FTPHistAutoGridControl.AllowUserToAddRows = False
+        Me.FTPHistAutoGridControl.AllowUserToDeleteRows = False
+        Me.FTPHistAutoGridControl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.FTPHistAutoGridControl.Location = New System.Drawing.Point(119, 328)
+        Me.FTPHistAutoGridControl.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistAutoGridControl.Name = "FTPHistAutoGridControl"
+        Me.FTPHistAutoGridControl.PadLineNumbers = False
+        Me.FTPHistAutoGridControl.ShowLineNumbers = False
+        Me.FTPHistAutoGridControl.Size = New System.Drawing.Size(789, 555)
+        Me.FTPHistAutoGridControl.TabIndex = 1
+        '
+        'FTPHistTableLayoutPanel
+        '
+        Me.FTPHistTableLayoutPanel.ColumnCount = 5
+        Me.FTPHistTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.0!))
+        Me.FTPHistTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.0!))
+        Me.FTPHistTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.0!))
+        Me.FTPHistTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.0!))
+        Me.FTPHistTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.0!))
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistStartDateLabel, 0, 0)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistEndDateLabel, 0, 1)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistTermLabel, 0, 2)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistAmortLabel, 0, 3)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistAccrualBasisLabel, 3, 0)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistAmortizationTypeLabel, 3, 1)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistInterestFrequencyLabel, 3, 2)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistPrincipalFrequencyLabel, 3, 3)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistStartDateTreasuryDateTimePicker, 1, 0)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistEndDateTreasuryDateTimePicker, 1, 1)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistTermTreasuryTextBox, 1, 2)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistAmortTreasuryTextBox, 1, 3)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistAccrualBasisTreasuryComboBox, 4, 0)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistAmortTypeTreasuryComboBox, 4, 1)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistIntFreqTreasuryComboBox, 4, 2)
+        Me.FTPHistTableLayoutPanel.Controls.Add(Me.FTPHistPrinFreqTreasuryComboBox, 4, 3)
+        Me.FTPHistTableLayoutPanel.Location = New System.Drawing.Point(119, 45)
+        Me.FTPHistTableLayoutPanel.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistTableLayoutPanel.Name = "FTPHistTableLayoutPanel"
+        Me.FTPHistTableLayoutPanel.RowCount = 4
+        Me.FTPHistTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.FTPHistTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.FTPHistTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.FTPHistTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.FTPHistTableLayoutPanel.Size = New System.Drawing.Size(1097, 234)
+        Me.FTPHistTableLayoutPanel.TabIndex = 0
+        '
+        'FTPHistStartDateLabel
+        '
+        Me.FTPHistStartDateLabel.AutoSize = True
+        Me.FTPHistStartDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistStartDateLabel.Location = New System.Drawing.Point(7, 0)
+        Me.FTPHistStartDateLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPHistStartDateLabel.Name = "FTPHistStartDateLabel"
+        Me.FTPHistStartDateLabel.Size = New System.Drawing.Size(194, 58)
+        Me.FTPHistStartDateLabel.TabIndex = 0
+        Me.FTPHistStartDateLabel.Text = "Start Date"
+        Me.FTPHistStartDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPHistEndDateLabel
+        '
+        Me.FTPHistEndDateLabel.AutoSize = True
+        Me.FTPHistEndDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistEndDateLabel.Location = New System.Drawing.Point(7, 58)
+        Me.FTPHistEndDateLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPHistEndDateLabel.Name = "FTPHistEndDateLabel"
+        Me.FTPHistEndDateLabel.Size = New System.Drawing.Size(194, 58)
+        Me.FTPHistEndDateLabel.TabIndex = 1
+        Me.FTPHistEndDateLabel.Text = "End Date"
+        Me.FTPHistEndDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPHistTermLabel
+        '
+        Me.FTPHistTermLabel.AutoSize = True
+        Me.FTPHistTermLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistTermLabel.Location = New System.Drawing.Point(7, 116)
+        Me.FTPHistTermLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPHistTermLabel.Name = "FTPHistTermLabel"
+        Me.FTPHistTermLabel.Size = New System.Drawing.Size(194, 58)
+        Me.FTPHistTermLabel.TabIndex = 2
+        Me.FTPHistTermLabel.Text = "Term"
+        Me.FTPHistTermLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPHistAmortLabel
+        '
+        Me.FTPHistAmortLabel.AutoSize = True
+        Me.FTPHistAmortLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistAmortLabel.Location = New System.Drawing.Point(7, 174)
+        Me.FTPHistAmortLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPHistAmortLabel.Name = "FTPHistAmortLabel"
+        Me.FTPHistAmortLabel.Size = New System.Drawing.Size(194, 60)
+        Me.FTPHistAmortLabel.TabIndex = 3
+        Me.FTPHistAmortLabel.Text = "Amort"
+        Me.FTPHistAmortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPHistAccrualBasisLabel
+        '
+        Me.FTPHistAccrualBasisLabel.AutoSize = True
+        Me.FTPHistAccrualBasisLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistAccrualBasisLabel.Location = New System.Drawing.Point(543, 0)
+        Me.FTPHistAccrualBasisLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPHistAccrualBasisLabel.Name = "FTPHistAccrualBasisLabel"
+        Me.FTPHistAccrualBasisLabel.Size = New System.Drawing.Size(249, 58)
+        Me.FTPHistAccrualBasisLabel.TabIndex = 4
+        Me.FTPHistAccrualBasisLabel.Text = "Accrual Basis"
+        Me.FTPHistAccrualBasisLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPHistAmortizationTypeLabel
+        '
+        Me.FTPHistAmortizationTypeLabel.AutoSize = True
+        Me.FTPHistAmortizationTypeLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistAmortizationTypeLabel.Location = New System.Drawing.Point(543, 58)
+        Me.FTPHistAmortizationTypeLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPHistAmortizationTypeLabel.Name = "FTPHistAmortizationTypeLabel"
+        Me.FTPHistAmortizationTypeLabel.Size = New System.Drawing.Size(249, 58)
+        Me.FTPHistAmortizationTypeLabel.TabIndex = 5
+        Me.FTPHistAmortizationTypeLabel.Text = "Amortization Type"
+        Me.FTPHistAmortizationTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPHistInterestFrequencyLabel
+        '
+        Me.FTPHistInterestFrequencyLabel.AutoSize = True
+        Me.FTPHistInterestFrequencyLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistInterestFrequencyLabel.Location = New System.Drawing.Point(543, 116)
+        Me.FTPHistInterestFrequencyLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPHistInterestFrequencyLabel.Name = "FTPHistInterestFrequencyLabel"
+        Me.FTPHistInterestFrequencyLabel.Size = New System.Drawing.Size(249, 58)
+        Me.FTPHistInterestFrequencyLabel.TabIndex = 6
+        Me.FTPHistInterestFrequencyLabel.Text = "Interest Frequency"
+        Me.FTPHistInterestFrequencyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPHistPrincipalFrequencyLabel
+        '
+        Me.FTPHistPrincipalFrequencyLabel.AutoSize = True
+        Me.FTPHistPrincipalFrequencyLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistPrincipalFrequencyLabel.Location = New System.Drawing.Point(543, 174)
+        Me.FTPHistPrincipalFrequencyLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.FTPHistPrincipalFrequencyLabel.Name = "FTPHistPrincipalFrequencyLabel"
+        Me.FTPHistPrincipalFrequencyLabel.Size = New System.Drawing.Size(249, 60)
+        Me.FTPHistPrincipalFrequencyLabel.TabIndex = 7
+        Me.FTPHistPrincipalFrequencyLabel.Text = "Principal Frequency"
+        Me.FTPHistPrincipalFrequencyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'FTPHistStartDateTreasuryDateTimePicker
+        '
+        Me.FTPHistStartDateTreasuryDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistStartDateTreasuryDateTimePicker.EnterAsTab = False
+        Me.FTPHistStartDateTreasuryDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FTPHistStartDateTreasuryDateTimePicker.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPHistStartDateTreasuryDateTimePicker.Location = New System.Drawing.Point(215, 7)
+        Me.FTPHistStartDateTreasuryDateTimePicker.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistStartDateTreasuryDateTimePicker.Name = "FTPHistStartDateTreasuryDateTimePicker"
+        Me.FTPHistStartDateTreasuryDateTimePicker.Size = New System.Drawing.Size(249, 35)
+        Me.FTPHistStartDateTreasuryDateTimePicker.TabIndex = 8
+        Me.FTPHistStartDateTreasuryDateTimePicker.Tooltip = ""
+        '
+        'FTPHistEndDateTreasuryDateTimePicker
+        '
+        Me.FTPHistEndDateTreasuryDateTimePicker.EnterAsTab = False
+        Me.FTPHistEndDateTreasuryDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FTPHistEndDateTreasuryDateTimePicker.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPHistEndDateTreasuryDateTimePicker.Location = New System.Drawing.Point(215, 65)
+        Me.FTPHistEndDateTreasuryDateTimePicker.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistEndDateTreasuryDateTimePicker.Name = "FTPHistEndDateTreasuryDateTimePicker"
+        Me.FTPHistEndDateTreasuryDateTimePicker.Size = New System.Drawing.Size(242, 35)
+        Me.FTPHistEndDateTreasuryDateTimePicker.TabIndex = 9
+        Me.FTPHistEndDateTreasuryDateTimePicker.Tooltip = ""
+        '
+        'FTPHistTermTreasuryTextBox
+        '
+        Me.FTPHistTermTreasuryTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPHistTermTreasuryTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistTermTreasuryTextBox.EnterAsTab = True
+        Me.FTPHistTermTreasuryTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPHistTermTreasuryTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.FTPHistTermTreasuryTextBox.Location = New System.Drawing.Point(215, 123)
+        Me.FTPHistTermTreasuryTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistTermTreasuryTextBox.Name = "FTPHistTermTreasuryTextBox"
+        Me.FTPHistTermTreasuryTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPHistTermTreasuryTextBox.SelectOnFocus = True
+        Me.FTPHistTermTreasuryTextBox.Size = New System.Drawing.Size(249, 35)
+        Me.FTPHistTermTreasuryTextBox.TabIndex = 10
+        Me.FTPHistTermTreasuryTextBox.Tooltip = ""
+        '
+        'FTPHistAmortTreasuryTextBox
+        '
+        Me.FTPHistAmortTreasuryTextBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPHistAmortTreasuryTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FTPHistAmortTreasuryTextBox.EnterAsTab = False
+        Me.FTPHistAmortTreasuryTextBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPHistAmortTreasuryTextBox.InputType = TreasuryFormsControls.Treasury.FormsControls.InputType.Numeric
+        Me.FTPHistAmortTreasuryTextBox.Location = New System.Drawing.Point(215, 181)
+        Me.FTPHistAmortTreasuryTextBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistAmortTreasuryTextBox.Name = "FTPHistAmortTreasuryTextBox"
+        Me.FTPHistAmortTreasuryTextBox.NormalBackColor = System.Drawing.SystemColors.Window
+        Me.FTPHistAmortTreasuryTextBox.SelectOnFocus = True
+        Me.FTPHistAmortTreasuryTextBox.Size = New System.Drawing.Size(249, 35)
+        Me.FTPHistAmortTreasuryTextBox.TabIndex = 11
+        Me.FTPHistAmortTreasuryTextBox.Tooltip = ""
+        '
+        'FTPHistAccrualBasisTreasuryComboBox
+        '
+        Me.FTPHistAccrualBasisTreasuryComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPHistAccrualBasisTreasuryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPHistAccrualBasisTreasuryComboBox.EnterAsTab = False
+        Me.FTPHistAccrualBasisTreasuryComboBox.FormattingEnabled = True
+        Me.FTPHistAccrualBasisTreasuryComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPHistAccrualBasisTreasuryComboBox.Location = New System.Drawing.Point(806, 7)
+        Me.FTPHistAccrualBasisTreasuryComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistAccrualBasisTreasuryComboBox.Name = "FTPHistAccrualBasisTreasuryComboBox"
+        Me.FTPHistAccrualBasisTreasuryComboBox.Size = New System.Drawing.Size(277, 37)
+        Me.FTPHistAccrualBasisTreasuryComboBox.TabIndex = 12
+        Me.FTPHistAccrualBasisTreasuryComboBox.Tooltip = ""
+        '
+        'FTPHistAmortTypeTreasuryComboBox
+        '
+        Me.FTPHistAmortTypeTreasuryComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPHistAmortTypeTreasuryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPHistAmortTypeTreasuryComboBox.EnterAsTab = False
+        Me.FTPHistAmortTypeTreasuryComboBox.FormattingEnabled = True
+        Me.FTPHistAmortTypeTreasuryComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPHistAmortTypeTreasuryComboBox.Location = New System.Drawing.Point(806, 65)
+        Me.FTPHistAmortTypeTreasuryComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistAmortTypeTreasuryComboBox.Name = "FTPHistAmortTypeTreasuryComboBox"
+        Me.FTPHistAmortTypeTreasuryComboBox.Size = New System.Drawing.Size(277, 37)
+        Me.FTPHistAmortTypeTreasuryComboBox.TabIndex = 13
+        Me.FTPHistAmortTypeTreasuryComboBox.Tooltip = ""
+        '
+        'FTPHistIntFreqTreasuryComboBox
+        '
+        Me.FTPHistIntFreqTreasuryComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPHistIntFreqTreasuryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPHistIntFreqTreasuryComboBox.EnterAsTab = False
+        Me.FTPHistIntFreqTreasuryComboBox.FormattingEnabled = True
+        Me.FTPHistIntFreqTreasuryComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPHistIntFreqTreasuryComboBox.Location = New System.Drawing.Point(806, 123)
+        Me.FTPHistIntFreqTreasuryComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistIntFreqTreasuryComboBox.Name = "FTPHistIntFreqTreasuryComboBox"
+        Me.FTPHistIntFreqTreasuryComboBox.Size = New System.Drawing.Size(277, 37)
+        Me.FTPHistIntFreqTreasuryComboBox.TabIndex = 14
+        Me.FTPHistIntFreqTreasuryComboBox.Tooltip = ""
+        '
+        'FTPHistPrinFreqTreasuryComboBox
+        '
+        Me.FTPHistPrinFreqTreasuryComboBox.BackColor = System.Drawing.SystemColors.Window
+        Me.FTPHistPrinFreqTreasuryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FTPHistPrinFreqTreasuryComboBox.EnterAsTab = False
+        Me.FTPHistPrinFreqTreasuryComboBox.FormattingEnabled = True
+        Me.FTPHistPrinFreqTreasuryComboBox.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.FTPHistPrinFreqTreasuryComboBox.Location = New System.Drawing.Point(806, 181)
+        Me.FTPHistPrinFreqTreasuryComboBox.Margin = New System.Windows.Forms.Padding(7)
+        Me.FTPHistPrinFreqTreasuryComboBox.Name = "FTPHistPrinFreqTreasuryComboBox"
+        Me.FTPHistPrinFreqTreasuryComboBox.Size = New System.Drawing.Size(277, 37)
+        Me.FTPHistPrinFreqTreasuryComboBox.TabIndex = 15
+        Me.FTPHistPrinFreqTreasuryComboBox.Tooltip = ""
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(29, 27)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(119, 29)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Rate Date"
+        '
+        'HistoricalLabel
+        '
+        Me.HistoricalLabel.AutoSize = True
+        Me.HistoricalLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HistoricalLabel.ForeColor = System.Drawing.Color.Red
+        Me.HistoricalLabel.Location = New System.Drawing.Point(639, 20)
+        Me.HistoricalLabel.Margin = New System.Windows.Forms.Padding(7, 0, 7, 0)
+        Me.HistoricalLabel.Name = "HistoricalLabel"
+        Me.HistoricalLabel.Size = New System.Drawing.Size(153, 26)
+        Me.HistoricalLabel.TabIndex = 3
+        Me.HistoricalLabel.Text = "HISTORICAL"
+        '
+        'RateDateTreasuryDateTimePicker
+        '
+        Me.RateDateTreasuryDateTimePicker.EnterAsTab = True
+        Me.RateDateTreasuryDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.RateDateTreasuryDateTimePicker.InputState = TreasuryFormsControls.Treasury.FormsControls.InputState.Normal
+        Me.RateDateTreasuryDateTimePicker.Location = New System.Drawing.Point(162, 20)
+        Me.RateDateTreasuryDateTimePicker.Margin = New System.Windows.Forms.Padding(7)
+        Me.RateDateTreasuryDateTimePicker.Name = "RateDateTreasuryDateTimePicker"
+        Me.RateDateTreasuryDateTimePicker.Size = New System.Drawing.Size(277, 35)
+        Me.RateDateTreasuryDateTimePicker.TabIndex = 90
+        Me.RateDateTreasuryDateTimePicker.Tooltip = ""
+        '
+        'FHLBCredit360Calculator
+        '
+        Me.FHLBCredit360Calculator.ForeColor = Me.FTPRateCalculatorTabPage.ForeColor
+        Me.FHLBCredit360Calculator.BackColor = Me.FTPRateCalculatorTabPage.BackColor
+        Me.FHLBCredit360Calculator.Font = Me.FTPRateCalculatorTabPage.Font
+        Me.FHLBCredit360Calculator.Location = Me.FTPRateCalculatorTabPage.Location
+        Me.FHLBCredit360Calculator.Size = Me.FTPRateCalculatorTabPage.Size
+        Me.FHLBCredit360Calculator.Padding = Me.FTPRateCalculatorTabPage.Padding
+        Me.FHLBCredit360Calculator.Margin = Me.FTPRateCalculatorTabPage.Margin
+
+        ' Copy other styling properties like text alignment if necessary
+        Me.FHLBCredit360Calculator.UseVisualStyleBackColor = Me.FTPRateCalculatorTabPage.UseVisualStyleBackColor
+
+        '
+        'PICalcControl
+        '
+        Me.PICalcControl.Amortization = 0
+        Me.PICalcControl.CalcPaymentAsDefault = False
+        Me.PICalcControl.Location = New System.Drawing.Point(114, 76)
+        Me.PICalcControl.Margin = New System.Windows.Forms.Padding(16)
+        Me.PICalcControl.Name = "PICalcControl"
+        Me.PICalcControl.NoteRate = 0R
+        Me.PICalcControl.Payment = 0R
+        Me.PICalcControl.PaymentFrequency = BSDRateBusiness.Calculator.PaymentFrequency.Monthly
+        Me.PICalcControl.PaymentFrequencyDataSource = Nothing
+        Me.PICalcControl.PaymentFrequencyDefaultIndex = 0
+        Me.PICalcControl.PrincipalBalance = 0R
+        Me.PICalcControl.Size = New System.Drawing.Size(551, 308)
+        Me.PICalcControl.TabIndex = 9
+        '
+        'CalculatorsForm
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(14.0!, 29.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1339, 1077)
+        Me.Controls.Add(Me.RateDateTreasuryDateTimePicker)
+        Me.Controls.Add(Me.HistoricalLabel)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.CalculatorsTabControl)
+        Me.Margin = New System.Windows.Forms.Padding(7)
+        Me.Name = "CalculatorsForm"
+        Me.Text = "Rate Lock Calculators"
+        Me.CalculatorsTabControl.ResumeLayout(False)
+        Me.FTPRateCalculatorTabPage.ResumeLayout(False)
+        Me.FHLBCredit360Calculator.ResumeLayout(False)
+        Me.FTPResultsGroupBox.ResumeLayout(False)
+        Me.FTPResultsGroupBox.PerformLayout()
+        Me.FTPInputsTableLayoutPanel.ResumeLayout(False)
+        Me.FTPInputsTableLayoutPanel.PerformLayout()
+        Me.CIPRateCalculatorTabPage.ResumeLayout(False)
+        Me.CIPResultsGroupBox.ResumeLayout(False)
+        Me.CIPResultsGroupBox.PerformLayout()
+        Me.CIPInputsTableLayoutPanel.ResumeLayout(False)
+        Me.CIPInputsTableLayoutPanel.PerformLayout()
+        Me.ALSRateCalculatorTabPage.ResumeLayout(False)
+        Me.ALSResultsGroupBox.ResumeLayout(False)
+        Me.ALSResultsGroupBox.PerformLayout()
+        Me.ALSInputsTableLayoutPanel.ResumeLayout(False)
+        Me.ALSInputsTableLayoutPanel.PerformLayout()
+        Me.PandIPaymentCalculatorTabPage.ResumeLayout(False)
+        Me.FTPHistoricalCalculatorTabPage.ResumeLayout(False)
+        CType(Me.FTPHistAutoGridControl, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FTPHistTableLayoutPanel.ResumeLayout(False)
+        Me.FTPHistTableLayoutPanel.PerformLayout()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents CalculatorsTabControl As System.Windows.Forms.TabControl
+    Friend WithEvents FTPRateCalculatorTabPage As System.Windows.Forms.TabPage
+    Friend WithEvents FHLBCredit360Calculator As System.Windows.Forms.TabPage
+    Friend WithEvents CIPRateCalculatorTabPage As System.Windows.Forms.TabPage
+    Friend WithEvents ALSRateCalculatorTabPage As System.Windows.Forms.TabPage
+    Friend WithEvents PandIPaymentCalculatorTabPage As System.Windows.Forms.TabPage
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents FTPResultsGroupBox As System.Windows.Forms.GroupBox
+    Friend WithEvents AccrualBasisLabel As System.Windows.Forms.Label
+    Friend WithEvents PrincipalFrequencyLabel As System.Windows.Forms.Label
+    Friend WithEvents InterestFrequencyLabel As System.Windows.Forms.Label
+    Friend WithEvents AmortizationTypeLabel As System.Windows.Forms.Label
+    Friend WithEvents PrepaymentWaiverLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPTermLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPAmortizationLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPForwardLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPInterestOnlyLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPResidualLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPInputsTableLayoutPanel As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents FTPForwardResultLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPCOFResultLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPAllInCOFResultLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPWaiverResultLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPAllInCOFResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents FTPWaiverResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents FTPForwardResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents FTPCOFResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents FTPResetButton As System.Windows.Forms.Button
+    Friend WithEvents CIPInputsTableLayoutPanel As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents CIPTermLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPAmortizationLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPForwardLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPResultsGroupBox As System.Windows.Forms.GroupBox
+    Friend WithEvents CIPRateResultsLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPForwardResultsLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPAllInCOFResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents CIPForwardResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents CIPAllInCOFResultsLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPResetButton As System.Windows.Forms.Button
+    Friend WithEvents ALSInputsTableLayoutPanel As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents ALSTermLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSAmortizationLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSLoanTypeLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSResultsGroupBox As System.Windows.Forms.GroupBox
+    Friend WithEvents ALSResetButton As System.Windows.Forms.Button
+    Friend WithEvents ALSAllInCOFResultsLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSOptionCostResultsLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSCOFResultsLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSCPRResultsLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSCPRResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ALSAllInCOFResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ALSOptionCostResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ALSCOFResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents PIResetButton As System.Windows.Forms.Button
+    Friend WithEvents HistoricalLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPMosToFirstIntPmtLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPAllInCustRateLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPSpreadLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPAllInCustRateLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPSpreadLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSAllInCustRateLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSSpreadLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPPrepaymentWaiverLabel As System.Windows.Forms.Label
+    Friend WithEvents Label As System.Windows.Forms.Label
+    Friend WithEvents CIPWaiverResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents PICalculateButton As System.Windows.Forms.Button
+    Friend WithEvents FTPMosToFirstPrinPmtLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPMosToFirstPrinPmtTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPMosToFirstIntPmtTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPTermTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPAmortizationTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPInterestOnlyTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPResidualTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPForwardTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPSpreadTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPAllInCustRateTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPAccrualBasisComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents FTPAmortizationTypeComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents FTPInterestFrequencyComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents FTPPrincipalFrequencyComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents FTPPrepaymentWaiverComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents CIPTermTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents CIPAmortizationTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents CIPForwardTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents CIPAllInCustRateTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents CIPSpreadTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents CIPRateResultTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ALSTermTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents ALSAmortizationTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents ALSConsumerLoanTypeComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents ALSSpreadTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents ALSAllInCustRateTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPRateDateWarningLabel As System.Windows.Forms.Label
+    Friend WithEvents CIPRateDateWarningLabel As System.Windows.Forms.Label
+    Friend WithEvents ALSRateDateWarningLabel As System.Windows.Forms.Label
+    Friend WithEvents PICalcControl As BSDRate.PICalculatorControl
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents CIPInterestFrequencyComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents CIPPrincipalFrequencyComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents CIPAccrualBasisComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents CIPAmortizationTypeComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents IrregularButton As System.Windows.Forms.Button
+    Friend WithEvents RateDateTreasuryDateTimePicker As TreasuryFormsControls.Treasury.FormsControls.TreasuryDateTimePicker
+    Friend WithEvents CIPPrepaymentWaiverComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents CIPInterestOnlyTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPHistoricalCalculatorTabPage As System.Windows.Forms.TabPage
+    Friend WithEvents FTPHistTableLayoutPanel As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents FTPHistStartDateLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPHistEndDateLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPHistTermLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPHistAmortLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPHistAccrualBasisLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPHistAmortizationTypeLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPHistInterestFrequencyLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPHistPrincipalFrequencyLabel As System.Windows.Forms.Label
+    Friend WithEvents FTPHistStartDateTreasuryDateTimePicker As TreasuryFormsControls.Treasury.FormsControls.TreasuryDateTimePicker
+    Friend WithEvents FTPHistEndDateTreasuryDateTimePicker As TreasuryFormsControls.Treasury.FormsControls.TreasuryDateTimePicker
+    Friend WithEvents FTPHistTermTreasuryTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPHistAmortTreasuryTextBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryTextBox
+    Friend WithEvents FTPHistAccrualBasisTreasuryComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents FTPHistAmortTypeTreasuryComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents FTPHistIntFreqTreasuryComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents FTPHistPrinFreqTreasuryComboBox As TreasuryFormsControls.Treasury.FormsControls.TreasuryComboBox
+    Friend WithEvents FTPHistAutoGridControl As TreasuryFormsControls.Treasury.FormsControls.AutoGridControl
+    Friend WithEvents FTPHistResetButton As System.Windows.Forms.Button
+    Friend WithEvents FTPHistCalculateButton As System.Windows.Forms.Button
+    Friend WithEvents ToggleFormattingButton As System.Windows.Forms.Button
+
+End Class
+
