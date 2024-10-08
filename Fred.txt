@@ -1,85 +1,17 @@
-private static async Task MoveDirectoryAsync(DirectoryInfo source, DirectoryInfo target, int parallelTasks = 4)
+public async Task MoveMultipleDirectoriesAsync(List<DirectoryInfo> directories, string destinationDirectory)
 {
-    // Ensure the target directory exists
-    if (!Directory.Exists(target.FullName))
+    // List to hold all the tasks
+    List<Task> directoryMoveTasks = new List<Task>();
+
+    // Iterate over each directory and initiate a move without awaiting
+    foreach (DirectoryInfo dir in directories)
     {
-        Directory.CreateDirectory(target.FullName);
+        string destinationPath = Path.Combine(destinationDirectory, dir.Name);
+
+        // Add the task to the list, but don't await it here
+        directoryMoveTasks.Add(MoveDirectoryAsync(dir, new DirectoryInfo(destinationPath)));
     }
 
-    try
-    {
-        // Get all files in the source directory
-        List<FileInfo> files = source.GetFiles().ToList();
-
-        // Split the files into N parts (parallelTasks)
-        List<List<FileInfo>> fileChunks = SplitList(files, parallelTasks);
-
-        // Create a list of tasks for parallel execution
-        List<Task> tasks = new List<Task>();
-
-        // Iterate over each chunk and create a task for it
-        foreach (List<FileInfo> chunk in fileChunks)
-        {
-            tasks.Add(Task.Run(async () =>
-            {
-                foreach (FileInfo file in chunk)
-                {
-                    // Call the async version of FMove
-                    await FMoveAsync(file.FullName, Path.Combine(target.FullName, file.Name));
-                }
-            }));
-        }
-
-        // Wait for all tasks to complete
-        await Task.WhenAll(tasks);
-    }
-    catch (Exception ex)
-    {
-        throw new IOException($"Error moving directory '{source.FullName}' to '{target.FullName}': {ex.Message}", ex);
-    }
-
-    // Delete the source directory after moving all files
-    try
-    {
-        source.Delete(true);
-    }
-    catch (Exception ex)
-    {
-        throw new IOException($"Error deleting source directory '{source.FullName}': {ex.Message}", ex);
-    }
-}
-
-
-static async Task FMoveAsync(string source, string destination)
-{
-    int arrayLength = (int)Math.Pow(2, 24); // Adjust buffer size as necessary
-    byte[] dataArray = new byte[arrayLength];
-
-    using (FileStream fsRead = new FileStream(source, FileMode.Open, FileAccess.Read, FileShare.None, arrayLength, useAsync: true))
-    using (FileStream fsWrite = new FileStream(destination, FileMode.Create, FileAccess.Write, FileShare.None, arrayLength, useAsync: true))
-    {
-        int read;
-        while ((read = await fsRead.ReadAsync(dataArray, 0, arrayLength)) != 0)
-        {
-            await fsWrite.WriteAsync(dataArray, 0, read);
-        }
-    }
-
-    // Optionally delete the source file after copying
-    // File.Delete(source);
-}
-
-
-// Helper method to split a list into chunks
-private static List<List<FileInfo>> SplitList(List<FileInfo> files, int parts)
-{
-    List<List<FileInfo>> result = new List<List<FileInfo>>();
-    int chunkSize = (int)Math.Ceiling((double)files.Count / parts);
-
-    for (int i = 0; i < files.Count; i += chunkSize)
-    {
-        result.Add(files.GetRange(i, Math.Min(chunkSize, files.Count - i)));
-    }
-
-    return result;
+    // Await all tasks concurrently
+    await Task.WhenAll(directoryMoveTasks);
 }
