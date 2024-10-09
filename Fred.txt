@@ -1,23 +1,17 @@
-SELECT 'IF NOT EXISTS (SELECT 1 FROM [BSDRate].[dbo].[CurveElements] WHERE [CurveDefinitionID] = (SELECT BSDRate.dbo.CurveDefinitions.CurveDefinitionID FROM CurveDefinitions WHERE CurveDefinitions.CurveName = ''' + CurveDefinitions.CurveName + ''') AND [BaseRateID] = (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = ''' + TmpRate.shortname + ''')) ' +
+SELECT
+    'IF EXISTS (SELECT 1 FROM CalculatedRateDefinitions WHERE ShortName = ''' + TempR.shortname + ''') ' +
     'BEGIN ' +
-    'INSERT INTO [BSDRate].[dbo].[CurveElements] ([CurveDefinitionID],[BaseRateType],[BaseRateID],[Description],[Term],[TermDescription],[TerminationDate],[CreatedBy],[CreatedDate],[UpdatedBy],[UpdatedDate]) ' +
-    'SELECT (SELECT BSDRate.dbo.CurveDefinitions.CurveDefinitionID FROM CurveDefinitions WHERE CurveDefinitions.CurveName = ''' + CurveDefinitions.CurveName + '''), ''' +
-    ISNULL(CurveElements.BaseRateType, '') + ''',' +
-    ' (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = ''' + TmpRate.shortname + '''), ''' +
-    ISNULL(CurveElements.[Description], '') + ''',''' +
-    ISNULL(CAST([Term] AS VARCHAR), '') + ''',''' +
-    ISNULL(CurveElements.[TermDescription], '') + ''',' +
-    CASE 
-        WHEN CurveElements.[TerminationDate] IS NULL THEN 'NULL' 
-        ELSE '''' + CAST(CurveElements.[TerminationDate] AS VARCHAR) + '''' 
-    END + ',' +
-    ISNULL(CurveElements.[CreatedBy], '') + ''',''' +
-    ISNULL(CAST(CurveElements.[CreatedDate] AS VARCHAR), 'NULL') + ''',''' +
-    ISNULL(CurveElements.[UpdatedBy], '') + ''',''' +
-    ISNULL(CAST(CurveElements.[UpdatedDate] AS VARCHAR), 'NULL') + '''' +
-    ' END'
-FROM CurveDefinitions
-JOIN CurveElements ON (CurveElements.BaseRateType = 'C' OR CurveElements.BaseRateType = 'S')
-    AND CurveElements.CurveDefinitionID = CurveDefinitions.CurveDefinitionID
-INNER JOIN @tempRateNames TmpRate ON CurveElements.BaseRateID = TmpRate.BaseRateID
-WHERE (CurveDefinitions.CurveName = 'FHLB360' OR CurveDefinitions.CurveName = 'FHLBCredit360')
+    'IF NOT EXISTS (SELECT 1 FROM [BSDRate].[dbo].[CalculatedRateCategories] ' +
+    'WHERE CalculatedRateID = (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = ''' + TempR.shortname + ''') ' +
+    'AND CategoryID = ' + ISNULL(CAST(CalculatedRateCategories.[CategoryID] AS VARCHAR), '0') + ') ' +
+    'BEGIN ' +
+    'INSERT INTO [BSDRate].[dbo].[CalculatedRateCategories] ([CalculatedRateID], [CategoryID]) ' +
+    'SELECT (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = '''
+    + TempR.shortname + '''), ' + ISNULL(CAST(CalculatedRateCategories.[CategoryID] AS VARCHAR), '0') +
+    ' END ' +
+    'END'
+FROM CalculatedRateCategories
+INNER JOIN CalculatedRateDefinitions
+    ON CalculatedRateCategories.CalculatedRateID = CalculatedRateDefinitions.CalculatedRateID
+INNER JOIN @tempRateNames TempR
+    ON TempR.shortname = CalculatedRateDefinitions.ShortName;
