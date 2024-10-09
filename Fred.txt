@@ -1,17 +1,23 @@
-public async Task MoveMultipleDirectoriesAsync(List<DirectoryInfo> directories, string destinationDirectory)
-{
-    // List to hold all the tasks
-    List<Task> directoryMoveTasks = new List<Task>();
-
-    // Iterate over each directory and initiate a move without awaiting
-    foreach (DirectoryInfo dir in directories)
-    {
-        string destinationPath = Path.Combine(destinationDirectory, dir.Name);
-
-        // Add the task to the list, but don't await it here
-        directoryMoveTasks.Add(MoveDirectoryAsync(dir, new DirectoryInfo(destinationPath)));
-    }
-
-    // Await all tasks concurrently
-    await Task.WhenAll(directoryMoveTasks);
-}
+SELECT 'IF NOT EXISTS (SELECT 1 FROM [BSDRate].[dbo].[CurveElements] WHERE [CurveDefinitionID] = (SELECT BSDRate.dbo.CurveDefinitions.CurveDefinitionID FROM CurveDefinitions WHERE CurveDefinitions.CurveName = ''' + CurveDefinitions.CurveName + ''') AND [BaseRateID] = (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = ''' + TmpRate.shortname + ''')) ' +
+    'BEGIN ' +
+    'INSERT INTO [BSDRate].[dbo].[CurveElements] ([CurveDefinitionID],[BaseRateType],[BaseRateID],[Description],[Term],[TermDescription],[TerminationDate],[CreatedBy],[CreatedDate],[UpdatedBy],[UpdatedDate]) ' +
+    'SELECT (SELECT BSDRate.dbo.CurveDefinitions.CurveDefinitionID FROM CurveDefinitions WHERE CurveDefinitions.CurveName = ''' + CurveDefinitions.CurveName + '''), ''' +
+    ISNULL(CurveElements.BaseRateType, '') + ''',' +
+    ' (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = ''' + TmpRate.shortname + '''), ''' +
+    ISNULL(CurveElements.[Description], '') + ''',''' +
+    ISNULL(CAST([Term] AS VARCHAR), '') + ''',''' +
+    ISNULL(CurveElements.[TermDescription], '') + ''',' +
+    CASE 
+        WHEN CurveElements.[TerminationDate] IS NULL THEN 'NULL' 
+        ELSE '''' + CAST(CurveElements.[TerminationDate] AS VARCHAR) + '''' 
+    END + ',' +
+    ISNULL(CurveElements.[CreatedBy], '') + ''',''' +
+    ISNULL(CAST(CurveElements.[CreatedDate] AS VARCHAR), 'NULL') + ''',''' +
+    ISNULL(CurveElements.[UpdatedBy], '') + ''',''' +
+    ISNULL(CAST(CurveElements.[UpdatedDate] AS VARCHAR), 'NULL') + '''' +
+    ' END'
+FROM CurveDefinitions
+JOIN CurveElements ON (CurveElements.BaseRateType = 'C' OR CurveElements.BaseRateType = 'S')
+    AND CurveElements.CurveDefinitionID = CurveDefinitions.CurveDefinitionID
+INNER JOIN @tempRateNames TmpRate ON CurveElements.BaseRateID = TmpRate.BaseRateID
+WHERE (CurveDefinitions.CurveName = 'FHLB360' OR CurveDefinitions.CurveName = 'FHLBCredit360')
