@@ -1,17 +1,41 @@
-SELECT
-    'IF EXISTS (SELECT 1 FROM CalculatedRateDefinitions WHERE ShortName = ''' + TempR.shortname + ''') ' +
-    'BEGIN ' +
-    'IF NOT EXISTS (SELECT 1 FROM [BSDRate].[dbo].[CalculatedRateCategories] ' +
-    'WHERE CalculatedRateID = (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = ''' + TempR.shortname + ''') ' +
-    'AND CategoryID = ' + ISNULL(CAST(CalculatedRateCategories.[CategoryID] AS VARCHAR), '0') + ') ' +
-    'BEGIN ' +
-    'INSERT INTO [BSDRate].[dbo].[CalculatedRateCategories] ([CalculatedRateID], [CategoryID]) ' +
-    'SELECT (SELECT CalculatedRateDefinitions.CalculatedRateID FROM CalculatedRateDefinitions WHERE CalculatedRateDefinitions.ShortName = '''
-    + TempR.shortname + '''), ' + ISNULL(CAST(CalculatedRateCategories.[CategoryID] AS VARCHAR), '0') +
-    ' END ' +
-    'END'
-FROM CalculatedRateCategories
-INNER JOIN CalculatedRateDefinitions
-    ON CalculatedRateCategories.CalculatedRateID = CalculatedRateDefinitions.CalculatedRateID
-INNER JOIN @tempRateNames TempR
-    ON TempR.shortname = CalculatedRateDefinitions.ShortName;
+using System;
+using System.IO;
+
+public class TempDirectoryHelper
+{
+    public static string CreateTempWorkingDir()
+    {
+        // Get the %TEMP% directory path
+        string tempPath = Path.GetTempPath();
+
+        // Define the subdirectory path (temp_working)
+        string tempWorkingDir = Path.Combine(tempPath, "temp_working");
+
+        try
+        {
+            // Check if the directory exists
+            if (Directory.Exists(tempWorkingDir))
+            {
+                // If it exists, delete it and all its contents
+                Directory.Delete(tempWorkingDir, true); // true indicates recursive delete
+                Console.WriteLine($"Existing directory deleted: {tempWorkingDir}");
+            }
+
+            // Create the temp_working directory
+            Directory.CreateDirectory(tempWorkingDir);
+
+            // Set the directory's attribute to Hidden
+            File.SetAttributes(tempWorkingDir, FileAttributes.Hidden);
+
+            Console.WriteLine($"Temporary working directory created and hidden: {tempWorkingDir}");
+
+            // Return the path of the created directory
+            return tempWorkingDir;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+            throw;
+        }
+    }
+}
