@@ -1,41 +1,17 @@
-using System;
-using System.IO;
+Private Sub CheckPrePaymentTypeCode(sCode As String)
 
-public class TempDirectoryHelper
-{
-    public static string CreateTempWorkingDir()
-    {
-        // Get the %TEMP% directory path
-        string tempPath = Path.GetTempPath();
+    ' List of valid prepayment codes
+    Dim validCodes As String() = {"BF", "YM", "YC", "ID"}
+    
+    ' Check if the code is valid
+    Dim isValidCode As Boolean = validCodes.Contains(sCode)
+    
+    ' Set visibility and options based on validity of the code
+    chkbox_useFHLB360Curve.Visible = isValidCode
+    _bUseFHLB360CurveOption = isValidCode
+    chkbox_useFHLB360Curve.Checked = False
 
-        // Define the subdirectory path (temp_working)
-        string tempWorkingDir = Path.Combine(tempPath, "temp_working");
+    ' Update FHLB360Curve_Selected based on the visibility and checked state
+    FHLB360Curve_Selected = (chkbox_useFHLB360Curve.Visible And chkbox_useFHLB360Curve.Checked And _bUseFHLB360CurveOption)
 
-        try
-        {
-            // Check if the directory exists
-            if (Directory.Exists(tempWorkingDir))
-            {
-                // If it exists, delete it and all its contents
-                Directory.Delete(tempWorkingDir, true); // true indicates recursive delete
-                Console.WriteLine($"Existing directory deleted: {tempWorkingDir}");
-            }
-
-            // Create the temp_working directory
-            Directory.CreateDirectory(tempWorkingDir);
-
-            // Set the directory's attribute to Hidden
-            File.SetAttributes(tempWorkingDir, FileAttributes.Hidden);
-
-            Console.WriteLine($"Temporary working directory created and hidden: {tempWorkingDir}");
-
-            // Return the path of the created directory
-            return tempWorkingDir;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An error occurred: {ex.Message}");
-            throw;
-        }
-    }
-}
+End Sub
